@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits;
+namespace App\Database\Traits;
 
 use Dyrynda\Database\Casts\EfficientUuid;
 use Dyrynda\Database\Support\GeneratesUuid;
