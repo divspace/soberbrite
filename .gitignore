@@ -1,0 +1,11 @@
+.env
+.phpunit.result.cache
+/node_modules
+/public/css
+/public/fonts
+/public/hot
+/public/js
+/public/mix-manifest.json
+/public/storage
+/storage/*.key
+/vendor
