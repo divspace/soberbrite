@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Program;
+use App\Database\Models\Program;
 use Faker\Generator as Faker;
 
 $factory->define(Program::class, function (Faker $faker) {

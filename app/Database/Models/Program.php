@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Database\Models;
 
 use App\Traits\HasTimestamps;
 use App\Traits\HasUuid;
