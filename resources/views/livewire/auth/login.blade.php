@@ -20,7 +20,7 @@
             <form wire:submit.prevent="authenticate">
                 <div>
                     <label for="email" class="block text-sm font-medium text-gray-700 leading-5">
-                        Email address
+                        Email
                     </label>
 
                     <div class="mt-1 rounded-md shadow-sm">

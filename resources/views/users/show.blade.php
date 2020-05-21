@@ -1,5 +1,5 @@
-@extends('layouts.app', ['title' => 'Users'])
-
+@extends('layouts.app')
+@section('title', 'Users')
 @section('content')
     <div class="bg-white shadow overflow-hidden sm:rounded-lg">
         <div class="px-4 py-5 border-b border-gray-200 sm:px-6">

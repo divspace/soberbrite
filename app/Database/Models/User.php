@@ -13,11 +13,8 @@ class User extends Authenticatable
     use HasTimestamps, HasUuid, Notifiable;
 
     protected $fillable = [
-        'first_name',
-        'last_name',
         'email',
         'password',
-        'sobriety_date',
     ];
 
     protected $hidden = [
@@ -27,7 +24,6 @@ class User extends Authenticatable
 
     protected $casts = [
         'uuid' => EfficientUuid::class,
-        'sobriety_date' => 'date',
         'email_verified_at' => 'datetime',
     ];
 }

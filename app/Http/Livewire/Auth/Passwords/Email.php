@@ -7,10 +7,8 @@ use Illuminate\Support\Facades\Password;
 
 class Email extends Component
 {
-    /** @var string */
     public $email;
 
-    /** @var string|null */
     public $emailSentMessage = false;
 
     public function sendResetPasswordLink()
@@ -21,7 +19,7 @@ class Email extends Component
 
         $response = $this->broker()->sendResetLink(['email' => $this->email]);
 
-        if ($response == Password::RESET_LINK_SENT) {
+        if ($response === Password::RESET_LINK_SENT) {
             $this->emailSentMessage = trans($response);
 
             return;
@@ -30,11 +28,6 @@ class Email extends Component
         $this->addError('email', trans($response));
     }
 
-    /**
-     * Get the broker to be used during password reset.
-     *
-     * @return \Illuminate\Contracts\Auth\PasswordBroker
-     */
     public function broker()
     {
         return Password::broker();

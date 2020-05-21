@@ -8,13 +8,10 @@ use Livewire\Component;
 
 class Login extends Component
 {
-    /** @var string */
     public $email = '';
 
-    /** @var string */
     public $password = '';
 
-    /** @var bool */
     public $remember = false;
 
     public function authenticate()

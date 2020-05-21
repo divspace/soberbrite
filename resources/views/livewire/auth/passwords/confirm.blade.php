@@ -7,6 +7,7 @@
         <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-900 leading-9">
             Confirm your password
         </h2>
+
         <p class="mt-2 text-sm text-center text-gray-600 leading-5 max-w">
             Please confirm your password before continuing
         </p>
