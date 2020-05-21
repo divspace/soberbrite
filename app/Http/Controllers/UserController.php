@@ -26,10 +26,10 @@ class UserController extends Controller
 
     public function show(User $user): \Illuminate\View\View
     {
-        $soberDate = Carbon::parse($user->sobriety_date);
-        $soberDays = $soberDate->diffInDays().' '.Str::plural('day', $soberDate->diffInDays());
+        // $soberDate = Carbon::parse($user->sobriety_date);
+        // $soberDays = $soberDate->diffInDays().' '.Str::plural('day', $soberDate->diffInDays());
 
-        return view('users.show', compact('user', 'soberDate', 'soberDays'));
+        return view('users.show', compact('user'));
     }
 
     public function edit(User $user)
