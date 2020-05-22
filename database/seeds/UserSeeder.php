@@ -8,14 +8,17 @@ class UserSeeder extends Seeder
 {
     public function run(): void
     {
+        $user = factory(User::class)->create([
+            'email' => 'kyle@soberbrite.com',
+        ]);
+
         factory(Profile::class)->create([
-            'user_id' => factory(User::class)->create([
-                'email' => 'kyle@soberbrite.com',
-            ])->id,
+            'user_id' => $user->id,
             'username' => 'soberbrite',
             'first_name' => 'Kyle',
             'middle_name' => null,
             'last_name' => 'Anderson',
+            'phone' => null,
             'sobriety_date' => '2020-03-15',
         ]);
 
