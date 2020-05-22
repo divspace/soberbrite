@@ -9,9 +9,9 @@ class ProgramController extends Controller
 {
     public function index(): \Illuminate\View\View
     {
-        $programs = Program::orderBy('name')->get();
-
-        return view('programs.show', compact('programs'));
+        return view('programs.show')->with([
+            'programs' => Program::orderBy('name')->get(),
+        ]);
     }
 
     public function create()
