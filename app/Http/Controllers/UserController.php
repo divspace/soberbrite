@@ -26,13 +26,8 @@ class UserController extends Controller
 
     public function show(User $user): \Illuminate\View\View
     {
-        $soberDate = Carbon::parse($user->profile->sobriety_date);
-        $soberDays = $soberDate->diffInDays().' '.Str::plural('day', $soberDate->diffInDays());
-
         return view('users.show')->with([
             'user' => $user,
-            'soberDate' => $soberDate,
-            'soberDays' => $soberDays,
         ]);
     }
 
