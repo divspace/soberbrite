@@ -50,7 +50,7 @@
                     </dt>
 
                     <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $soberDate->format('F j, Y') }} ({{ $soberDays }})
+                        {{ $user->profile->sobriety_date->format('F j, Y') }} ({{ $user->profile->sobriety_date->diffInDays().' '.Str::plural('day', $user->profile->sobriety_date->diffInDays()) }})
                     </dd>
                 </div>
 
