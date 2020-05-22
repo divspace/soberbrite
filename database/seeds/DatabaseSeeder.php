@@ -6,9 +6,7 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        if (!App::environment('production')) {
-            $this->call(UserSeeder::class);
-            $this->call(ProgramSeeder::class);
-        }
+        $this->call(UserSeeder::class);
+        $this->call(ProgramSeeder::class);
     }
 }
