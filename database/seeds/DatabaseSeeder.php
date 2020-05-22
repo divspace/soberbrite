@@ -8,6 +8,7 @@ class DatabaseSeeder extends Seeder
     {
         if (!App::environment('production')) {
             $this->call(UserSeeder::class);
+            $this->call(ProfileSeeder::class);
             $this->call(ProgramSeeder::class);
         }
     }
