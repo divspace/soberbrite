@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        return User::all();
+        return User::with('profile')->get();
     }
 
     public function create()
@@ -26,10 +26,14 @@ class UserController extends Controller
 
     public function show(User $user): \Illuminate\View\View
     {
-        // $soberDate = Carbon::parse($user->sobriety_date);
-        // $soberDays = $soberDate->diffInDays().' '.Str::plural('day', $soberDate->diffInDays());
+        $soberDate = Carbon::parse($user->profile->sobriety_date);
+        $soberDays = $soberDate->diffInDays().' '.Str::plural('day', $soberDate->diffInDays());
 
-        return view('users.show', compact('user'));
+        return view('users.show')->with([
+            'user' => $user,
+            'soberDate' => $soberDate,
+            'soberDays' => $soberDays,
+        ]);
     }
 
     public function edit(User $user)
