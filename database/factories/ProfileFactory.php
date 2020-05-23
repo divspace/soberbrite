@@ -13,7 +13,6 @@ $factory->define(Profile::class, function (Faker $faker) {
     }
 
     return [
-        'uuid' => $faker->uuid,
         'username' => $faker->unique()->userName,
         'first_name' => $faker->firstName($sex),
         'middle_name' => $faker->optional(25)->firstName($sex),
