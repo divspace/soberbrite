@@ -18,6 +18,8 @@ $factory->define(Profile::class, function (Faker $faker) {
         'middle_name' => $faker->optional(25)->firstName($sex),
         'last_name' => $faker->lastName,
         'phone' => $phoneNumber,
+        'gender' => $sex,
+        'birth_date' => $faker->dateTimeBetween('-90 years', '-20 years')->format('Y-m-d'),
         'sobriety_date' => $faker->dateTimeBetween('-30 years', 'now')->format('Y-m-d'),
     ];
 });

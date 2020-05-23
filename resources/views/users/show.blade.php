@@ -20,7 +20,7 @@
                     </dt>
 
                     <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->profile->first_name }} {{ $user->profile->last_name }}
+                        {{ $user->profile->first_name }} {{ $user->profile->last_name }} ({{ $user->profile->birth_date->age }}/{{ ucfirst(substr($user->profile->gender, 0, 1)) }}/{{ $user->address->first()->state }})
                     </dd>
                 </div>
 
@@ -56,6 +56,16 @@
 
                 <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                     <dt class="text-sm leading-5 font-medium text-gray-500">
+                        Birth Date
+                    </dt>
+
+                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                        {{ $user->profile->birth_date->format('F j, Y') }}
+                    </dd>
+                </div>
+
+                <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm leading-5 font-medium text-gray-500">
                         Phone Number
                     </dt>
 
@@ -64,7 +74,7 @@
                     </dd>
                 </div>
 
-                <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                     <dt class="text-sm leading-5 font-medium text-gray-500">
                         Address
                     </dt>
@@ -79,16 +89,6 @@
                         <br>
 
                         {{ $user->address->first()->city }}, {{ $user->address->first()->state }} {{ $user->address->first()->zip_code }}
-                    </dd>
-                </div>
-
-                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        About
-                    </dt>
-
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.
                     </dd>
                 </div>
             </dl>
