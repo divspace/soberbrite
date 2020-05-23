@@ -10,7 +10,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->efficientUuid('uuid', 36)->index();
+            $table->uuid('uuid')->index();
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();

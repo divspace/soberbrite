@@ -10,7 +10,7 @@ class CreateProgramsTable extends Migration
     {
         Schema::create('programs', function (Blueprint $table) {
             $table->id();
-            $table->efficientUuid('uuid', 36)->index();
+            $table->uuid('uuid')->index();
             $table->tinyInteger('program_type_id')->unsigned();
             $table->string('name')->unique();
             $table->string('abbreviation')->nullable();
