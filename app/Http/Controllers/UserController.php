@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        return User::with('profile')->get();
+        return User::with(['address', 'profile'])->get();
     }
 
     public function create()
