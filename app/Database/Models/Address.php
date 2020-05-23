@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Address extends Model
 {
-    use AddressCast, HasTimestamps, HasUuid;
+    use HasTimestamps, HasUuid;
 
     protected $fillable = [
         'line_1',
