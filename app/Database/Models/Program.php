@@ -19,7 +19,7 @@ class Program extends Model
 
     protected $casts = [
         'id' => Uuid::class,
-        'program_type_id' => Uuid::class,
+        'program_type_id' => 'integer',
     ];
 
     public function type(): HasOne
