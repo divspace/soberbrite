@@ -20,7 +20,7 @@
                     </dt>
 
                     <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->profile->first_name }} {{ $user->profile->last_name }} ({{ $user->profile->birth_date->age }}/{{ ucfirst(substr($user->profile->gender, 0, 1)) }}/{{ $user->address->first()->state }})
+                        {{ $user->profile->first_name }} {{ $user->profile->last_name }} ({{ $user->profile->birth_date->age }}/{{ $user->profile->gender }}/{{ $user->address->first()->state }})
                     </dd>
                 </div>
 

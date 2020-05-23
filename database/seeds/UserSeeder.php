@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
             'username' => 'soberbrite',
             'first_name' => 'Kyle',
             'last_name' => 'Anderson',
-            'gender' => 'male',
+            'gender' => 'M',
             'birth_date' => '1983-12-21',
             'sobriety_date' => '2020-03-15',
         ]);
