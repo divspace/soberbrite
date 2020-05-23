@@ -13,15 +13,6 @@ class UserSeeder extends Seeder
             'email' => 'kyle@soberbrite.com',
         ]);
 
-        factory(Profile::class)->create([
-            'user_id' => $primaryUser->id,
-            'username' => 'soberbrite',
-            'first_name' => 'Kyle',
-            'middle_name' => null,
-            'last_name' => 'Anderson',
-            'sobriety_date' => '2020-03-15',
-        ]);
-
         factory(Address::class)->create([
             'user_id' => $primaryUser->id,
             'line_1' => '3300 N Scottsdale Rd',
@@ -29,6 +20,15 @@ class UserSeeder extends Seeder
             'city' => 'Scottsdale',
             'state' => 'AZ',
             'zip_code' => '85251',
+        ]);
+
+        factory(Profile::class)->create([
+            'user_id' => $primaryUser->id,
+            'username' => 'soberbrite',
+            'first_name' => 'Kyle',
+            'middle_name' => null,
+            'last_name' => 'Anderson',
+            'sobriety_date' => '2020-03-15',
         ]);
 
         factory(User::class, 50)->create()->each(function ($user) {
