@@ -20,7 +20,7 @@ trait HasUuid
         'uuid6',
     ];
 
-    abstract public function hasCast($key, $types = null);
+    abstract public function hasCast(string $key, $types = null);
 
     public static function bootHasUuid(): void
     {
