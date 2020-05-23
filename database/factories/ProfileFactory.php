@@ -2,6 +2,7 @@
 
 use App\Database\Models\Profile;
 use Faker\Generator as Faker;
+use Ramsey\Uuid\Uuid;
 
 $factory->define(Profile::class, function (Faker $faker) {
     $sex = rand(1, 100) <= 75 ? 'male' : 'female';
@@ -13,6 +14,7 @@ $factory->define(Profile::class, function (Faker $faker) {
     }
 
     return [
+        'uuid' => Uuid::uuid4()->getBytes(),
         'username' => $faker->unique()->userName,
         'first_name' => $faker->firstName($sex),
         'middle_name' => $faker->optional(25)->firstName($sex),
