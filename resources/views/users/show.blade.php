@@ -80,14 +80,8 @@
                     </dt>
 
                     <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->address->first()->line_1 }}
-
-                        @isset($user->address->first()->line_2)
-                            {{ $user->address->first()->line_2 }}
-                        @endisset
-
+                        {{ $user->address->first()->street }}
                         <br>
-
                         {{ $user->address->first()->city }}, {{ $user->address->first()->state }} {{ $user->address->first()->zip_code }}
                     </dd>
                 </div>

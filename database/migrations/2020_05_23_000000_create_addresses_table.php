@@ -12,8 +12,7 @@ class CreateAddressesTable extends Migration
             $table->id();
             $table->uuid('uuid')->index();
             $table->foreignId('user_id');
-            $table->string('line_1');
-            $table->string('line_2')->nullable();
+            $table->string('street');
             $table->string('city');
             $table->char('state', 2);
             $table->string('zip_code', 9);

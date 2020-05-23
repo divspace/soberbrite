@@ -12,8 +12,7 @@ class Address extends Model
     use HasTimestamps, HasUuid;
 
     protected $fillable = [
-        'line_1',
-        'line_2',
+        'street',
         'city',
         'state',
         'zip_code',

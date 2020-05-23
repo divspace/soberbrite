@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
 
         factory(Address::class)->create([
             'user_id' => $primaryUser->id,
-            'line_1' => '3300 N Scottsdale Rd',
+            'street' => '3300 N Scottsdale Rd',
             'city' => 'Scottsdale',
             'state' => 'AZ',
             'zip_code' => '85251',
