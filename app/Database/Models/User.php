@@ -24,7 +24,7 @@ class User extends Authenticatable
     ];
 
     protected $casts = [
-        'uuid' => EfficientUuid::class,
+        'uuid' => Uuid::class,
         'email_verified_at' => 'datetime',
     ];
 

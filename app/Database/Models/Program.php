@@ -18,7 +18,7 @@ class Program extends Model
     ];
 
     protected $casts = [
-        'uuid' => EfficientUuid::class,
+        'uuid' => Uuid::class,
         'program_type_id' => 'integer',
     ];
 }

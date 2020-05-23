@@ -20,7 +20,7 @@ class Profile extends Model
     ];
 
     protected $casts = [
-        'uuid' => EfficientUuid::class,
+        'uuid' => Uuid::class,
         'user_id' => 'integer',
         'sobriety_date' => 'date:Y-m-d',
     ];
