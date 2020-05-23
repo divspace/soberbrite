@@ -19,6 +19,8 @@ class CreateProfilesTable extends Migration
             $table->char('phone', 10)->nullable();
             $table->date('sobriety_date');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
