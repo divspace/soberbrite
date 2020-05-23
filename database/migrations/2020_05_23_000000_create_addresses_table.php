@@ -14,7 +14,7 @@ class CreateAddressesTable extends Migration
             $table->string('street');
             $table->string('city');
             $table->char('state', 2);
-            $table->string('zip_code', 9);
+            $table->char('zip_code', 5);
             $table->char('country', 2)->default('US');
             $table->timestamps();
 

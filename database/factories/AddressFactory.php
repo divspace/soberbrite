@@ -8,6 +8,6 @@ $factory->define(Address::class, function (Faker $faker) {
         'street' => $faker->streetAddress,
         'city' => $faker->city,
         'state' => $faker->stateAbbr,
-        'zip_code' => $faker->postcode,
+        'zip_code' => substr($faker->postcode, 0, 5),
     ];
 });
