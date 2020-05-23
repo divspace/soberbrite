@@ -12,14 +12,6 @@ use Ramsey\Uuid\Uuid as BaseUuid;
 
 trait HasUuid
 {
-    protected $uuidVersions = [
-        'uuid1',
-        'uuid3',
-        'uuid4',
-        'uuid5',
-        'uuid6',
-    ];
-
     abstract public function hasCast(string $key, $types = null);
 
     public static function bootHasUuid(): void
@@ -28,7 +20,7 @@ trait HasUuid
             foreach ($model->uuidColumns() as $item) {
                 $uuid = $model->resolveUuid();
 
-                if (isset($model->attributes[$item]) && ! is_null($model->attributes[$item])) {
+                if (isset($model->attributes[$item]) && !is_null($model->attributes[$item])) {
                     try {
                         $uuid = $uuid->fromString(strtolower($model->attributes[$item]));
                     } catch (InvalidUuidStringException $e) {
@@ -41,9 +33,19 @@ trait HasUuid
         });
     }
 
+    public function getKeyType(): string
+    {
+        return 'string';
+    }
+
+    public function getIncrementing(): bool
+    {
+        return false;
+    }
+
     public function uuidColumn(): string
     {
-        return 'uuid';
+        return 'id';
     }
 
     public function uuidColumns(): array
@@ -53,16 +55,7 @@ trait HasUuid
 
     public function resolveUuid(): BaseUuid
     {
-        return call_user_func([BaseUuid::class, $this->resolveUuidVersion()]);
-    }
-
-    public function resolveUuidVersion(): string
-    {
-        if (property_exists($this, 'uuidVersion') && in_array($this->uuidVersion, $this->uuidVersions)) {
-            return $this->uuidVersion;
-        }
-
-        return 'uuid4';
+        return call_user_func([BaseUuid::class, 'uuid4']);
     }
 
     public function scopeWhereUuid(Builder $query, string $uuid, ?string $uuidColumn = null): Builder
@@ -97,6 +90,8 @@ trait HasUuid
 
     public function resolveRouteBinding($value, $field = null)
     {
-        return $this->whereUuid($value)->firstOrFail();
+        if (Str::isUuid($value)) {
+            return $this->where('id', $value)->firstOrFail();
+        }
     }
 }

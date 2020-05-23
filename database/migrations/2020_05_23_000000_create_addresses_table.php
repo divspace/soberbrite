@@ -9,9 +9,8 @@ class CreateAddressesTable extends Migration
     public function up(): void
     {
         Schema::create('addresses', function (Blueprint $table) {
-            $table->id();
-            $table->uuid('uuid')->index();
-            $table->foreignId('user_id');
+            $table->uuid('id')->primary();
+            $table->uuid('user_id');
             $table->string('street');
             $table->string('city');
             $table->char('state', 2);

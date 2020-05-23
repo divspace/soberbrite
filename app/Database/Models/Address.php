@@ -6,6 +6,7 @@ use App\Database\Models\User;
 use App\Database\Traits\HasTimestamps;
 use App\Database\Traits\HasUuid;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Address extends Model
 {
@@ -20,11 +21,11 @@ class Address extends Model
     ];
 
     protected $casts = [
-        'uuid' => Uuid::class,
-        'user_id' => 'integer',
+        'id' => Uuid::class,
+        'user_id' => Uuid::class,
     ];
 
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }

@@ -9,8 +9,7 @@ class CreateProgramsTable extends Migration
     public function up(): void
     {
         Schema::create('programs', function (Blueprint $table) {
-            $table->id();
-            $table->uuid('uuid')->index();
+            $table->uuid('id')->primary();
             $table->tinyInteger('program_type_id')->unsigned();
             $table->string('name')->unique();
             $table->string('abbreviation')->nullable();

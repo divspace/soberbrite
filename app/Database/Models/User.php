@@ -2,13 +2,17 @@
 
 namespace App\Database\Models;
 
-use App\Database\Models\Profile;
 use App\Database\Models\Address;
+use App\Database\Models\Profile;
 use App\Database\Traits\HasTimestamps;
 use App\Database\Traits\HasUuid;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
@@ -25,17 +29,28 @@ class User extends Authenticatable
     ];
 
     protected $casts = [
-        'uuid' => Uuid::class,
+        'id' => Uuid::class,
         'email_verified_at' => 'datetime',
     ];
 
-    public function address(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function address(): HasMany
     {
         return $this->hasMany(Address::class);
     }
 
-    public function profile(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function profile(): HasOne
     {
         return $this->hasOne(Profile::class);
+    }
+
+    public function resolveRouteBinding($value, $field = null)
+    {
+        if (Str::isUuid($value)) {
+            return $this->where('id', $value)->firstOrFail();
+        }
+
+        return $this->whereHas('profile', function (Builder $query) use ($value) {
+            $query->where('username', $value);
+        })->firstOrFail();
     }
 }

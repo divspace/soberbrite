@@ -6,6 +6,7 @@ use App\Database\Models\User;
 use App\Database\Traits\HasTimestamps;
 use App\Database\Traits\HasUuid;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Profile extends Model
 {
@@ -23,8 +24,8 @@ class Profile extends Model
     ];
 
     protected $casts = [
-        'uuid' => Uuid::class,
-        'user_id' => 'integer',
+        'id' => Uuid::class,
+        'user_id' => Uuid::class,
         'birth_date' => 'date:Y-m-d',
         'sobriety_date' => 'date:Y-m-d',
     ];
@@ -34,7 +35,7 @@ class Profile extends Model
         'sobriety_date',
     ];
 
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
