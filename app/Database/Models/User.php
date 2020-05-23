@@ -3,6 +3,7 @@
 namespace App\Database\Models;
 
 use App\Database\Models\Profile;
+use App\Database\Models\Address;
 use App\Database\Traits\HasTimestamps;
 use App\Database\Traits\HasUuid;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -27,6 +28,11 @@ class User extends Authenticatable
         'uuid' => Uuid::class,
         'email_verified_at' => 'datetime',
     ];
+
+    public function address(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Address::class);
+    }
 
     public function profile(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
