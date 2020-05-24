@@ -10,7 +10,7 @@ class CreateLocationsTable extends Migration
     {
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
-            $table->char('zip_code', 5);
+            $table->char('zip_code', 5)->unique();
             $table->string('city');
             $table->char('state', 2);
             $table->point('coordinate');
@@ -18,6 +18,7 @@ class CreateLocationsTable extends Migration
             $table->boolean('observes_dst')->default(1);
             $table->timestamps();
 
+            $table->index(['zip_code', 'city', 'state']);
             $table->spatialIndex('coordinate');
         });
     }
