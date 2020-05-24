@@ -7,17 +7,17 @@ use App\Database\Traits\HasSpatial;
 use App\Database\Traits\HasTimestamps;
 use Illuminate\Database\Eloquent\Model;
 
-class ZipCode extends Model
+class Location extends Model
 {
     use HasSpatial, HasTimestamps;
 
     protected $fillable = [
-        'zip',
+        'zip_code',
         'city',
         'state',
         'coordinate',
         'timezone_offset',
-        'has_dst',
+        'observes_dst',
     ];
 
     protected $spatialFields = [
@@ -26,7 +26,7 @@ class ZipCode extends Model
 
     protected $casts = [
         'timezone_offset' => Timezone::class,
-        'has_dst' => 'boolean',
+        'observes_dst' => 'boolean',
     ];
 
     public function longitude(): float

@@ -1,10 +1,10 @@
 <?php
 
-use App\Database\Models\ZipCode;
+use App\Database\Models\Location;
 use Illuminate\Database\Seeder;
 use Grimzy\LaravelMysqlSpatial\Types\Point;
 
-class ZipCodeSeeder extends Seeder
+class LocationSeeder extends Seeder
 {
     public function run(): void
     {
@@ -16,13 +16,13 @@ class ZipCodeSeeder extends Seeder
                 continue;
             }
 
-            factory(ZipCode::class)->create([
-                'zip' => $row[0],
+            factory(Location::class)->create([
+                'zip_code' => $row[0],
                 'city' => $row[1],
                 'state' => $row[2],
                 'coordinate' => new Point($row[3], $row[4]),
                 'timezone_offset' => $row[5].':00:00',
-                'has_dst' => $row[6],
+                'observes_dst' => $row[6],
             ]);
         }
 

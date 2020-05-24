@@ -7,8 +7,8 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        if (!DB::table('zip_codes')->count()) {
-            $this->call(ZipCodeSeeder::class);
+        if (!DB::table('locations')->count()) {
+            $this->call(LocationSeeder::class);
         }
 
        if (!DB::table('programs')->count()) {
