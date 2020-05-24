@@ -2,6 +2,7 @@
 
 namespace App\Database\Models;
 
+use App\Database\Casts\Timezone;
 use App\Database\Traits\HasSpatial;
 use App\Database\Traits\HasTimestamps;
 use Illuminate\Database\Eloquent\Model;
@@ -24,7 +25,7 @@ class ZipCode extends Model
     ];
 
     protected $casts = [
-        'timezone_offset' => 'time:H',
+        'timezone_offset' => Timezone::class,
         'has_dst' => 'boolean',
     ];
 }
