@@ -28,4 +28,14 @@ class ZipCode extends Model
         'timezone_offset' => Timezone::class,
         'has_dst' => 'boolean',
     ];
+
+    public function longitude(): float
+    {
+        return $this->coordinate->getLng();
+    }
+
+    public function latitude(): float
+    {
+        return $this->coordinate->getLat();
+    }
 }
