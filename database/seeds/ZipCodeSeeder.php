@@ -8,6 +8,7 @@ class ZipCodeSeeder extends Seeder
 {
     public function run(): void
     {
+        /** @see https://public.opendatasoft.com/explore/dataset/us-zip-code-latitude-and-longitude/export/ */
         $csv = fopen(storage_path('csv/zip-codes.csv'), 'r');
 
         while (($row = fgetcsv($csv, 100, ';')) !== false) {
