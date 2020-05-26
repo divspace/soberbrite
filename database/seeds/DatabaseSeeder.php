@@ -7,6 +7,10 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
+        if (!DB::table('states')->count()) {
+            $this->call(StateSeeder::class);
+        }
+
         if (!DB::table('locations')->count()) {
             $this->call(LocationSeeder::class);
         }
