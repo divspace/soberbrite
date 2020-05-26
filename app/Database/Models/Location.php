@@ -3,9 +3,11 @@
 namespace App\Database\Models;
 
 use App\Database\Casts\Timezone;
+use App\Database\Models\State;
 use App\Database\Traits\HasSpatial;
 use App\Database\Traits\HasTimestamps;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Location extends Model
 {
@@ -14,7 +16,6 @@ class Location extends Model
     protected $fillable = [
         'zip_code',
         'city',
-        'state',
         'coordinate',
         'timezone_offset',
         'observes_dst',
@@ -25,9 +26,16 @@ class Location extends Model
     ];
 
     protected $casts = [
+        'id' => 'integer',
+        'state_id' => 'integer',
         'timezone_offset' => Timezone::class,
         'observes_dst' => 'boolean',
     ];
+
+    public function state(): BelongsTo
+    {
+        return $this->BelongsTo(State::class);
+    }
 
     public function longitude(): float
     {
