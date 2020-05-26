@@ -13,6 +13,7 @@ class Profile extends Model
     use HasTimestamps, HasUuid;
 
     protected $fillable = [
+        'user_id',
         'username',
         'first_name',
         'middle_name',

@@ -13,6 +13,7 @@ class Program extends Model
     use HasTimestamps, HasUuid;
 
     protected $fillable = [
+        'program_type_id',
         'name',
         'abbreviation',
     ];

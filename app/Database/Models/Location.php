@@ -14,6 +14,7 @@ class Location extends Model
     use HasSpatial, HasTimestamps;
 
     protected $fillable = [
+        'state_id',
         'zip_code',
         'city',
         'coordinate',

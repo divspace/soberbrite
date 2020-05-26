@@ -13,6 +13,7 @@ class Address extends Model
     use HasTimestamps, HasUuid;
 
     protected $fillable = [
+        'user_id'
         'street',
         'city',
         'state',
