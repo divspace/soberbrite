@@ -1,6 +1,7 @@
 <?php
 
 use App\Database\Models\Profile;
+use App\Database\Models\User;
 use Faker\Generator as Faker;
 
 $factory->define(Profile::class, function (Faker $faker) {
@@ -13,6 +14,7 @@ $factory->define(Profile::class, function (Faker $faker) {
     }
 
     return [
+        'user_id' => $faker->randomElement(User::pluck('id')->toArray()),
         'username' => $faker->unique()->userName,
         'first_name' => $faker->firstName($sex),
         'middle_name' => $faker->optional(25)->firstName($sex),
