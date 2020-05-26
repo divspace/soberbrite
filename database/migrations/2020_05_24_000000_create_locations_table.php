@@ -10,16 +10,18 @@ class CreateLocationsTable extends Migration
     {
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
+            $table->tinyInteger('state_id')->unsigned();
             $table->char('zip_code', 5)->unique();
             $table->string('city');
-            $table->char('state', 2);
             $table->point('coordinate');
             $table->time('timezone_offset');
             $table->boolean('observes_dst')->default(1);
             $table->timestamps();
 
-            $table->index(['zip_code', 'city', 'state']);
+            $table->index(['zip_code', 'city', 'state_id']);
             $table->spatialIndex('coordinate');
+
+            $table->foreign('state_id')->references('id')->on('states');
         });
     }
 
