@@ -16,6 +16,12 @@ class State extends Model
         'name',
     ];
 
+    protected $casts = [
+        'id' => 'integer',
+        'code' => 'string',
+        'name' => 'string',
+    ];
+
     public function locations(): HasMany
     {
         return $this->hasMany(Location::class);
