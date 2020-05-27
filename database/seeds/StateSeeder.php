@@ -7,17 +7,15 @@ class StateSeeder extends Seeder
 {
     public function run(): void
     {
-        $file = fopen(storage_path('csv/states.csv'), 'r');
+        $states = (new FileToCollection)
+            ->getStates()
+            ->sortBy('name');
 
-        fgetcsv($file, 25, ';');
-
-        while (($row = fgetcsv($file, 25, ';')) !== false) {
+        $states->each(function ($state) {
             factory(State::class)->create([
-                'code' => $row[0],
-                'name' => $row[1],
+                'code' => $state['code'],
+                'name' => $state['name'],
             ]);
-        }
-
-        fclose($file);
+        });
     }
 }
