@@ -7,7 +7,11 @@ class CitySeeder extends Seeder
 {
     public function run(): void
     {
-        $cities = (new FileToCollection)->getLocations()->pluck('city')->unique();
+        $cities = (new FileToCollection)
+            ->getLocations()
+            ->pluck('cityName')
+            ->unique()
+            ->sort();
 
         $cities->each(function ($city) {
             factory(City::class)->create([
