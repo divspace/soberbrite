@@ -10,7 +10,7 @@ class CreateAddressesTable extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('user_id')->primary();
+            $table->uuid('user_id');
             $table->string('street');
             $table->string('city');
             $table->char('state', 2);
