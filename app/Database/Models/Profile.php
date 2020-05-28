@@ -13,7 +13,6 @@ class Profile extends Model
     use HasTimestamps, HasUuid;
 
     protected $fillable = [
-        'user_id',
         'username',
         'first_name',
         'middle_name',
@@ -27,6 +26,12 @@ class Profile extends Model
     protected $casts = [
         'id' => Uuid::class,
         'user_id' => Uuid::class,
+        'username' => 'string',
+        'first_name' => 'string',
+        'middle_name' => 'string',
+        'last_name' => 'string',
+        'phone' => 'string',
+        'gender' => 'string',
         'birth_date' => 'date:Y-m-d',
         'sobriety_date' => 'date:Y-m-d',
     ];
