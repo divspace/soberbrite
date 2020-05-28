@@ -4,29 +4,19 @@ use Illuminate\Support\Collection;
 
 class FileToCollection
 {
-    public function getLocations(): Collection
+    public function getCities(): Collection
     {
-        $data = collect();
+        return $this->getLocations()
+            ->pluck('cityName')
+            ->unique()
+            ->sort();
+    }
 
-        $file = fopen(storage_path('csv/zip-codes.csv'), 'r');
-
-        fgetcsv($file, 100, ';');
-
-        while (($row = fgetcsv($file, 100, ';')) !== false) {
-            $data->push([
-                'cityName' => $row[1],
-                'stateCode' => $row[2],
-                'zipCode' => $row[0],
-                'latitude' => (float) $row[3],
-                'longitude' => (float) $row[4],
-                'timezoneOffset' => (int) $row[5],
-                'observesDst' => (bool) $row[6],
-            ]);
-        }
-
-        fclose($file);
-
-        return $data;
+    public function getZipCodes(): Collection
+    {
+        return $this->getLocations()
+            ->pluck('zipCode')
+            ->sort();
     }
 
     public function getStates(): Collection
@@ -41,6 +31,32 @@ class FileToCollection
             $data->push([
                 'code' => $row[0],
                 'name' => $row[1],
+            ]);
+        }
+
+        fclose($file);
+
+        return $data->sortBy('name');
+    }
+
+    public function getLocations(): Collection
+    {
+        $data = collect();
+
+        /** @see https://public.opendatasoft.com */
+        $file = fopen(storage_path('csv/zip-codes.csv'), 'r');
+
+        fgetcsv($file, 100, ';');
+
+        while (($row = fgetcsv($file, 100, ';')) !== false) {
+            $data->push([
+                'cityName' => $row[1],
+                'stateCode' => $row[2],
+                'zipCode' => $row[0],
+                'latitude' => (float) $row[3],
+                'longitude' => (float) $row[4],
+                'timezoneOffset' => (int) $row[5],
+                'observesDst' => (bool) $row[6],
             ]);
         }
 
