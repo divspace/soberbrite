@@ -9,7 +9,7 @@ class CreateProfilesTable extends Migration
     public function up(): void
     {
         Schema::create('profiles', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->uuid('id');
             $table->uuid('user_id');
             $table->string('username', 50)->unique()->nullable();
             $table->string('first_name')->nullable();
@@ -22,6 +22,8 @@ class CreateProfilesTable extends Migration
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
+
+            $table->primary(['id', 'user_id']);
         });
     }
 
