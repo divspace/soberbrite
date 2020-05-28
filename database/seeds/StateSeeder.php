@@ -7,11 +7,7 @@ class StateSeeder extends Seeder
 {
     public function run(): void
     {
-        $states = (new FileToCollection)
-            ->getStates()
-            ->sortBy('name');
-
-        $states->each(function ($state) {
+        (new FileToCollection)->getStates()->each(function ($state) {
             factory(State::class)->create([
                 'code' => $state['code'],
                 'name' => $state['name'],
