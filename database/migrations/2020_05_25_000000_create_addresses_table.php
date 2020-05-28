@@ -9,16 +9,16 @@ class CreateAddressesTable extends Migration
     public function up(): void
     {
         Schema::create('addresses', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->uuid('id');
             $table->uuid('user_id');
+            $table->bigInteger('location_id')->unsigned();
             $table->string('street');
-            $table->string('city');
-            $table->char('state', 2);
-            $table->char('zip_code', 5);
-            $table->char('country', 2)->default('US');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('location_id')->references('id')->on('locations');
+
+            $table->primary(['id', 'user_id', 'location_id']);
         });
     }
 
