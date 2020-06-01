@@ -24,6 +24,21 @@ class Address extends Model
         'street' => 'string',
     ];
 
+    public function city(): string
+    {
+        return $this->location->city->name;
+    }
+
+    public function state(): string
+    {
+        return $this->location->state->name;
+    }
+
+    public function zipCode(): string
+    {
+        return $this->location->zipCode->code;
+    }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
