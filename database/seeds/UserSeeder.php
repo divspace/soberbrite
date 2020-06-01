@@ -41,11 +41,11 @@ class UserSeeder extends Seeder
         ]);
 
         $location = Location::whereHas('city', function (Builder $query) {
-            $query->whereName($this->city);
+            $query->where('name', $this->city);
         })->whereHas('state', function (Builder $query) {
-            $query->whereCode($this->state);
+            $query->where('code', $this->state);
         })->whereHas('zipCode', function (Builder $query) {
-            $query->whereCode($this->zipCode);
+            $query->where('code', $this->zipCode);
         })->first()->id;
 
         factory(Address::class)->create([

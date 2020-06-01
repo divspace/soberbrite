@@ -12,9 +12,9 @@ class LocationSeeder extends Seeder
     public function run(): void
     {
         (new FileToCollection)->getLocations()->each(function ($location) {
-            $city = City::whereName($location['cityName'])->first();
-            $state = State::whereCode($location['stateCode'])->first();
-            $zipCode = ZipCode::whereCode($location['zipCode'])->first();
+            $city = City::where('name', $location['cityName'])->first();
+            $state = State::where('code', $location['stateCode'])->first();
+            $zipCode = ZipCode::where('code', $location['zipCode'])->first();
 
             if ($city && $state && $zipCode) {
                 factory(Location::class)->create([
