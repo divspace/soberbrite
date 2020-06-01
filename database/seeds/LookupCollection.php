@@ -1,0 +1,159 @@
+<?php
+
+use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
+
+/**
+ * Gets lookup data from CSV files and converts it to a collection that
+ * can be used by seeders to populate the database.
+ *
+ * @see https://public.opendatasoft.com
+ * @see https://github.com/stefangabos/world_countries
+ */
+class LookupCollection
+{
+    private $lookupFiles;
+
+    private $lookupTypes = [
+        'countries',
+        'states',
+        'zipCodes',
+    ];
+
+    private $fileDirectory = 'csv';
+
+    private $fileExtension = 'csv';
+
+    public function __construct()
+    {
+        $this->lookupFiles = $this->getLookupFiles();
+    }
+
+    public function getCities(): Collection
+    {
+        return $this->getLocations()
+            ->pluck('cityName')
+            ->unique()
+            ->sort();
+    }
+
+    public function getZipCodes(): Collection
+    {
+        return $this->getLocations()
+            ->pluck('zipCode')
+            ->sort();
+    }
+
+    public function getStates(): Collection
+    {
+        $data = collect();
+
+        $file = fopen($this->lookupFiles['states'], 'r');
+
+        fgetcsv($file, 25, ';');
+
+        while (($row = fgetcsv($file, 25, ';')) !== false) {
+            $data->push([
+                'code' => $row[0],
+                'name' => $row[1],
+            ]);
+        }
+
+        fclose($file);
+
+        return $data->sortBy('name');
+    }
+
+    public function getLocations(): Collection
+    {
+        $data = collect();
+
+        $file = fopen($this->lookupFiles['zip-codes'], 'r');
+
+        fgetcsv($file, 100, ';');
+
+        while (($row = fgetcsv($file, 100, ';')) !== false) {
+            $data->push([
+                'cityName' => $row[1],
+                'stateCode' => $row[2],
+                'zipCode' => $row[0],
+                'latitude' => (float) $row[3],
+                'longitude' => (float) $row[4],
+                'timezoneOffset' => (int) $row[5],
+                'observesDst' => (bool) $row[6],
+            ]);
+        }
+
+        fclose($file);
+
+        return $data;
+    }
+
+    public function getCountries(): Collection
+    {
+        $data = collect();
+
+        $file = fopen($this->lookupFiles['countries'], 'r');
+
+        fgetcsv($file, 75, ',');
+
+        while (($row = fgetcsv($file, 75, ',')) !== false) {
+            $data->push([
+                'code' => $row[2],
+                'name' => $row[1],
+            ]);
+        }
+
+        fclose($file);
+
+        return $data->sortBy('name');
+    }
+
+    private function getLookupTypes(): string
+    {
+        return $this->lookupTypes;
+    }
+
+    private function getFileDirectory(): string
+    {
+        return $this->fileDirectory;
+    }
+
+    private function getFileExtension(): string
+    {
+        return $this->fileExtension;
+    }
+
+    private function getFilePath(string $fileName): string
+    {
+        $fileName = Str::kebab($fileName).'.'.$this->getFileExtension();
+
+        return storage_path($this->getFileDirectory().'/'.$fileName);
+    }
+
+    private function getLookupFiles(): Collection
+    {
+        $data = collect();
+
+        foreach($this->lookupTypes as $type) {
+            $data->put($type, $this->getFilePath($type));
+        }
+
+        return $data;
+    }
+
+    public function setLookupTypes(array $lookupTypes): void
+    {
+        $this->lookupTypes = $lookupTypes;
+    }
+
+    public function setFileDirectory(string $fileDirectory): void
+    {
+        $this->fileDirectory = $fileDirectory;
+    }
+
+    public function setFileExtension(string $fileExtension): void
+    {
+        $this->fileExtension = $fileExtension;
+    }
+}
