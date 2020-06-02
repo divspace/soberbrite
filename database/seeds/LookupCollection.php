@@ -9,12 +9,14 @@ use Illuminate\Support\Str;
  *
  * @see https://public.opendatasoft.com
  * @see https://github.com/stefangabos/world_countries
+ * @see https://www.nationalnanpa.com/reports/area_code_relief_planning.html
  */
 class LookupCollection
 {
     private $lookupFiles;
 
     private $lookupTypes = [
+        'areaCodes',
         'countries',
         'states',
         'zipCodes',
@@ -87,6 +89,28 @@ class LookupCollection
         fclose($file);
 
         return $data;
+    }
+
+    public function getAreaCodes(): Collection
+    {
+        $data = collect();
+
+        $file = fopen($this->lookupFiles['areaCodes'], 'r');
+
+        fgetcsv($file, 450, ',');
+
+        while (($row = fgetcsv($file, 450, ',')) !== false) {
+            if (strlen($row[8]) === 2 && $row[9] === 'US' && $row[10] === 'Y') {
+                $data->push([
+                    'code' => $row[0],
+                    'stateCode' => $row[8],
+                ]);
+            }
+        }
+
+        fclose($file);
+
+        return $data->sortBy('code');
     }
 
     public function getCountries(): Collection
