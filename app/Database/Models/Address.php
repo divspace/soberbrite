@@ -2,7 +2,6 @@
 
 namespace App\Database\Models;
 
-use App\Database\Casts\Uuid;
 use App\Database\Models\Location;
 use App\Database\Models\User;
 use App\Database\Traits\HasTimestamps;
@@ -19,8 +18,8 @@ class Address extends Model
     ];
 
     protected $casts = [
-        'id' => Uuid::class,
-        'user_id' => Uuid::class,
+        'id' => 'string',
+        'user_id' => 'string',
         'location_id' => 'integer',
         'street' => 'string',
     ];

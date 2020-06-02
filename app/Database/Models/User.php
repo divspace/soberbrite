@@ -2,7 +2,6 @@
 
 namespace App\Database\Models;
 
-use App\Database\Casts\Uuid;
 use App\Database\Models\Address;
 use App\Database\Models\Profile;
 use App\Database\Traits\HasTimestamps;
@@ -30,7 +29,7 @@ class User extends Authenticatable
     ];
 
     protected $casts = [
-        'id' => Uuid::class,
+        'id' => 'string',
         'email' => 'string',
         'password' => 'string',
         'remember_token' => 'string',

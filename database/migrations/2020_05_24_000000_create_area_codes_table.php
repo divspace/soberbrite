@@ -11,7 +11,7 @@ class CreateAreaCodesTable extends Migration
         Schema::create('area_codes', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->tinyInteger('state_id')->unsigned();
-            $table->smallInteger('code')->unsigned()->unique();
+            $table->char('code', 3)->unique();
             $table->timestamps();
 
             $table->foreign('state_id')->references('id')->on('states');

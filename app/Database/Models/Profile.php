@@ -2,7 +2,6 @@
 
 namespace App\Database\Models;
 
-use App\Database\Casts\Uuid;
 use App\Database\Models\User;
 use App\Database\Traits\HasTimestamps;
 use App\Database\Traits\HasUuid;
@@ -25,8 +24,8 @@ class Profile extends Model
     ];
 
     protected $casts = [
-        'id' => Uuid::class,
-        'user_id' => Uuid::class,
+        'id' => 'string',
+        'user_id' => 'string',
         'username' => 'string',
         'first_name' => 'string',
         'middle_name' => 'string',

@@ -2,7 +2,6 @@
 
 namespace App\Database\Models;
 
-use App\Database\Casts\Uuid;
 use App\Database\Traits\HasTimestamps;
 use App\Database\Traits\HasUuid;
 use Illuminate\Database\Eloquent\Builder;
@@ -18,7 +17,7 @@ class Program extends Model
     ];
 
     protected $casts = [
-        'id' => Uuid::class,
+        'id' => 'string',
         'program_type_id' => 'integer',
         'name' => 'string',
         'abbreviation' => 'string',
