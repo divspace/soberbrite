@@ -92,5 +92,7 @@ trait HasUuid
         if (Str::isUuid($value)) {
             return $this->where('id', $value)->firstOrFail();
         }
+
+        return null;
     }
 }
