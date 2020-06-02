@@ -21,6 +21,10 @@ class DatabaseSeeder extends Seeder
             $this->call(ZipCodeSeeder::class);
         }
 
+        if (!DB::table('countries')->count()) {
+            $this->call(CountrySeeder::class);
+        }
+
         if (!DB::table('locations')->count()) {
             $this->call(LocationSeeder::class);
         }
