@@ -20,7 +20,7 @@
                     </dt>
 
                     <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->profile->first_name }} {{ $user->profile->last_name }} ({{ $user->profile->birth_date->age }}/{{ $user->profile->gender }}/{{ $user->address->first()->state }})
+                        {{ $user->profile->first_name }} {{ $user->profile->last_name }} ({{ $user->profile->birth_date->age }}/{{ $user->profile->gender }}/{{ $user->address->first()->location->state->code }})
                     </dd>
                 </div>
 
@@ -82,7 +82,7 @@
                     <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
                         {{ $user->address->first()->street }}
                         <br>
-                        {{ $user->address->first()->city }}, {{ $user->address->first()->state }} {{ $user->address->first()->zip_code }}
+                        {{ $user->address->first()->location->city->name }}, {{ $user->address->first()->location->state->code }} {{ $user->address->first()->location->zipCode->code }}
                     </dd>
                 </div>
             </dl>
