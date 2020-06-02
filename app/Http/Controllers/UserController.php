@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Database\Models\User;
-use Carbon\Carbon;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
 class UserController extends Controller
 {

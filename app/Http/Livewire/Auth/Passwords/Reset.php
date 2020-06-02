@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Auth\Passwords;
 
-use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;

@@ -159,7 +159,7 @@ class LookupCollection
     {
         $data = collect();
 
-        foreach($this->lookupTypes as $type) {
+        foreach ($this->lookupTypes as $type) {
             $data->put($type, $this->getFilePath($type));
         }
 
