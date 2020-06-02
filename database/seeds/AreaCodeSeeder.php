@@ -16,8 +16,6 @@ class AreaCodeSeeder extends Seeder
                     'state_id' => $state->id,
                     'code' => $areaCode['code'],
                 ]);
-            } else {
-                Log::info('State '.$areaCode['stateCode'].' not found for area code '.$areaCode['code']);
             }
         });
     }
