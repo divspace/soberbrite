@@ -23,6 +23,7 @@
         <InternalMethod errorLevel="info"/>
         <InternalProperty errorLevel="info"/>
         <InvalidDocblock errorLevel="info"/>
+        <InvalidPropertyFetch errorLevel="info"/>
         <InvalidStringClass errorLevel="info"/>
         <LessSpecificReturnType errorLevel="info"/>
         <MisplacedRequiredParam errorLevel="info"/>
@@ -32,10 +33,13 @@
         <MissingParamType errorLevel="info"/>
         <MissingPropertyType errorLevel="info"/>
         <MissingReturnType errorLevel="info"/>
+        <PossiblyNullReference errorLevel="info"/>
         <PropertyNotSetInConstructor errorLevel="info"/>
         <RawObjectIteration errorLevel="info"/>
         <RedundantCondition errorLevel="info"/>
         <RedundantConditionGivenDocblockType errorLevel="info"/>
+        <UndefinedInterfaceMethod errorLevel="info"/>
+        <UndefinedMagicMethod errorLevel="info"/>
         <UnresolvableInclude errorLevel="info"/>
     </issueHandlers>
     <plugins>

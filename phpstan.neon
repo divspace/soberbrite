@@ -6,7 +6,8 @@ parameters:
     paths:
         - app
         - config
-        - database
+        - database/factories
+        - database/seeds
         - routes
         - tests
     level: 5
