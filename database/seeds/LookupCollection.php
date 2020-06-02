@@ -68,7 +68,7 @@ class LookupCollection
     {
         $data = collect();
 
-        $file = fopen($this->lookupFiles['zip-codes'], 'r');
+        $file = fopen($this->lookupFiles['zipCodes'], 'r');
 
         fgetcsv($file, 100, ';');
 
