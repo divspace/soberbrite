@@ -16,7 +16,6 @@
     <arg name="colors"/>
     <arg value="p"/>
     <ini name="memory_limit" value="128M"/>
-    <rule ref="ImportDetection"/>
     <rule ref="Generic.Classes.DuplicateClassName"/>
     <rule ref="Generic.CodeAnalysis.ForLoopShouldBeWhileLoop"/>
     <rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall"/>
@@ -66,6 +65,7 @@
     </rule>
     <rule ref="Generic.WhiteSpace.DisallowTabIndent"/>
     <rule ref="Generic.WhiteSpace.ScopeIndent"/>
+    <rule ref="ImportDetection"/>
     <rule ref="MySource.PHP.EvalObjectFactory"/>
     <rule ref="PEAR.Classes.ClassDeclaration"/>
     <rule ref="PEAR.Commenting.InlineComment"/>
