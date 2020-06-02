@@ -42,17 +42,17 @@ class Location extends Model
 
     public function city(): BelongsTo
     {
-        return $this->BelongsTo(City::class);
+        return $this->belongsTo(City::class);
     }
 
     public function state(): BelongsTo
     {
-        return $this->BelongsTo(State::class);
+        return $this->belongsTo(State::class);
     }
 
     public function zipCode(): BelongsTo
     {
-        return $this->BelongsTo(ZipCode::class);
+        return $this->belongsTo(ZipCode::class);
     }
 
     public function longitude(): float

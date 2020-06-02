@@ -2,13 +2,12 @@
 
 namespace App\Database\Traits;
 
-use App\Database\Casts\Uuid;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Ramsey\Uuid\Exception\InvalidUuidStringException;
-use Ramsey\Uuid\Uuid as BaseUuid;
+use Ramsey\Uuid\Uuid;
 
 trait HasUuid
 {
@@ -53,9 +52,9 @@ trait HasUuid
         return [$this->uuidColumn()];
     }
 
-    public function resolveUuid(): BaseUuid
+    public function resolveUuid(): Uuid
     {
-        return call_user_func([BaseUuid::class, 'uuid4']);
+        return call_user_func([Uuid::class, 'uuid4']);
     }
 
     public function scopeWhereUuid(Builder $query, string $uuid, ?string $uuidColumn = null): Builder
@@ -64,7 +63,7 @@ trait HasUuid
             ? $uuidColumn
             : $this->uuidColumns()[0];
 
-        $uuid = array_map(function ($uuid) {
+        $uuid = array_map(function ($uuid): string {
             return Str::lower($uuid);
         }, Arr::wrap($uuid));
 
@@ -78,7 +77,7 @@ trait HasUuid
     protected function bytesFromUuid($uuid): array
     {
         if (is_array($uuid) || $uuid instanceof Arrayable) {
-            array_walk($uuid, function (&$uuid) {
+            array_walk($uuid, function (&$uuid): void {
                 $uuid = $this->resolveUuid()->fromString($uuid)->getBytes();
             });
 

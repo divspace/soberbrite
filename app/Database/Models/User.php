@@ -2,6 +2,7 @@
 
 namespace App\Database\Models;
 
+use App\Database\Casts\Uuid;
 use App\Database\Models\Address;
 use App\Database\Models\Profile;
 use App\Database\Traits\HasTimestamps;
@@ -56,7 +57,7 @@ class User extends Authenticatable
             return $this->where('id', $value)->firstOrFail();
         }
 
-        return $this->whereHas('profile', function (Builder $query) use ($value) {
+        return $this->whereHas('profile', function (Builder $query) use ($value): void {
             $query->where('username', $value);
         })->firstOrFail();
     }

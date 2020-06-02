@@ -11,7 +11,7 @@ class AreaCodeSeeder extends Seeder
         (new LookupCollection)->getAreaCodes()->each(function ($areaCode): void {
             $state = State::where('code', $areaCode['stateCode'])->first();
 
-            if ($state) {
+            if (isset($state)) {
                 factory(AreaCode::class)->create([
                     'state_id' => $state->id,
                     'code' => $areaCode['code'],

@@ -23,6 +23,6 @@ class AreaCode extends Model
 
     public function state(): BelongsTo
     {
-        return $this->BelongsTo(State::class);
+        return $this->belongsTo(State::class);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Database\Models;
 
+use App\Database\Casts\Uuid;
 use App\Database\Models\Location;
 use App\Database\Models\User;
 use App\Database\Traits\HasTimestamps;

@@ -7,7 +7,7 @@ use App\Database\Models\ZipCode;
 use Faker\Generator as Faker;
 use Grimzy\LaravelMysqlSpatial\Types\Point;
 
-$factory->define(Location::class, function (Faker $faker) {
+$factory->define(Location::class, function (Faker $faker): array {
     return [
         'city_id' => fn () => factory(City::class)->create()->id,
         'state_id' => fn () => factory(State::class)->create()->id,

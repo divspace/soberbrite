@@ -16,7 +16,7 @@ class LocationSeeder extends Seeder
             $state = State::where('code', $location['stateCode'])->first();
             $zipCode = ZipCode::where('code', $location['zipCode'])->first();
 
-            if ($city && $state && $zipCode) {
+            if (isset($city, $state, $zipCode)) {
                 factory(Location::class)->create([
                     'city_id' => $city->id,
                     'state_id' => $state->id,

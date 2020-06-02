@@ -40,20 +40,6 @@ class UserSeeder extends Seeder
             'email' => $this->email,
         ]);
 
-        $location = Location::whereHas('city', function (Builder $query): void {
-            $query->where('name', $this->city);
-        })->whereHas('state', function (Builder $query): void {
-            $query->where('code', $this->state);
-        })->whereHas('zipCode', function (Builder $query): void {
-            $query->where('code', $this->zipCode);
-        })->first()->id;
-
-        factory(Address::class)->create([
-            'user_id' => $user->id,
-            'location_id' => $location,
-            'street' => $this->street,
-        ]);
-
         factory(Profile::class)->create([
             'user_id' => $user->id,
             'username' => $this->username,
@@ -68,5 +54,21 @@ class UserSeeder extends Seeder
             $user->address()->save(factory(Address::class)->make());
             $user->profile()->save(factory(Profile::class)->make());
         });
+
+        $location = Location::whereHas('city', function (Builder $query): void {
+            $query->where('name', $this->city);
+        })->whereHas('state', function (Builder $query): void {
+            $query->where('code', $this->state);
+        })->whereHas('zipCode', function (Builder $query): void {
+            $query->where('code', $this->zipCode);
+        })->first();
+
+        if (isset($location)) {
+            factory(Address::class)->create([
+                'user_id' => $user->id,
+                'location_id' => $location->id,
+                'street' => $this->street,
+            ]);
+        }
     }
 }
