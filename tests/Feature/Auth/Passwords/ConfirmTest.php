@@ -17,7 +17,7 @@ class ConfirmTest extends TestCase
     {
         parent::setUp();
 
-        Route::get('/must-be-confirmed', function () {
+        Route::get('/must-be-confirmed', function (): string {
             return 'You must be confirmed to see this page.';
         })->middleware(['web', 'password.confirm']);
     }
