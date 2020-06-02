@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<psalm totallyTyped="false"
+       resolveFromConfigFile="true"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="https://getpsalm.org/schema/config"
+       xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd">
+    <projectFiles>
+        <directory name="app"/>
+        <ignoreFiles>
+            <directory name="vendor"/>
+        </ignoreFiles>
+    </projectFiles>
+    <issueHandlers>
+        <DeprecatedClass errorLevel="info"/>
+        <DeprecatedConstant errorLevel="info"/>
+        <DeprecatedFunction errorLevel="info"/>
+        <DeprecatedInterface errorLevel="info"/>
+        <DeprecatedMethod errorLevel="info"/>
+        <DeprecatedProperty errorLevel="info"/>
+        <DeprecatedTrait errorLevel="info"/>
+        <DocblockTypeContradiction errorLevel="info"/>
+        <InternalClass errorLevel="info"/>
+        <InternalMethod errorLevel="info"/>
+        <InternalProperty errorLevel="info"/>
+        <InvalidDocblock errorLevel="info"/>
+        <InvalidStringClass errorLevel="info"/>
+        <LessSpecificReturnType errorLevel="info"/>
+        <MisplacedRequiredParam errorLevel="info"/>
+        <MissingClosureParamType errorLevel="info"/>
+        <MissingClosureReturnType errorLevel="info"/>
+        <MissingConstructor errorLevel="info"/>
+        <MissingParamType errorLevel="info"/>
+        <MissingPropertyType errorLevel="info"/>
+        <MissingReturnType errorLevel="info"/>
+        <PropertyNotSetInConstructor errorLevel="info"/>
+        <RawObjectIteration errorLevel="info"/>
+        <RedundantCondition errorLevel="info"/>
+        <RedundantConditionGivenDocblockType errorLevel="info"/>
+        <UnresolvableInclude errorLevel="info"/>
+    </issueHandlers>
+    <plugins>
+        <pluginClass class="Psalm\LaravelPlugin\Plugin"/>
+    </plugins>
+</psalm>
