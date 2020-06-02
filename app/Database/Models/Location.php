@@ -34,6 +34,12 @@ class Location extends Model
         'observes_dst' => 'boolean',
     ];
 
+    protected $with = [
+        'city',
+        'state',
+        'zipCode',
+    ];
+
     public function city(): BelongsTo
     {
         return $this->BelongsTo(City::class);

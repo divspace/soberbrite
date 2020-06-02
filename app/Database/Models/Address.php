@@ -24,6 +24,10 @@ class Address extends Model
         'street' => 'string',
     ];
 
+    protected $with = [
+        'location',
+    ];
+
     public function city(): string
     {
         return $this->location->city->name;
