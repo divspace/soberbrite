@@ -59,7 +59,7 @@ trait HasUuid
 
     public function scopeWhereUuid(Builder $query, string $uuid, ?string $uuidColumn = null): Builder
     {
-        $uuidColumn = !is_null($uuidColumn) && in_array($uuidColumn, $this->uuidColumns())
+        $uuidColumn = !is_null($uuidColumn) && in_array($uuidColumn, $this->uuidColumns(), true)
             ? $uuidColumn
             : $this->uuidColumns()[0];
 
