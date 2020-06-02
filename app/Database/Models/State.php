@@ -2,6 +2,7 @@
 
 namespace App\Database\Models;
 
+use App\Database\Models\AreaCode;
 use App\Database\Models\Location;
 use App\Database\Traits\HasTimestamps;
 use Illuminate\Database\Eloquent\Model;
@@ -21,6 +22,11 @@ class State extends Model
         'code' => 'string',
         'name' => 'string',
     ];
+
+    public function areaCodes(): HasMany
+    {
+        return $this->hasMany(AreaCode::class);
+    }
 
     public function locations(): HasMany
     {
