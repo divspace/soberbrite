@@ -163,7 +163,7 @@ class ProgramSeeder extends Seeder
             ],
         ]);
 
-        $programs->each(function ($program) {
+        $programs->each(function ($program): void {
             factory(Program::class)->create($program);
         });
     }

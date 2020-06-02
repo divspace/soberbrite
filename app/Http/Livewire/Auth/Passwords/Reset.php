@@ -37,7 +37,7 @@ class Reset extends Component
             'token' => $this->token,
             'email' => $this->email,
             'password' => $this->password
-        ], function ($user, $password) {
+        ], function ($user, $password): void {
             $user->password = Hash::make($password);
 
             $user->setRememberToken(Str::random(60));

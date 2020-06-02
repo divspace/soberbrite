@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
 
     public function run(): void
     {
-        collect($this->tables)->each(function ($table) {
+        collect($this->tables)->each(function ($table): void {
             if (!DB::table($table)->count()) {
                 $this->call(Str::of($table)->studly()->singular().'Seeder'::class);
             }

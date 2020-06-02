@@ -16,7 +16,7 @@ trait HasUuid
 
     public static function bootHasUuid(): void
     {
-        static::creating(function ($model) {
+        static::creating(function ($model): void {
             foreach ($model->uuidColumns() as $item) {
                 $uuid = $model->resolveUuid();
 

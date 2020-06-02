@@ -40,11 +40,11 @@ class UserSeeder extends Seeder
             'email' => $this->email,
         ]);
 
-        $location = Location::whereHas('city', function (Builder $query) {
+        $location = Location::whereHas('city', function (Builder $query): void {
             $query->where('name', $this->city);
-        })->whereHas('state', function (Builder $query) {
+        })->whereHas('state', function (Builder $query): void {
             $query->where('code', $this->state);
-        })->whereHas('zipCode', function (Builder $query) {
+        })->whereHas('zipCode', function (Builder $query): void {
             $query->where('code', $this->zipCode);
         })->first()->id;
 
@@ -64,7 +64,7 @@ class UserSeeder extends Seeder
             'sobriety_date' => $this->sobrietyDate,
         ]);
 
-        factory(User::class, 50)->create()->each(function ($user) {
+        factory(User::class, 50)->create()->each(function ($user): void {
             $user->address()->save(factory(Address::class)->make());
             $user->profile()->save(factory(Profile::class)->make());
         });
