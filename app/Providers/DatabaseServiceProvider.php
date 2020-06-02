@@ -15,11 +15,11 @@ class DatabaseServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->singleton('db.factory', function ($app) {
+        $this->app->singleton('db.factory', function ($app): ConnectionFactory {
             return new ConnectionFactory($app);
         });
 
-        $this->app->singleton('db', function ($app) {
+        $this->app->singleton('db', function ($app): DatabaseManager {
             return new DatabaseManager($app, $app['db.factory']);
         });
     }
