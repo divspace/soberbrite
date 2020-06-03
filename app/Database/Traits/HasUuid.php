@@ -19,7 +19,7 @@ trait HasUuid
             foreach ($model->uuidColumns() as $item) {
                 $uuid = $model->resolveUuid();
 
-                if (isset($model->attributes[$item]) && !is_null($model->attributes[$item])) {
+                if (isset($model->attributes[$item]) && $model->attributes[$item] !== null) {
                     try {
                         $uuid = $uuid->fromString(strtolower($model->attributes[$item]));
                     } catch (InvalidUuidStringException $e) {
@@ -59,7 +59,7 @@ trait HasUuid
 
     public function scopeWhereUuid(Builder $query, string $uuid, ?string $uuidColumn = null): Builder
     {
-        $uuidColumn = !is_null($uuidColumn) && in_array($uuidColumn, $this->uuidColumns(), true)
+        $uuidColumn = $uuidColumn !== null && in_array($uuidColumn, $this->uuidColumns(), true)
             ? $uuidColumn
             : $this->uuidColumns()[0];
 
