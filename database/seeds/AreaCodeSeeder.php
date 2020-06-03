@@ -8,7 +8,7 @@ class AreaCodeSeeder extends Seeder
 {
     public function run(): void
     {
-        (new LookupCollection)->getAreaCodes()->each(function ($areaCode): void {
+        (new LookupCollection())->getAreaCodes()->each(function ($areaCode): void {
             $state = State::where('code', $areaCode['stateCode'])->first();
 
             if (isset($state)) {
