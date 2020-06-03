@@ -133,11 +133,6 @@ class LookupCollection
         return $data->sortBy('name');
     }
 
-    private function getLookupTypes(): string
-    {
-        return $this->lookupTypes;
-    }
-
     private function getFileDirectory(): string
     {
         return $this->fileDirectory;
