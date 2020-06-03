@@ -42,7 +42,7 @@ class RegisterTest extends TestCase
             ->assertRedirect(route('home'));
 
         $this->assertTrue(User::whereEmail('tallstack@example.com')->exists());
-        $this->assertEquals('tallstack@example.com', Auth::user()->email);
+        $this->assertSame('tallstack@example.com', Auth::user()->email);
     }
 
     /** @test */
