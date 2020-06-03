@@ -16,12 +16,10 @@ class ProgramController extends Controller
 
     public function create()
     {
-        //
     }
 
     public function store(Request $request)
     {
-        //
     }
 
     public function show(Program $program): Program
@@ -31,16 +29,13 @@ class ProgramController extends Controller
 
     public function edit(Program $program)
     {
-        //
     }
 
     public function update(Request $request, Program $program)
     {
-        //
     }
 
     public function destroy(Program $program)
     {
-        //
     }
 }
