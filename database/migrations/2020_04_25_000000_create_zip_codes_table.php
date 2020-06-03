@@ -8,7 +8,7 @@ class CreateZipCodesTable extends Migration
 {
     public function up(): void
     {
-        Schema::create('zip_codes', function (Blueprint $table) {
+        Schema::create('zip_codes', function (Blueprint $table): void {
             $table->smallIncrements('id');
             $table->char('code', 5)->unique();
             $table->timestamps();

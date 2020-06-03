@@ -8,7 +8,7 @@ class CreateProfilesTable extends Migration
 {
     public function up(): void
     {
-        Schema::create('profiles', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table): void {
             $table->uuid('id');
             $table->uuid('user_id');
             $table->string('username', 50)->unique()->nullable();

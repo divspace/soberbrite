@@ -13,7 +13,7 @@ class Login extends Component
 
     public $remember = false;
 
-    public function authenticate()
+    public function authenticate(): void
     {
         $credentials = $this->validate([
             'email' => ['required', 'email'],

@@ -16,7 +16,7 @@ class Register extends Component
 
     public $password_confirmation = '';
 
-    public function register()
+    public function register(): void
     {
         $this->validate([
             'email' => ['required', 'email', 'unique:users'],

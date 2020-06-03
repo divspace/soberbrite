@@ -8,7 +8,7 @@ class CreateStatesTable extends Migration
 {
     public function up(): void
     {
-        Schema::create('states', function (Blueprint $table) {
+        Schema::create('states', function (Blueprint $table): void {
             $table->tinyIncrements('id');
             $table->char('code', 2)->unique();
             $table->string('name', 20)->unique();

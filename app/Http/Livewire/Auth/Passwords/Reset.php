@@ -19,7 +19,7 @@ class Reset extends Component
 
     public $password_confirmation;
 
-    public function mount($token)
+    public function mount($token): void
     {
         $this->token = $token;
     }

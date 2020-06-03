@@ -8,7 +8,7 @@ class CreateAddressesTable extends Migration
 {
     public function up(): void
     {
-        Schema::create('addresses', function (Blueprint $table) {
+        Schema::create('addresses', function (Blueprint $table): void {
             $table->uuid('id');
             $table->uuid('user_id');
             $table->bigInteger('location_id')->unsigned();

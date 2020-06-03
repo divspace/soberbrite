@@ -8,7 +8,7 @@ class CreateAreaCodesTable extends Migration
 {
     public function up(): void
     {
-        Schema::create('area_codes', function (Blueprint $table) {
+        Schema::create('area_codes', function (Blueprint $table): void {
             $table->smallIncrements('id');
             $table->tinyInteger('state_id')->unsigned();
             $table->char('code', 3)->unique();

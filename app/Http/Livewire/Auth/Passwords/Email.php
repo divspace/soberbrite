@@ -11,7 +11,7 @@ class Email extends Component
 
     public $emailSentMessage = false;
 
-    public function sendResetPasswordLink()
+    public function sendResetPasswordLink(): void
     {
         $this->validate([
             'email' => ['required', 'email'],

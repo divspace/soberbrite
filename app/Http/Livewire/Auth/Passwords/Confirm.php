@@ -8,7 +8,7 @@ class Confirm extends Component
 {
     public $password = '';
 
-    public function confirm()
+    public function confirm(): void
     {
         $this->validate([
             'password' => 'required|password',
