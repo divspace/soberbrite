@@ -1,0 +1,306 @@
+services:
+    # PhpCsFixer\Fixer\Strict\DeclareStrictTypesFixer: null
+    PHP_CodeSniffer\Standards\Generic\Sniffs\CodeAnalysis\AssignmentInConditionSniff: null
+    PHP_CodeSniffer\Standards\Generic\Sniffs\ControlStructures\InlineControlStructureSniff: null
+    PHP_CodeSniffer\Standards\Generic\Sniffs\Files\ByteOrderMarkSniff: null
+    PHP_CodeSniffer\Standards\Generic\Sniffs\Formatting\DisallowMultipleStatementsSniff: null
+    PHP_CodeSniffer\Standards\Generic\Sniffs\Functions\FunctionCallArgumentSpacingSniff: null
+    PHP_CodeSniffer\Standards\Generic\Sniffs\NamingConventions\UpperCaseConstantNameSniff: null
+    PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\LowerCaseConstantSniff: null
+    PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\LowerCaseKeywordSniff: null
+    PHP_CodeSniffer\Standards\Generic\Sniffs\VersionControl\GitMergeConflictSniff: null
+    PHP_CodeSniffer\Standards\Generic\Sniffs\WhiteSpace\DisallowTabIndentSniff: null
+    PHP_CodeSniffer\Standards\PEAR\Sniffs\Functions\ValidDefaultValueSniff: null
+    PHP_CodeSniffer\Standards\PSR2\Sniffs\Classes\ClassDeclarationSniff: null
+    PHP_CodeSniffer\Standards\PSR2\Sniffs\Classes\PropertyDeclarationSniff: null
+    PHP_CodeSniffer\Standards\PSR2\Sniffs\ControlStructures\ControlStructureSpacingSniff: null
+    PHP_CodeSniffer\Standards\PSR2\Sniffs\ControlStructures\ElseIfDeclarationSniff: null
+    PHP_CodeSniffer\Standards\PSR2\Sniffs\ControlStructures\SwitchDeclarationSniff: null
+    PHP_CodeSniffer\Standards\PSR2\Sniffs\Files\ClosingTagSniff: null
+    PHP_CodeSniffer\Standards\PSR2\Sniffs\Files\EndFileNewlineSniff: null
+    PHP_CodeSniffer\Standards\PSR2\Sniffs\Methods\FunctionCallSignatureSniff: null
+    PHP_CodeSniffer\Standards\PSR2\Sniffs\Methods\FunctionClosingBraceSniff: null
+    PHP_CodeSniffer\Standards\PSR2\Sniffs\Methods\MethodDeclarationSniff: null
+    PHP_CodeSniffer\Standards\PSR2\Sniffs\Namespaces\NamespaceDeclarationSniff: null
+    PHP_CodeSniffer\Standards\PSR2\Sniffs\Namespaces\UseDeclarationSniff: null
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\Classes\ValidClassNameSniff: null
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\ControlStructures\ControlSignatureSniff: null
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\ControlStructures\ForEachLoopDeclarationSniff: null
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\ControlStructures\ForLoopDeclarationSniff: null
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\ControlStructures\LowercaseDeclarationSniff: null
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\Functions\FunctionDeclarationSniff: null
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\Functions\LowercaseFunctionKeywordsSniff: null
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\Functions\MultiLineFunctionDeclarationSniff: null
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\Scope\MethodScopeSniff: null
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff: null
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\LanguageConstructSpacingSniff: null
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ScopeClosingBraceSniff: null
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ScopeKeywordSpacingSniff: null
+    PhpCsFixer\Fixer\Alias\EregToPregFixer: null
+    PhpCsFixer\Fixer\Alias\NoAliasFunctionsFixer: null
+    PhpCsFixer\Fixer\ArrayNotation\NoMultilineWhitespaceAroundDoubleArrowFixer: null
+    PhpCsFixer\Fixer\ArrayNotation\NormalizeIndexBraceFixer: null
+    PhpCsFixer\Fixer\ArrayNotation\NoTrailingCommaInSinglelineArrayFixer: null
+    PhpCsFixer\Fixer\ArrayNotation\NoWhitespaceBeforeCommaInArrayFixer: null
+    PhpCsFixer\Fixer\ArrayNotation\TrailingCommaInMultilineArrayFixer: null
+    PhpCsFixer\Fixer\ArrayNotation\TrimArraySpacesFixer: null
+    PhpCsFixer\Fixer\ArrayNotation\WhitespaceAfterCommaInArrayFixer: null
+    PhpCsFixer\Fixer\Basic\BracesFixer: null
+    PhpCsFixer\Fixer\Basic\BracesFixer: null
+    PhpCsFixer\Fixer\Basic\EncodingFixer: null
+    PhpCsFixer\Fixer\Basic\EncodingFixer: null
+    PhpCsFixer\Fixer\Basic\Psr4Fixer: null
+    PhpCsFixer\Fixer\Casing\ConstantCaseFixer: null
+    PhpCsFixer\Fixer\Casing\ConstantCaseFixer: null
+    PhpCsFixer\Fixer\Casing\LowercaseKeywordsFixer: null
+    PhpCsFixer\Fixer\Casing\LowercaseKeywordsFixer: null
+    PhpCsFixer\Fixer\Casing\MagicConstantCasingFixer: null
+    PhpCsFixer\Fixer\Casing\NativeFunctionCasingFixer: null
+    PhpCsFixer\Fixer\CastNotation\CastSpacesFixer: null
+    PhpCsFixer\Fixer\CastNotation\LowercaseCastFixer: null
+    PhpCsFixer\Fixer\CastNotation\ModernizeTypesCastingFixer: null
+    PhpCsFixer\Fixer\CastNotation\NoShortBoolCastFixer: null
+    PhpCsFixer\Fixer\CastNotation\ShortScalarCastFixer: null
+    PhpCsFixer\Fixer\ClassNotation\ClassDefinitionFixer: null
+    PhpCsFixer\Fixer\ClassNotation\ClassDefinitionFixer: null
+    PhpCsFixer\Fixer\ClassNotation\NoBlankLinesAfterClassOpeningFixer: null
+    PhpCsFixer\Fixer\ClassNotation\NoUnneededFinalMethodFixer: null
+    PhpCsFixer\Fixer\ClassNotation\OrderedClassElementsFixer: null
+    PhpCsFixer\Fixer\ClassNotation\ProtectedToPrivateFixer: null
+    PhpCsFixer\Fixer\ClassNotation\SelfAccessorFixer: null
+    PhpCsFixer\Fixer\ClassNotation\VisibilityRequiredFixer: null
+    PhpCsFixer\Fixer\ClassNotation\VisibilityRequiredFixer: null
+    PhpCsFixer\Fixer\Comment\NoEmptyCommentFixer: null
+    PhpCsFixer\Fixer\Comment\NoTrailingWhitespaceInCommentFixer: null
+    PhpCsFixer\Fixer\Comment\NoTrailingWhitespaceInCommentFixer: null
+    PhpCsFixer\Fixer\ControlStructure\ElseifFixer: null
+    PhpCsFixer\Fixer\ControlStructure\ElseifFixer: null
+    PhpCsFixer\Fixer\ControlStructure\IncludeFixer: null
+    PhpCsFixer\Fixer\ControlStructure\NoBreakCommentFixer: null
+    PhpCsFixer\Fixer\ControlStructure\NoBreakCommentFixer: null
+    PhpCsFixer\Fixer\ControlStructure\NoTrailingCommaInListCallFixer: null
+    PhpCsFixer\Fixer\ControlStructure\NoUnneededControlParenthesesFixer: null
+    PhpCsFixer\Fixer\ControlStructure\NoUnneededCurlyBracesFixer: null
+    PhpCsFixer\Fixer\ControlStructure\NoUselessElseFixer: null
+    PhpCsFixer\Fixer\ControlStructure\SwitchCaseSemicolonToColonFixer: null
+    PhpCsFixer\Fixer\ControlStructure\SwitchCaseSemicolonToColonFixer: null
+    PhpCsFixer\Fixer\ControlStructure\SwitchCaseSpaceFixer: null
+    PhpCsFixer\Fixer\ControlStructure\SwitchCaseSpaceFixer: null
+    PhpCsFixer\Fixer\ControlStructure\YodaStyleFixer: null
+    PhpCsFixer\Fixer\FunctionNotation\FunctionDeclarationFixer: null
+    PhpCsFixer\Fixer\FunctionNotation\FunctionDeclarationFixer: null
+    PhpCsFixer\Fixer\FunctionNotation\FunctionTypehintSpaceFixer: null
+    PhpCsFixer\Fixer\FunctionNotation\NoSpacesAfterFunctionNameFixer: null
+    PhpCsFixer\Fixer\FunctionNotation\NoSpacesAfterFunctionNameFixer: null
+    PhpCsFixer\Fixer\FunctionNotation\ReturnTypeDeclarationFixer: null
+    PhpCsFixer\Fixer\FunctionNotation\VoidReturnFixer: null
+    PhpCsFixer\Fixer\Import\NoLeadingImportSlashFixer: null
+    PhpCsFixer\Fixer\Import\NoUnusedImportsFixer: null
+    PhpCsFixer\Fixer\Import\SingleImportPerStatementFixer: null
+    PhpCsFixer\Fixer\Import\SingleImportPerStatementFixer: null
+    PhpCsFixer\Fixer\Import\SingleLineAfterImportsFixer: null
+    PhpCsFixer\Fixer\Import\SingleLineAfterImportsFixer: null
+    PhpCsFixer\Fixer\LanguageConstruct\DeclareEqualNormalizeFixer: null
+    PhpCsFixer\Fixer\LanguageConstruct\DirConstantFixer: null
+    PhpCsFixer\Fixer\LanguageConstruct\ExplicitIndirectVariableFixer: null
+    PhpCsFixer\Fixer\LanguageConstruct\FunctionToConstantFixer: null
+    PhpCsFixer\Fixer\LanguageConstruct\IsNullFixer: null
+    PhpCsFixer\Fixer\LanguageConstruct\SilencedDeprecationErrorFixer: null
+    PhpCsFixer\Fixer\NamespaceNotation\BlankLineAfterNamespaceFixer: null
+    PhpCsFixer\Fixer\NamespaceNotation\BlankLineAfterNamespaceFixer: null
+    PhpCsFixer\Fixer\NamespaceNotation\NoLeadingNamespaceWhitespaceFixer: null
+    PhpCsFixer\Fixer\NamespaceNotation\SingleBlankLineBeforeNamespaceFixer: null
+    PhpCsFixer\Fixer\Naming\NoHomoglyphNamesFixer: null
+    PhpCsFixer\Fixer\Operator\BinaryOperatorSpacesFixer: null
+    PhpCsFixer\Fixer\Operator\IncrementStyleFixer: null
+    PhpCsFixer\Fixer\Operator\NewWithBracesFixer: null
+    PhpCsFixer\Fixer\Operator\ObjectOperatorWithoutWhitespaceFixer: null
+    PhpCsFixer\Fixer\Operator\StandardizeIncrementFixer: null
+    PhpCsFixer\Fixer\Operator\StandardizeNotEqualsFixer: null
+    PhpCsFixer\Fixer\Operator\TernaryOperatorSpacesFixer: null
+    PhpCsFixer\Fixer\Operator\TernaryToNullCoalescingFixer: null
+    PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer: null
+    PhpCsFixer\Fixer\Phpdoc\NoBlankLinesAfterPhpdocFixer: null
+    PhpCsFixer\Fixer\Phpdoc\NoEmptyPhpdocFixer: null
+    PhpCsFixer\Fixer\Phpdoc\PhpdocAnnotationWithoutDotFixer: null
+    PhpCsFixer\Fixer\Phpdoc\PhpdocIndentFixer: null
+    PhpCsFixer\Fixer\Phpdoc\PhpdocInlineTagFixer: null
+    PhpCsFixer\Fixer\Phpdoc\PhpdocLineSpanFixer: null
+    PhpCsFixer\Fixer\Phpdoc\PhpdocNoAccessFixer: null
+    PhpCsFixer\Fixer\Phpdoc\PhpdocNoAliasTagFixer: null
+    PhpCsFixer\Fixer\Phpdoc\PhpdocNoEmptyReturnFixer: null
+    PhpCsFixer\Fixer\Phpdoc\PhpdocNoPackageFixer: null
+    PhpCsFixer\Fixer\Phpdoc\PhpdocNoUselessInheritdocFixer: null
+    PhpCsFixer\Fixer\Phpdoc\PhpdocReturnSelfReferenceFixer: null
+    PhpCsFixer\Fixer\Phpdoc\PhpdocScalarFixer: null
+    PhpCsFixer\Fixer\Phpdoc\PhpdocSeparationFixer: null
+    PhpCsFixer\Fixer\Phpdoc\PhpdocSingleLineVarSpacingFixer: null
+    PhpCsFixer\Fixer\Phpdoc\PhpdocSummaryFixer: null
+    PhpCsFixer\Fixer\Phpdoc\PhpdocToCommentFixer: null
+    PhpCsFixer\Fixer\Phpdoc\PhpdocTrimConsecutiveBlankLineSeparationFixer: null
+    PhpCsFixer\Fixer\Phpdoc\PhpdocTrimFixer: null
+    PhpCsFixer\Fixer\Phpdoc\PhpdocTypesFixer: null
+    PhpCsFixer\Fixer\Phpdoc\PhpdocVarWithoutNameFixer: null
+    PhpCsFixer\Fixer\PhpTag\BlankLineAfterOpeningTagFixer: null
+    PhpCsFixer\Fixer\PhpTag\FullOpeningTagFixer: null
+    PhpCsFixer\Fixer\PhpTag\FullOpeningTagFixer: null
+    PhpCsFixer\Fixer\PhpTag\NoClosingTagFixer: null
+    PhpCsFixer\Fixer\PhpTag\NoClosingTagFixer: null
+    PhpCsFixer\Fixer\PhpUnit\PhpUnitConstructFixer: null
+    PhpCsFixer\Fixer\PhpUnit\PhpUnitDedicateAssertFixer: null
+    PhpCsFixer\Fixer\PhpUnit\PhpUnitFqcnAnnotationFixer: null
+    PhpCsFixer\Fixer\PhpUnit\PhpUnitMethodCasingFixer: null
+    PhpCsFixer\Fixer\PhpUnit\PhpUnitSetUpTearDownVisibilityFixer: null
+    PhpCsFixer\Fixer\PhpUnit\PhpUnitStrictFixer: null
+    PhpCsFixer\Fixer\ReturnNotation\ReturnAssignmentFixer: null
+    PhpCsFixer\Fixer\Semicolon\NoEmptyStatementFixer: null
+    PhpCsFixer\Fixer\Semicolon\NoSinglelineWhitespaceBeforeSemicolonsFixer: null
+    PhpCsFixer\Fixer\Semicolon\SemicolonAfterInstructionFixer: null
+    PhpCsFixer\Fixer\Semicolon\SpaceAfterSemicolonFixer: null
+    PhpCsFixer\Fixer\Strict\StrictComparisonFixer: null
+    PhpCsFixer\Fixer\Strict\StrictParamFixer: null
+    PhpCsFixer\Fixer\StringNotation\ExplicitStringVariableFixer: null
+    PhpCsFixer\Fixer\StringNotation\SingleQuoteFixer: null
+    PhpCsFixer\Fixer\Whitespace\ArrayIndentationFixer: null
+    PhpCsFixer\Fixer\Whitespace\BlankLineBeforeStatementFixer: null
+    PhpCsFixer\Fixer\Whitespace\CompactNullableTypehintFixer: null
+    PhpCsFixer\Fixer\Whitespace\IndentationTypeFixer: null
+    PhpCsFixer\Fixer\Whitespace\IndentationTypeFixer: null
+    PhpCsFixer\Fixer\Whitespace\LineEndingFixer: null
+    PhpCsFixer\Fixer\Whitespace\LineEndingFixer: null
+    PhpCsFixer\Fixer\Whitespace\MethodChainingIndentationFixer: null
+    PhpCsFixer\Fixer\Whitespace\NoSpacesAroundOffsetFixer: null
+    PhpCsFixer\Fixer\Whitespace\NoSpacesInsideParenthesisFixer: null
+    PhpCsFixer\Fixer\Whitespace\NoSpacesInsideParenthesisFixer: null
+    PhpCsFixer\Fixer\Whitespace\NoTrailingWhitespaceFixer: null
+    PhpCsFixer\Fixer\Whitespace\NoTrailingWhitespaceFixer: null
+    PhpCsFixer\Fixer\Whitespace\NoWhitespaceInBlankLineFixer: null
+    PhpCsFixer\Fixer\Whitespace\SingleBlankLineAtEofFixer: null
+    PhpCsFixer\Fixer\Whitespace\SingleBlankLineAtEofFixer: null
+    SlevomatCodingStandard\Sniffs\Classes\DisallowMultiConstantDefinitionSniff: null
+    SlevomatCodingStandard\Sniffs\Classes\DisallowMultiPropertyDefinitionSniff: null
+    SlevomatCodingStandard\Sniffs\Classes\ModernClassNameReferenceSniff: null
+    SlevomatCodingStandard\Sniffs\Classes\ParentCallSpacingSniff: null
+    SlevomatCodingStandard\Sniffs\Classes\TraitUseDeclarationSniff: null
+    SlevomatCodingStandard\Sniffs\Classes\UnusedPrivateElementsSniff: null
+    SlevomatCodingStandard\Sniffs\Commenting\DisallowCommentAfterCodeSniff: null
+    SlevomatCodingStandard\Sniffs\Commenting\EmptyCommentSniff: null
+    SlevomatCodingStandard\Sniffs\ControlStructures\RequireShortTernaryOperatorSniff: null
+    SlevomatCodingStandard\Sniffs\Exceptions\ReferenceThrowableOnlySniff: null
+    SlevomatCodingStandard\Sniffs\Functions\UnusedInheritedVariablePassedToClosureSniff: null
+    SlevomatCodingStandard\Sniffs\Functions\UnusedParameterSniff: null
+    SlevomatCodingStandard\Sniffs\Namespaces\UselessAliasSniff: null
+    SlevomatCodingStandard\Sniffs\Operators\RequireCombinedAssignmentOperatorSniff: null
+    SlevomatCodingStandard\Sniffs\PHP\DisallowDirectMagicInvokeCallSniff: null
+    SlevomatCodingStandard\Sniffs\PHP\UselessParenthesesSniff: null
+    SlevomatCodingStandard\Sniffs\PHP\UselessSemicolonSniff: null
+    SlevomatCodingStandard\Sniffs\TypeHints\NullableTypeForNullDefaultValueSniff: null
+    SlevomatCodingStandard\Sniffs\TypeHints\NullTypeHintOnLastPositionSniff: null
+    SlevomatCodingStandard\Sniffs\Variables\UnusedVariableSniff: null
+    SlevomatCodingStandard\Sniffs\Variables\UselessVariableSniff: null
+    SlevomatCodingStandard\Sniffs\Whitespaces\DuplicateSpacesSniff: null
+    Symplify\CodingStandard\Fixer\Commenting\ParamReturnAndVarTagMalformsFixer: null
+    Symplify\CodingStandard\Fixer\Strict\BlankLineAfterStrictTypesFixer: null
+    PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineEndingsSniff:
+        eolChar: \n
+    PHP_CodeSniffer\Standards\Generic\Sniffs\WhiteSpace\ScopeIndentSniff:
+        ignoreIndentationTokens:
+            - T_COMMENT
+            - T_DOC_COMMENT_OPEN_TAG
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\Functions\FunctionDeclarationArgumentSpacingSniff:
+        equalsSpacing: 1
+    PhpCsFixer\Fixer\FunctionNotation\MethodArgumentSpaceFixer:
+        ensure_fully_multiline: true
+    PhpCsFixer\Fixer\Alias\NoMixedEchoPrintFixer:
+        use: echo
+    PhpCsFixer\Fixer\Comment\SingleLineCommentStyleFixer:
+        comment_types:
+            - hash
+    PhpCsFixer\Fixer\Whitespace\NoExtraBlankLinesFixer:
+        tokens:
+            - curly_brace_block
+            - extra
+            - parenthesis_brace_block
+            - square_brace_block
+            - throw
+            - use
+    PhpCsFixer\Fixer\Phpdoc\PhpdocAlignFixer:
+        tags:
+            - method
+            - param
+            - property
+            - return
+            - throws
+            - type
+            - var
+    PhpCsFixer\Fixer\ArrayNotation\ArraySyntaxFixer:
+        syntax: short
+    PhpCsFixer\Fixer\ClassNotation\SingleClassElementPerStatementFixer:
+        elements: ['property', 'const']
+    PhpCsFixer\Fixer\ClassNotation\ClassDefinitionFixer:
+        singleLine: true
+    PhpCsFixer\Fixer\ControlStructure\YodaStyleFixer:
+        equal: false
+        identical: false
+        less_and_greater: false
+    PhpCsFixer\Fixer\Phpdoc\NoSuperfluousPhpdocTagsFixer:
+        remove_inheritdoc: true
+    PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer:
+        elements: ['const', 'property', 'method']
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\SuperfluousWhitespaceSniff:
+        ignoreBlankLines: true
+    PhpCsFixer\Fixer\Operator\BinaryOperatorSpacesFixer:
+        align_double_arrow: false
+        align_equals: false
+    SlevomatCodingStandard\Sniffs\Classes\TraitUseSpacingSniff:
+        linesCountAfterLastUse: 1
+        linesCountAfterLastUseWhenLastInClass: 0
+        linesCountBeforeFirstUse: 0
+        linesCountBetweenUses: 0
+    PhpCsFixer\Fixer\LanguageConstruct\IsNullFixer:
+        use_yoda_style: false
+    PhpCsFixer\Fixer\Alias\RandomApiMigrationFixer:
+        mt_rand: random_int
+        rand: random_int
+    PhpCsFixer\Fixer\ClassNotation\VisibilityRequiredFixer:
+        elements: [const, method, property]
+    PhpCsFixer\Fixer\ListNotation\ListSyntaxFixer:
+        syntax: short
+    PhpCsFixer\Fixer\Operator\ConcatSpaceFixer:
+        spacing: 'none'
+    PhpCsFixer\Fixer\Import\OrderedImportsFixer:
+        importsOrder:
+            - 'class'
+            - 'function'
+            - 'const'
+    PhpCsFixer\Fixer\LanguageConstruct\DeclareEqualNormalizeFixer:
+        space: 'none'
+    PhpCsFixer\Fixer\Basic\BracesFixer:
+        allow_single_line_closure: false
+        position_after_functions_and_oop_constructs: 'next'
+        position_after_control_structures: 'same'
+        position_after_anonymous_constructs: 'same'
+    PhpCsFixer\Fixer\Basic\NonPrintableCharacterFixer:
+        use_escape_sequences_in_strings: false
+parameters:
+    paths:
+        - 'app'
+        - 'config'
+        - 'database'
+        - 'resources'
+        - 'routes'
+        - 'tests'
+    skip:
+        PHP_CodeSniffer\Standards\Generic\Sniffs\CodeAnalysis\AssignmentInConditionSniff.FoundInWhileCondition: null
+        PhpCsFixer\Fixer\Import\SingleImportPerStatementFixer: null
+        SlevomatCodingStandard\Sniffs\Functions\UnusedParameterSniff.UnusedParameter: null
+        PhpCsFixer\Fixer\Whitespace\NoExtraBlankLinesFixer:
+            - 'config/*'
+            - 'resources/*'
+        PhpCsFixer\Fixer\Phpdoc\PhpdocLineSpanFixer:
+            - 'tests/*'
+        PhpCsFixer\Fixer\PhpUnit\PhpUnitMethodCasingFixer:
+            - 'tests/*'
+        SlevomatCodingStandard\Sniffs\Classes\TraitUseDeclarationSniff:
+            - 'app/Database/Models/*'
+            - 'app/Http/Controllers/*'
