@@ -62,13 +62,13 @@ class Reset extends Component
         return Password::broker();
     }
 
-    protected function guard()
-    {
-        return Auth::guard();
-    }
-
     public function render()
     {
         return view('livewire.auth.passwords.reset');
+    }
+
+    protected function guard()
+    {
+        return Auth::guard();
     }
 }

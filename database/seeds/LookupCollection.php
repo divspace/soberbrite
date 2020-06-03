@@ -133,6 +133,21 @@ class LookupCollection
         return $data->sortBy('name');
     }
 
+    public function setLookupTypes(array $lookupTypes): void
+    {
+        $this->lookupTypes = $lookupTypes;
+    }
+
+    public function setFileDirectory(string $fileDirectory): void
+    {
+        $this->fileDirectory = $fileDirectory;
+    }
+
+    public function setFileExtension(string $fileExtension): void
+    {
+        $this->fileExtension = $fileExtension;
+    }
+
     private function getFileDirectory(): string
     {
         return $this->fileDirectory;
@@ -159,20 +174,5 @@ class LookupCollection
         }
 
         return $data;
-    }
-
-    public function setLookupTypes(array $lookupTypes): void
-    {
-        $this->lookupTypes = $lookupTypes;
-    }
-
-    public function setFileDirectory(string $fileDirectory): void
-    {
-        $this->fileDirectory = $fileDirectory;
-    }
-
-    public function setFileExtension(string $fileExtension): void
-    {
-        $this->fileExtension = $fileExtension;
     }
 }
