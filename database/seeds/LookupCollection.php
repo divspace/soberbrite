@@ -15,16 +15,16 @@ class LookupCollection
 {
     private $lookupFiles;
 
-    private $lookupTypes = [
+    private array $lookupTypes = [
         'areaCodes',
         'countries',
         'states',
         'zipCodes',
     ];
 
-    private $fileDirectory = 'csv';
+    private string $fileDirectory = 'csv';
 
-    private $fileExtension = 'csv';
+    private string $fileExtension = 'csv';
 
     public function __construct()
     {

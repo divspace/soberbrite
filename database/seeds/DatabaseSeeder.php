@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
-    private $tables = [
+    private array $tables = [
         'cities',
         'states',
         'zip_codes',

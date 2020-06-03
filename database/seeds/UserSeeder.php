@@ -9,27 +9,27 @@ use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
 {
-    private $email = 'kyle@soberbrite.com';
+    private string $email = 'kyle@soberbrite.com';
 
-    private $city = 'Scottsdale';
+    private string $city = 'Scottsdale';
 
-    private $state = 'AZ';
+    private string $state = 'AZ';
 
-    private $zipCode = '85251';
+    private string $zipCode = '85251';
 
-    private $street = '3015 N Scottsdale Rd';
+    private string $street = '3015 N Scottsdale Rd';
 
-    private $username = 'soberbrite';
+    private string $username = 'soberbrite';
 
-    private $firstName = 'Kyle';
+    private string $firstName = 'Kyle';
 
-    private $lastName = 'Anderson';
+    private string $lastName = 'Anderson';
 
-    private $gender = 'M';
+    private string $gender = 'M';
 
-    private $birthDate = '1983-12-21';
+    private string $birthDate = '1983-12-21';
 
-    private $sobrietyDate = '2020-03-15';
+    private string $sobrietyDate = '2020-03-15';
 
     public function run(): void
     {
