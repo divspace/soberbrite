@@ -57,6 +57,7 @@ services:
     PhpCsFixer\Fixer\CastNotation\ModernizeTypesCastingFixer: null
     PhpCsFixer\Fixer\CastNotation\NoShortBoolCastFixer: null
     PhpCsFixer\Fixer\CastNotation\ShortScalarCastFixer: null
+    PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer: null
     PhpCsFixer\Fixer\ClassNotation\ClassDefinitionFixer: null
     PhpCsFixer\Fixer\ClassNotation\NoBlankLinesAfterClassOpeningFixer: null
     PhpCsFixer\Fixer\ClassNotation\NoUnneededFinalMethodFixer: null
@@ -222,8 +223,6 @@ services:
         less_and_greater: false
     PhpCsFixer\Fixer\Phpdoc\NoSuperfluousPhpdocTagsFixer:
         remove_inheritdoc: true
-    PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer:
-        elements: ['const', 'property', 'method']
     PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\SuperfluousWhitespaceSniff:
         ignoreBlankLines: true
     PhpCsFixer\Fixer\Operator\BinaryOperatorSpacesFixer:
