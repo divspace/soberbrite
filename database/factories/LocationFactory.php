@@ -13,7 +13,7 @@ $factory->define(Location::class, function (Faker $faker): array {
         'state_id' => fn () => factory(State::class)->create()->id,
         'zip_code_id' => fn () => factory(ZipCode::class)->create()->id,
         'coordinate' => new Point($faker->latitude, $faker->longitude),
-        'timezone_offset' => rand(-10, -4).':00:00',
-        'observes_dst' => rand(0, 1),
+        'timezone_offset' => random_int(-10, -4).':00:00',
+        'observes_dst' => random_int(0, 1),
     ];
 });

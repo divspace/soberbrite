@@ -5,7 +5,7 @@ use App\Database\Models\User;
 use Faker\Generator as Faker;
 
 $factory->define(Profile::class, function (Faker $faker): array {
-    $sex = rand(1, 100) <= 75 ? 'male' : 'female';
+    $sex = random_int(1, 100) <= 75 ? 'male' : 'female';
 
     $phoneNumber = $faker->randomDigitNot(0);
 
