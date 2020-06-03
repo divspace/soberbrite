@@ -2,8 +2,6 @@
 
 namespace App\Database\Models;
 
-use App\Database\Models\Address;
-use App\Database\Models\Profile;
 use App\Database\Traits\HasTimestamps;
 use App\Database\Traits\HasUuid;
 use Illuminate\Contracts\Auth\MustVerifyEmail;

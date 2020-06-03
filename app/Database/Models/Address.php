@@ -2,8 +2,6 @@
 
 namespace App\Database\Models;
 
-use App\Database\Models\Location;
-use App\Database\Models\User;
 use App\Database\Traits\HasTimestamps;
 use App\Database\Traits\HasUuid;
 use Illuminate\Database\Eloquent\Model;

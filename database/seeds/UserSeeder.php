@@ -1,12 +1,9 @@
 <?php
 
 use App\Database\Models\Address;
-use App\Database\Models\City;
 use App\Database\Models\Location;
 use App\Database\Models\Profile;
-use App\Database\Models\State;
 use App\Database\Models\User;
-use App\Database\Models\ZipCode;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Seeder;
 

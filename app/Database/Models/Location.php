@@ -3,9 +3,6 @@
 namespace App\Database\Models;
 
 use App\Database\Casts\Timezone;
-use App\Database\Models\City;
-use App\Database\Models\State;
-use App\Database\Models\ZipCode;
 use App\Database\Traits\HasSpatial;
 use App\Database\Traits\HasTimestamps;
 use Illuminate\Database\Eloquent\Model;
