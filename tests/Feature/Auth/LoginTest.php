@@ -60,7 +60,7 @@ class LoginTest extends TestCase
     /** @test */
     public function email_is_required()
     {
-        $user = factory(User::class)->create(['password' => Hash::make('password')]);
+        factory(User::class)->create(['password' => Hash::make('password')]);
 
         Livewire::test('auth.login')
             ->set('password', 'password')
@@ -71,7 +71,7 @@ class LoginTest extends TestCase
     /** @test */
     public function email_must_be_valid_email()
     {
-        $user = factory(User::class)->create(['password' => Hash::make('password')]);
+        factory(User::class)->create(['password' => Hash::make('password')]);
 
         Livewire::test('auth.login')
             ->set('email', 'invalid-email')

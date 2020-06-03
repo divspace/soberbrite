@@ -47,7 +47,7 @@ class ConfirmTest extends TestCase
     /** @test */
     public function a_user_must_enter_their_own_password_to_confirm_it()
     {
-        $user = factory(User::class)->create([
+        factory(User::class)->create([
             'password' => Hash::make('password'),
         ]);
 
