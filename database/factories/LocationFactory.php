@@ -1,7 +1,7 @@
 <?php
 
-use App\Database\Models\Location;
 use App\Database\Models\City;
+use App\Database\Models\Location;
 use App\Database\Models\State;
 use App\Database\Models\ZipCode;
 use Faker\Generator as Faker;

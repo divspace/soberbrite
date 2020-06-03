@@ -4,8 +4,8 @@ use App\Database\Models\City;
 use App\Database\Models\Location;
 use App\Database\Models\State;
 use App\Database\Models\ZipCode;
-use Illuminate\Database\Seeder;
 use Grimzy\LaravelMysqlSpatial\Types\Point;
+use Illuminate\Database\Seeder;
 
 class LocationSeeder extends Seeder
 {
