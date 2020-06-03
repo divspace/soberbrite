@@ -35,7 +35,7 @@ class Reset extends Component
         $response = $this->broker()->reset([
             'token' => $this->token,
             'email' => $this->email,
-            'password' => $this->password
+            'password' => $this->password,
         ], function ($user, $password): void {
             $user->password = Hash::make($password);
 
