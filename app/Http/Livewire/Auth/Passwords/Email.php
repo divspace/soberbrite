@@ -9,7 +9,7 @@ class Email extends Component
 {
     public $email;
 
-    public $emailSentMessage = false;
+    public bool $emailSentMessage = false;
 
     public function sendResetPasswordLink(): void
     {

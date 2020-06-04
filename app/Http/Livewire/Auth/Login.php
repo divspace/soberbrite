@@ -7,11 +7,11 @@ use Livewire\Component;
 
 class Login extends Component
 {
-    public $email = '';
+    public string $email = '';
 
-    public $password = '';
+    public string $password = '';
 
-    public $remember = false;
+    public bool $remember = false;
 
     public function authenticate(): void
     {
