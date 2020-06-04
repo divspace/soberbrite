@@ -11,7 +11,8 @@
         "analyze": "npm run phpstan; npm run psalm; npm run ecs",
         "ecs": "./vendor/bin/ecs check",
         "phpstan": "./vendor/bin/phpstan analyse",
-        "psalm": "./vendor/bin/psalm"
+        "psalm": "./vendor/bin/psalm",
+        "rector": "./vendor/bin/rector process --dry-run"
     },
     "dependencies": {
         "@tailwindcss/ui": "^0.3.0",
