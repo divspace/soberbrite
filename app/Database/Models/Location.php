@@ -3,7 +3,7 @@
 namespace App\Database\Models;
 
 use App\Database\Casts\Timezone;
-// use App\Database\Traits\HasSpatial;
+use App\Database\Traits\HasSpatial;
 use App\Database\Traits\HasTimestamps;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -52,13 +52,13 @@ final class Location extends Model
         return $this->belongsTo(ZipCode::class);
     }
 
-    // public function longitude(): float
-    // {
-    //     return $this->coordinate->getLng();
-    // }
+    public function longitude(): float
+    {
+        return $this->coordinate->getLng();
+    }
 
-    // public function latitude(): float
-    // {
-    //     return $this->coordinate->getLat();
-    // }
+    public function latitude(): float
+    {
+        return $this->coordinate->getLat();
+    }
 }
