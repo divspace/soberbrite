@@ -7,7 +7,7 @@ use App\Database\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Seeder;
 
-class UserSeeder extends Seeder
+final class UserSeeder extends Seeder
 {
     private string $email = 'kyle@soberbrite.com';
 

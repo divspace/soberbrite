@@ -3,7 +3,7 @@
 use App\Database\Models\State;
 use Illuminate\Database\Seeder;
 
-class StateSeeder extends Seeder
+final class StateSeeder extends Seeder
 {
     public function run(): void
     {

@@ -3,7 +3,7 @@
 use App\Database\Models\City;
 use Illuminate\Database\Seeder;
 
-class CitySeeder extends Seeder
+final class CitySeeder extends Seeder
 {
     public function run(): void
     {

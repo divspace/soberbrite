@@ -3,7 +3,7 @@
 use App\Database\Models\Program;
 use Illuminate\Database\Seeder;
 
-class ProgramSeeder extends Seeder
+final class ProgramSeeder extends Seeder
 {
     public function run(): void
     {

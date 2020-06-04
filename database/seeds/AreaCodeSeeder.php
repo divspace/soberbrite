@@ -4,7 +4,7 @@ use App\Database\Models\AreaCode;
 use App\Database\Models\State;
 use Illuminate\Database\Seeder;
 
-class AreaCodeSeeder extends Seeder
+final class AreaCodeSeeder extends Seeder
 {
     public function run(): void
     {

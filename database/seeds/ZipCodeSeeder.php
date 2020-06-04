@@ -3,7 +3,7 @@
 use App\Database\Models\ZipCode;
 use Illuminate\Database\Seeder;
 
-class ZipCodeSeeder extends Seeder
+final class ZipCodeSeeder extends Seeder
 {
     public function run(): void
     {

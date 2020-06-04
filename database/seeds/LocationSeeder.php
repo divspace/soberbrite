@@ -7,7 +7,7 @@ use App\Database\Models\ZipCode;
 use Grimzy\LaravelMysqlSpatial\Types\Point;
 use Illuminate\Database\Seeder;
 
-class LocationSeeder extends Seeder
+final class LocationSeeder extends Seeder
 {
     public function run(): void
     {

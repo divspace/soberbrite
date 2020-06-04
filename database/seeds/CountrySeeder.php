@@ -3,7 +3,7 @@
 use App\Database\Models\Country;
 use Illuminate\Database\Seeder;
 
-class CountrySeeder extends Seeder
+final class CountrySeeder extends Seeder
 {
     public function run(): void
     {

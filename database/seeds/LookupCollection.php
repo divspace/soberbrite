@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
  * @see https://github.com/stefangabos/world_countries
  * @see https://www.nationalnanpa.com/reports/area_code_relief_planning.html
  */
-class LookupCollection
+final class LookupCollection
 {
     private Collection $lookupFiles;
 
