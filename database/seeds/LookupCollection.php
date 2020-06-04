@@ -13,7 +13,7 @@ use Illuminate\Support\Str;
  */
 class LookupCollection
 {
-    private $lookupFiles;
+    private Collection $lookupFiles;
 
     private array $lookupTypes = [
         'areaCodes',

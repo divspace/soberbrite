@@ -3,9 +3,7 @@
 use App\Database\Models\Country;
 use Faker\Generator as Faker;
 
-$factory->define(Country::class, function (Faker $faker): array {
-    return [
-        'code' => $faker->unique()->countryCode,
-        'name' => $faker->unique()->country,
-    ];
-});
+$factory->define(Country::class, fn(Faker $faker): array => [
+    'code' => $faker->unique()->countryCode,
+    'name' => $faker->unique()->country,
+]);
