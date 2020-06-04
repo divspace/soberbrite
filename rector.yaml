@@ -1,0 +1,239 @@
+parameters:
+    paths:
+        - 'app'
+    exclude_paths:
+        - 'app/Http/Controllers/Auth/*'
+        - 'app/Http/Livewire/*'
+        - 'app/Http/Middleware/RedirectIfAuthenticated.php'
+        - 'app/Providers/RouteServiceProvider.php'
+        - 'app/Database/Traits/HasTimestamps.php'
+        - 'app/Database/Models/User.php'
+        - 'app/Http/Controllers/UserController.php'
+    auto_import_names: true
+    import_short_classes: false
+    import_doc_blocks: false
+    php_version_features: '7.4'
+    exclude_rectors:
+        - 'Rector\SOLID\Rector\Class_\RepeatedLiteralToClassConstantRector'
+services:
+    Rector\CodeQuality\Rector\Array_\CallableThisArrayToAnonymousFunctionRector: null
+    Rector\CodeQuality\Rector\Assign\CombinedAssignRector: null
+    Rector\CodeQuality\Rector\Assign\SplitListAssignToSeparateLineRector: null
+    Rector\CodeQuality\Rector\BinaryOp\InlineIfToExplicitIfRector: null
+    Rector\CodeQuality\Rector\BinaryOp\SimplifyDeMorganBinaryRector: null
+    Rector\CodeQuality\Rector\BooleanAnd\SimplifyEmptyArrayCheckRector: null
+    Rector\CodeQuality\Rector\Catch_\ThrowWithPreviousExceptionRector: null
+    Rector\CodeQuality\Rector\Class_\CompleteDynamicPropertiesRector: null
+    Rector\CodeQuality\Rector\Concat\JoinStringConcatRector: null
+    Rector\CodeQuality\Rector\Equal\UseIdenticalOverEqualWithSameTypeRector: null
+    Rector\CodeQuality\Rector\For_\ForRepeatedCountToOwnVariableRector: null
+    Rector\CodeQuality\Rector\For_\ForToForeachRector: null
+    Rector\CodeQuality\Rector\Foreach_\ForeachItemsAssignToEmptyArrayToAssignRector: null
+    Rector\CodeQuality\Rector\Foreach_\ForeachToInArrayRector: null
+    Rector\CodeQuality\Rector\Foreach_\SimplifyForeachToArrayFilterRector: null
+    Rector\CodeQuality\Rector\Foreach_\SimplifyForeachToCoalescingRector: null
+    Rector\CodeQuality\Rector\Foreach_\UnusedForeachValueToArrayKeysRector: null
+    Rector\CodeQuality\Rector\FuncCall\AddPregQuoteDelimiterRector: null
+    Rector\CodeQuality\Rector\FuncCall\ArrayKeysAndInArrayToArrayKeyExistsRector: null
+    Rector\CodeQuality\Rector\FuncCall\ArrayMergeOfNonArraysToSimpleArrayRector: null
+    Rector\CodeQuality\Rector\FuncCall\ChangeArrayPushToArrayAssignRector: null
+    Rector\CodeQuality\Rector\FuncCall\CompactToVariablesRector: null
+    Rector\CodeQuality\Rector\FuncCall\InArrayAndArrayKeysToArrayKeyExistsRector: null
+    Rector\CodeQuality\Rector\FuncCall\IntvalToTypeCastRector: null
+    Rector\CodeQuality\Rector\FuncCall\IsAWithStringWithThirdArgumentRector: null
+    Rector\CodeQuality\Rector\FuncCall\RemoveSoleValueSprintfRector: null
+    Rector\CodeQuality\Rector\FuncCall\SimplifyFuncGetArgsCountRector: null
+    Rector\CodeQuality\Rector\FuncCall\SimplifyInArrayValuesRector: null
+    Rector\CodeQuality\Rector\FuncCall\SimplifyRegexPatternRector: null
+    Rector\CodeQuality\Rector\FuncCall\SimplifyStrposLowerRector: null
+    Rector\CodeQuality\Rector\FuncCall\SingleInArrayToCompareRector: null
+    Rector\CodeQuality\Rector\FuncCall\StrlenZeroToIdenticalEmptyStringRector: null
+    Rector\CodeQuality\Rector\Identical\BooleanNotIdenticalToNotIdenticalRector: null
+    Rector\CodeQuality\Rector\Identical\GetClassToInstanceOfRector: null
+    Rector\CodeQuality\Rector\Identical\SimplifyArraySearchRector: null
+    Rector\CodeQuality\Rector\Identical\SimplifyBoolIdenticalTrueRector: null
+    Rector\CodeQuality\Rector\Identical\SimplifyConditionsRector: null
+    Rector\CodeQuality\Rector\If_\CombineIfRector: null
+    Rector\CodeQuality\Rector\If_\ConsecutiveNullCompareReturnsToNullCoalesceQueueRector: null
+    Rector\CodeQuality\Rector\If_\ExplicitBoolCompareRector: null
+    Rector\CodeQuality\Rector\If_\RemoveAlwaysTrueConditionSetInConstructorRector: null
+    Rector\CodeQuality\Rector\If_\ShortenElseIfRector: null
+    Rector\CodeQuality\Rector\If_\SimplifyIfElseToTernaryRector: null
+    Rector\CodeQuality\Rector\If_\SimplifyIfIssetToNullCoalescingRector: null
+    Rector\CodeQuality\Rector\If_\SimplifyIfNotNullReturnRector: null
+    Rector\CodeQuality\Rector\If_\SimplifyIfReturnBoolRector: null
+    Rector\CodeQuality\Rector\Include_\AbsolutizeRequireAndIncludePathRector: null
+    Rector\CodeQuality\Rector\LogicalAnd\AndAssignsToSeparateLinesRector: null
+    Rector\CodeQuality\Rector\Return_\SimplifyUselessVariableRector: null
+    Rector\CodeQuality\Rector\Ternary\ArrayKeyExistsTernaryThenValueToCoalescingRector: null
+    Rector\CodeQuality\Rector\Ternary\SimplifyDuplicatedTernaryRector: null
+    Rector\CodeQuality\Rector\Ternary\SimplifyTautologyTernaryRector: null
+    Rector\CodeQuality\Rector\Ternary\UnnecessaryTernaryExpressionRector: null
+
+    Rector\DeadCode\Rector\Array_\RemoveDuplicatedArrayKeyRector: null
+    Rector\DeadCode\Rector\Assign\RemoveAssignOfVoidReturnFunctionRector: null
+    Rector\DeadCode\Rector\Assign\RemoveDoubleAssignRector: null
+    Rector\DeadCode\Rector\Assign\RemoveUnusedVariableAssignRector: null
+    Rector\DeadCode\Rector\BooleanAnd\RemoveAndTrueRector: null
+    Rector\DeadCode\Rector\Class_\RemoveSetterOnlyPropertyAndMethodCallRector: null
+    Rector\DeadCode\Rector\Class_\RemoveUnusedClassesRector: null
+    Rector\DeadCode\Rector\Class_\RemoveUnusedDoctrineEntityMethodAndPropertyRector: null
+    Rector\DeadCode\Rector\ClassConst\RemoveUnusedClassConstantRector: null
+    Rector\DeadCode\Rector\ClassConst\RemoveUnusedPrivateConstantRector: null
+    Rector\DeadCode\Rector\ClassMethod\RemoveDeadConstructorRector: null
+    Rector\DeadCode\Rector\ClassMethod\RemoveDeadRecursiveClassMethodRector: null
+    Rector\DeadCode\Rector\ClassMethod\RemoveDelegatingParentCallRector: null
+    Rector\DeadCode\Rector\ClassMethod\RemoveEmptyClassMethodRector: null
+    Rector\DeadCode\Rector\ClassMethod\RemoveOverriddenValuesRector: null
+    Rector\DeadCode\Rector\ClassMethod\RemoveUnusedParameterRector: null
+    Rector\DeadCode\Rector\ClassMethod\RemoveUnusedPrivateMethodRector: null
+    Rector\DeadCode\Rector\Concat\RemoveConcatAutocastRector: null
+    Rector\DeadCode\Rector\Expression\SimplifyMirrorAssignRector: null
+    Rector\DeadCode\Rector\For_\RemoveDeadIfForeachForRector: null
+    Rector\DeadCode\Rector\Foreach_\RemoveUnusedForeachKeyRector: null
+    Rector\DeadCode\Rector\Function_\RemoveUnusedFunctionRector: null
+    Rector\DeadCode\Rector\FunctionLike\RemoveCodeAfterReturnRector: null
+    Rector\DeadCode\Rector\FunctionLike\RemoveDeadReturnRector: null
+    Rector\DeadCode\Rector\FunctionLike\RemoveDuplicatedIfReturnRector: null
+    Rector\DeadCode\Rector\If_\RemoveUnusedNonEmptyArrayBeforeForeachRector: null
+    Rector\DeadCode\Rector\If_\SimplifyIfElseWithSameContentRector: null
+    Rector\DeadCode\Rector\Instanceof_\RemoveDuplicatedInstanceOfRector: null
+    Rector\DeadCode\Rector\MethodCall\RemoveDefaultArgumentValueRector: null
+    Rector\DeadCode\Rector\Property\RemoveNullPropertyInitializationRector: null
+    Rector\DeadCode\Rector\Property\RemoveUnusedPrivatePropertyRector: null
+    Rector\DeadCode\Rector\StaticCall\RemoveParentCallWithoutParentRector: null
+    Rector\DeadCode\Rector\Stmt\RemoveDeadStmtRector: null
+    Rector\DeadCode\Rector\Stmt\RemoveUnreachableStatementRector: null
+    Rector\DeadCode\Rector\Switch_\RemoveDuplicatedCaseInSwitchRector: null
+    Rector\DeadCode\Rector\Ternary\TernaryToBooleanOrFalseToBooleanAndRector: null
+    Rector\DeadCode\Rector\TryCatch\RemoveDeadTryCatchRector: null
+
+    Rector\Naming\Rector\Class_\RenamePropertyToMatchTypeRector: null
+
+    Rector\Order\Rector\Class_\OrderPrivateMethodsByUseRector: null
+    # Rector\Order\Rector\Class_\OrderPropertyByComplexityRector: null
+    Rector\Order\Rector\Class_\OrderPublicInterfaceMethodRector: null
+
+    Rector\Php71\Rector\Assign\AssignArrayToStringRector: null
+    Rector\Php71\Rector\BinaryOp\BinaryOpBetweenNumberAndStringRector: null
+    Rector\Php71\Rector\BinaryOp\IsIterableRector: null
+    Rector\Php71\Rector\FuncCall\CountOnNullRector: null
+    Rector\Php71\Rector\FuncCall\RemoveExtraParametersRector: null
+    Rector\Php71\Rector\List_\ListToArrayDestructRector: null
+    Rector\Php71\Rector\TryCatch\MultiExceptionCatchRector: null
+
+    Rector\Php72\Rector\ConstFetch\BarewordStringRector: null
+    Rector\Php72\Rector\Each\ListEachRector: null
+    Rector\Php72\Rector\Each\WhileEachToForeachRector: null
+    Rector\Php72\Rector\FuncCall\CreateFunctionToAnonymousFunctionRector: null
+    Rector\Php72\Rector\FuncCall\GetClassOnNullRector: null
+    Rector\Php72\Rector\FuncCall\IsObjectOnIncompleteClassRector: null
+    Rector\Php72\Rector\FuncCall\ParseStrWithResultArgumentRector: null
+    Rector\Php72\Rector\FuncCall\StringifyDefineRector: null
+    Rector\Php72\Rector\FuncCall\StringsAssertNakedRector: null
+    Rector\Php72\Rector\Unset_\UnsetCastRector: null
+
+    Rector\Php73\Rector\BinaryOp\IsCountableRector: null
+    Rector\Php73\Rector\FuncCall\ArrayKeyFirstLastRector: null
+    Rector\Php73\Rector\FuncCall\SensitiveDefineRector: null
+    Rector\Php73\Rector\ConstFetch\SensitiveConstantNameRector: null
+    Rector\Php73\Rector\String_\SensitiveHereNowDocRector: null
+    Rector\Php73\Rector\FuncCall\StringifyStrNeedlesRector: null
+    Rector\Php73\Rector\FuncCall\JsonThrowOnErrorRector: null
+    Rector\Php73\Rector\FuncCall\RegexDashEscapeRector: null
+    Rector\Php73\Rector\FuncCall\RemoveMissingCompactVariableRector: null
+
+    Rector\Php74\Rector\Assign\NullCoalescingOperatorRector: null
+    Rector\Php74\Rector\Closure\ClosureToArrowFunctionRector: null
+    Rector\Php74\Rector\Double\RealToFloatTypeCastRector: null
+    Rector\Php74\Rector\FuncCall\ArrayKeyExistsOnPropertyRector: null
+    Rector\Php74\Rector\FuncCall\ArraySpreadInsteadOfArrayMergeRector: null
+    Rector\Php74\Rector\FuncCall\FilterVarToAddSlashesRector: null
+    Rector\Php74\Rector\FuncCall\GetCalledClassToStaticClassRector: null
+    Rector\Php74\Rector\FuncCall\MbStrrposEncodingArgumentPositionRector: null
+    Rector\Php74\Rector\Function_\ReservedFnFunctionRector: null
+    Rector\Php74\Rector\LNumber\AddLiteralSeparatorToNumberRector: null
+    Rector\Php74\Rector\MagicConstClass\ClassConstantToSelfClassRector: null
+    Rector\Php74\Rector\MethodCall\ChangeReflectionTypeToStringToGetNameRector: null
+    Rector\Php74\Rector\Property\RestoreDefaultNullToNullableTypePropertyRector: null
+    Rector\Php74\Rector\Property\TypedPropertyRector: null
+    Rector\Php74\Rector\StaticCall\ExportToReflectionFunctionRector: null
+
+    Rector\PHPUnit\Rector\ClassMethod\RemoveEmptyTestMethodRector: null
+
+    Rector\Renaming\Rector\Function_\RenameFunctionRector:
+        $oldFunctionToNewFunction:
+            is_real: 'is_float'
+            apache_request_headers: 'getallheaders'
+            hebrevc: ['nl2br', 'hebrev']
+
+    Rector\SOLID\Rector\Class_\FinalizeClassesWithoutChildrenRector: null
+    Rector\SOLID\Rector\Class_\MakeUnusedClassesWithChildrenAbstractRector: null
+    Rector\SOLID\Rector\Class_\RepeatedLiteralToClassConstantRector: null
+    Rector\SOLID\Rector\ClassMethod\ChangeReadOnlyVariableWithDefaultValueToConstantRector: null
+    Rector\SOLID\Rector\ClassMethod\UseInterfaceOverImplementationInConstructorRector: null
+    Rector\SOLID\Rector\Foreach_\ChangeNestedForeachIfsToEarlyContinueRector: null
+    Rector\SOLID\Rector\If_\ChangeIfElseValueAssignToEarlyReturnRector: null
+    Rector\SOLID\Rector\If_\ChangeNestedIfsToEarlyReturnRector: null
+    Rector\SOLID\Rector\If_\RemoveAlwaysElseRector: null
+    Rector\SOLID\Rector\Property\AddFalseDefaultToBoolPropertyRector: null
+    Rector\SOLID\Rector\Property\ChangeReadOnlyPropertyWithDefaultValueToConstantRector: null
+
+    Rector\TypeDeclaration\Rector\Closure\AddClosureReturnTypeRector: null
+    Rector\TypeDeclaration\Rector\FunctionLike\ParamTypeDeclarationRector: null
+    Rector\TypeDeclaration\Rector\FunctionLike\ReturnTypeDeclarationRector: null
+
+    Rector\Laravel\Rector\StaticCall\FacadeStaticCallToConstructorInjectionRector: null
+    Rector\Laravel\Rector\StaticCall\RequestStaticValidateToInjectRector: null
+    # Rector\Laravel\Rector\FuncCall\HelperFunctionToConstructorInjectionRector: null
+
+    Rector\Core\Rector\FuncCall\FunctionToNewRector:
+        $functionToNew:
+            collect: 'Illuminate\Support\Collection'
+
+    Rector\Core\Rector\Function_\FunctionToStaticCallRector:
+        $functionToStaticCall:
+            array_add: ['Illuminate\Support\Arr', 'add']
+            array_collapse: ['Illuminate\Support\Arr', 'collapse']
+            array_divide: ['Illuminate\Support\Arr', 'divide']
+            array_dot: ['Illuminate\Support\Arr', 'dot']
+            array_except: ['Illuminate\Support\Arr', 'except']
+            array_first: ['Illuminate\Support\Arr', 'first']
+            array_flatten: ['Illuminate\Support\Arr', 'flatten']
+            array_forget': ['Illuminate\Support\Arr', 'forget']
+            array_get: ['Illuminate\Support\Arr', 'get']
+            array_has: ['Illuminate\Support\Arr', 'has']
+            array_last: ['Illuminate\Support\Arr', 'last']
+            array_only: ['Illuminate\Support\Arr', 'only']
+            array_pluck: ['Illuminate\Support\Arr', 'pluck']
+            array_prepend: ['Illuminate\Support\Arr', 'prepend']
+            array_pull': ['Illuminate\Support\Arr', 'pull']
+            array_random: ['Illuminate\Support\Arr', 'random']
+            array_set': ['Illuminate\Support\Arr', 'set']
+            array_sort: ['Illuminate\Support\Arr', 'sort']
+            array_sort_recursive: ['Illuminate\Support\Arr', 'sortRecursive']
+            array_where: ['Illuminate\Support\Arr', 'where']
+            array_wrap: ['Illuminate\Support\Arr', 'wrap']
+            array_pull: ['Illuminate\Support\Arr', 'pull']
+            array_set: ['Illuminate\Support\Arr', 'set']
+            camel_case: ['Illuminate\Support\Str', 'camel']
+            ends_with: ['Illuminate\Support\Str', 'endsWith']
+            kebab_case: ['Illuminate\Support\Str', 'kebab']
+            snake_case: ['Illuminate\Support\Str', 'snake']
+            starts_with: ['Illuminate\Support\Str', 'startsWith']
+            str_after: ['Illuminate\Support\Str', 'after']
+            str_before: ['Illuminate\Support\Str', 'before']
+            str_contains: ['Illuminate\Support\Str', 'contains']
+            str_finish: ['Illuminate\Support\Str', 'finish']
+            str_is: ['Illuminate\Support\Str', 'is']
+            str_limit: ['Illuminate\Support\Str', 'limit']
+            str_plural: ['Illuminate\Support\Str', 'plural']
+            str_random: ['Illuminate\Support\Str', 'random']
+            str_replace_array: ['Illuminate\Support\Str', 'replaceArray']
+            str_replace_first: ['Illuminate\Support\Str', 'replaceFirst']
+            str_replace_last: ['Illuminate\Support\Str', 'replaceLast']
+            str_singular: ['Illuminate\Support\Str', 'singular']
+            str_slug: ['Illuminate\Support\Str', 'slug']
+            str_start: ['Illuminate\Support\Str', 'start']
+            studly_case: ['Illuminate\Support\Str', 'studly']
+            title_case: ['Illuminate\Support\Str', 'title']
