@@ -13,13 +13,13 @@ class Handler extends ExceptionHandler
         'password_confirmation',
     ];
 
-    public function report(Throwable $exception): void
+    public function report(Throwable $throwable): void
     {
-        parent::report($exception);
+        parent::report($throwable);
     }
 
-    public function render($request, Throwable $exception): Response
+    public function render($request, Throwable $throwable): Response
     {
-        return parent::render($request, $exception);
+        return parent::render($request, $throwable);
     }
 }
