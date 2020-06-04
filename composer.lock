@@ -5521,16 +5521,16 @@
         },
         {
             "name": "composer/xdebug-handler",
-            "version": "1.4.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/xdebug-handler.git",
-                "reference": "1ab9842d69e64fb3a01be6b656501032d1b78cb7"
+                "reference": "fa2aaf99e2087f013a14f7432c1cd2dd7d8f1f51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/1ab9842d69e64fb3a01be6b656501032d1b78cb7",
-                "reference": "1ab9842d69e64fb3a01be6b656501032d1b78cb7",
+                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/fa2aaf99e2087f013a14f7432c1cd2dd7d8f1f51",
+                "reference": "fa2aaf99e2087f013a14f7432c1cd2dd7d8f1f51",
                 "shasum": ""
             },
             "require": {
@@ -5565,9 +5565,17 @@
                 {
                     "url": "https://packagist.com",
                     "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
                 }
             ],
-            "time": "2020-03-01T12:26:26+00:00"
+            "time": "2020-06-04T11:16:35+00:00"
         },
         {
             "name": "dealerdirect/phpcodesniffer-composer-installer",
@@ -8314,16 +8322,16 @@
         },
         {
             "name": "rector/rector",
-            "version": "v0.7.27",
+            "version": "v0.7.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "2ffa377b8a0aaaadc0e81e019b89e5b24b2dbaef"
+                "reference": "d964757759a39ac2d3974bf7c0a5aece7304f819"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/2ffa377b8a0aaaadc0e81e019b89e5b24b2dbaef",
-                "reference": "2ffa377b8a0aaaadc0e81e019b89e5b24b2dbaef",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/d964757759a39ac2d3974bf7c0a5aece7304f819",
+                "reference": "d964757759a39ac2d3974bf7c0a5aece7304f819",
                 "shasum": ""
             },
             "require": {
@@ -8335,12 +8343,12 @@
                 "jetbrains/phpstorm-stubs": "^2019.3",
                 "nette/robot-loader": "^3.2",
                 "nette/utils": "^3.1",
-                "nikic/php-parser": "^4.4",
+                "nikic/php-parser": "^4.5",
                 "ondram/ci-detector": "^3.4",
                 "php": "^7.2.4",
                 "phpstan/phpdoc-parser": "^0.4.7",
                 "phpstan/phpstan": "^0.12.25",
-                "phpstan/phpstan-phpunit": "^0.12",
+                "phpstan/phpstan-phpunit": "^0.12.10",
                 "psr/simple-cache": "^1.0",
                 "sebastian/diff": "^3.0|^4.0",
                 "symfony/cache": "^4.4.8|^5.0.6",
@@ -8498,7 +8506,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2020-05-30T17:42:29+00:00"
+            "time": "2020-06-04T14:45:57+00:00"
         },
         {
             "name": "scrivo/highlight.php",
