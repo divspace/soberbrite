@@ -48,7 +48,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(Profile::class);
     }
 
-    public function resolveRouteBinding($value, $field = null)
+    public function resolveRouteBinding($value, $field = null): User
     {
         if (Str::isUuid($value)) {
             return $this->where('id', $value)->firstOrFail();
