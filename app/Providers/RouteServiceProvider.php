@@ -5,10 +5,8 @@ namespace App\Providers;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 
-class RouteServiceProvider extends ServiceProvider
+final class RouteServiceProvider extends ServiceProvider
 {
-    public const HOME = '/';
-
     protected $namespace = 'App\Http\Controllers';
 
     public function boot(): void

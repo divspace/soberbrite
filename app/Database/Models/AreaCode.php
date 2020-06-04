@@ -6,7 +6,7 @@ use App\Database\Traits\HasTimestamps;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class AreaCode extends Model
+final class AreaCode extends Model
 {
     use HasTimestamps;
 

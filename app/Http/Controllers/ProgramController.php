@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Database\Models\Program;
 use Illuminate\View\View;
 
-class ProgramController extends Controller
+final class ProgramController extends Controller
 {
     public function index(): View
     {

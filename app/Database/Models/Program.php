@@ -6,7 +6,7 @@ use App\Database\Traits\HasTimestamps;
 use App\Database\Traits\HasUuid;
 use Illuminate\Database\Eloquent\Model;
 
-class Program extends Model
+final class Program extends Model
 {
     use HasTimestamps, HasUuid;
 

@@ -6,7 +6,7 @@ use App\Database\Traits\HasTimestamps;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class ZipCode extends Model
+final class ZipCode extends Model
 {
     use HasTimestamps;
 

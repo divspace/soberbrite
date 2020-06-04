@@ -6,7 +6,7 @@ use Illuminate\Database\Connectors\ConnectionFactory;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Support\ServiceProvider;
 
-class DatabaseServiceProvider extends ServiceProvider
+final class DatabaseServiceProvider extends ServiceProvider
 {
     /**
      * Reset the binded database manager and connection back to default.

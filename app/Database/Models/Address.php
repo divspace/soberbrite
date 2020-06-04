@@ -7,7 +7,7 @@ use App\Database\Traits\HasUuid;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Address extends Model
+final class Address extends Model
 {
     use HasTimestamps, HasUuid;
 

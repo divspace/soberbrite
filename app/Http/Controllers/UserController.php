@@ -6,7 +6,7 @@ use App\Database\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\View;
 
-class UserController extends Controller
+final class UserController extends Controller
 {
     public function index(): Collection
     {

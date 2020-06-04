@@ -3,12 +3,13 @@
 namespace App\Database\Casts;
 
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
+use Illuminate\Support\Str;
 
-class Timezone implements CastsAttributes
+final class Timezone implements CastsAttributes
 {
     public function get($model, string $key, $value, array $attributes): string
     {
-        return substr($value, 0, 6);
+        return Str::beforeLast($value, ':');
     }
 
     public function set($model, string $key, $value, array $attributes): string

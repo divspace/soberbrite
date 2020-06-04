@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Auth\Passwords;
 use Illuminate\View\View;
 use Livewire\Component;
 
-class Confirm extends Component
+final class Confirm extends Component
 {
     public string $password = '';
 

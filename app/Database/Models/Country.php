@@ -5,7 +5,7 @@ namespace App\Database\Models;
 use App\Database\Traits\HasTimestamps;
 use Illuminate\Database\Eloquent\Model;
 
-class Country extends Model
+final class Country extends Model
 {
     use HasTimestamps;
 
