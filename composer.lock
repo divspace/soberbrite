@@ -8322,16 +8322,16 @@
         },
         {
             "name": "rector/rector",
-            "version": "v0.7.28",
+            "version": "v0.7.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "d964757759a39ac2d3974bf7c0a5aece7304f819"
+                "reference": "f2f4bf365336a5d18a9eb3aa8f2b268f298e1bae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/d964757759a39ac2d3974bf7c0a5aece7304f819",
-                "reference": "d964757759a39ac2d3974bf7c0a5aece7304f819",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/f2f4bf365336a5d18a9eb3aa8f2b268f298e1bae",
+                "reference": "f2f4bf365336a5d18a9eb3aa8f2b268f298e1bae",
                 "shasum": ""
             },
             "require": {
@@ -8506,7 +8506,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2020-06-04T14:45:57+00:00"
+            "time": "2020-06-05T10:06:22+00:00"
         },
         {
             "name": "scrivo/highlight.php",
@@ -9307,12 +9307,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "a67fa8c2c035da818579963e1a98c4718e931950"
+                "reference": "d433062ee6be8bf2b0700f207f7426efc5cb7f73"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/a67fa8c2c035da818579963e1a98c4718e931950",
-                "reference": "a67fa8c2c035da818579963e1a98c4718e931950",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/d433062ee6be8bf2b0700f207f7426efc5cb7f73",
+                "reference": "d433062ee6be8bf2b0700f207f7426efc5cb7f73",
                 "shasum": ""
             },
             "require": {
@@ -9325,10 +9325,10 @@
                 "phing/phing": "2.16.3",
                 "php-parallel-lint/php-parallel-lint": "1.2.0",
                 "phpstan/phpstan": "0.12.25",
-                "phpstan/phpstan-deprecation-rules": "0.12.3",
-                "phpstan/phpstan-phpunit": "0.12.8",
+                "phpstan/phpstan-deprecation-rules": "0.12.4",
+                "phpstan/phpstan-phpunit": "0.12.11",
                 "phpstan/phpstan-strict-rules": "0.12.2",
-                "phpunit/phpunit": "7.5.20|8.5.2|9.1.4"
+                "phpunit/phpunit": "7.5.20|8.5.2|9.2.1"
             },
             "type": "phpcodesniffer-standard",
             "extra": {
@@ -9356,7 +9356,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-05-27T18:15:46+00:00"
+            "time": "2020-06-05T18:18:52+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
