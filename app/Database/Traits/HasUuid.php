@@ -63,7 +63,7 @@ trait HasUuid
             ? $uuidColumn
             : $this->uuidColumns()[0];
 
-        $uuid = array_map(fn($uuid): string => Str::lower($uuid), Arr::wrap($uuid));
+        $uuid = array_map(fn ($uuid): string => Str::lower($uuid), Arr::wrap($uuid));
 
         if ($this->isClassCastable($uuidColumn)) {
             $uuid = $this->bytesFromUuid($uuid);
