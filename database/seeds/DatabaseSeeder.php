@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -19,7 +20,7 @@ final class DatabaseSeeder extends Seeder
 
     public function run(): void
     {
-        collect($this->tables)->each(function ($table): void {
+        (new Collection($this->tables))->each(function ($table): void {
             if (DB::table($table)->count() === 0) {
                 $this->call(Str::of($table)->studly()->singular().'Seeder'::class);
             }

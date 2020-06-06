@@ -2,12 +2,13 @@
 
 use App\Database\Models\Program;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Collection;
 
 final class ProgramSeeder extends Seeder
 {
     public function run(): void
     {
-        $programs = collect([
+        $programs = new Collection([
             [
                 'program_type_id' => 2,
                 'name' => 'Adult Children of Alcoholics',
