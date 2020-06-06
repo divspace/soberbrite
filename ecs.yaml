@@ -278,5 +278,5 @@ parameters:
         PhpCsFixer\Fixer\PhpUnit\PhpUnitMethodCasingFixer:
             - 'tests/*'
         SlevomatCodingStandard\Sniffs\Classes\TraitUseDeclarationSniff:
-            - 'app/Database/Models/*'
-            - 'app/Http/Controllers/*'
+            # - 'app/Database/Models/*'
+            # - 'app/Http/Controllers/*'

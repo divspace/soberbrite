@@ -14,17 +14,12 @@
         "psalm": "./vendor/bin/psalm",
         "rector": "./vendor/bin/rector process --dry-run"
     },
-    "dependencies": {
-        "@tailwindcss/ui": "^0.3.0",
-        "alpinejs": "^2.3.5",
-        "tailwindcss": "^1.4.6"
-    },
+    "dependencies": {},
     "devDependencies": {
         "cross-env": "^7.0.2",
         "laravel-mix": "^5.0.4",
-        "laravel-mix-tailwind": "^0.1.0",
         "resolve-url-loader": "^3.1.0",
-        "sass": "^1.26.5",
+        "sass": "^1.26.8",
         "sass-loader": "^8.0.2",
         "vue-template-compiler": "^2.6.11"
     }
