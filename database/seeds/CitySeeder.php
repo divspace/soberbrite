@@ -7,7 +7,7 @@ final class CitySeeder extends Seeder
 {
     public function run(): void
     {
-        (new LookupCollection())->getCities()->each(function ($city): void {
+        (new Lookup('cities'))->get()->each(function (array $city): void {
             factory(City::class)->create([
                 'name' => $city,
             ]);

@@ -11,7 +11,7 @@ final class LocationSeeder extends Seeder
 {
     public function run(): void
     {
-        (new LookupCollection())->getLocations()->each(function ($location): void {
+        (new Lookup('locations'))->get()->each(function (array $location): void {
             $city = City::where('name', $location['cityName'])->first();
             $state = State::where('code', $location['stateCode'])->first();
             $zipCode = ZipCode::where('code', $location['zipCode'])->first();

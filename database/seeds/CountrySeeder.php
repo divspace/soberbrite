@@ -7,9 +7,9 @@ final class CountrySeeder extends Seeder
 {
     public function run(): void
     {
-        (new LookupCollection())->getCountries()->each(function ($country): void {
+        (new Lookup('countries'))->get()->each(function (array $country): void {
             factory(Country::class)->create([
-                'code' => $country['code'],
+                'code' => strtoupper($country['code']),
                 'name' => $country['name'],
             ]);
         });

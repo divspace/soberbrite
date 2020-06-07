@@ -20,7 +20,7 @@ final class DatabaseSeeder extends Seeder
 
     public function run(): void
     {
-        (new Collection($this->tables))->each(function ($table): void {
+        (new Collection($this->tables))->each(function (string $table): void {
             if (DB::table($table)->count() === 0) {
                 $this->call(Str::of($table)->studly()->singular().'Seeder'::class);
             }
