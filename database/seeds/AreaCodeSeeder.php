@@ -13,10 +13,10 @@ final class AreaCodeSeeder extends Seeder
             $state = State::where('code', $stateCode)->first();
 
             if (isset($state)) {
-                $areaCodes->each(function (string $code) use ($state): void {
+                $areaCodes->each(function (string $areaCode) use ($state): void {
                     factory(AreaCode::class)->create([
                         'state_id' => $state->id,
-                        'code' => $code,
+                        'code' => $areaCode,
                     ]);
                 });
             }
