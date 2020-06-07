@@ -90,7 +90,16 @@ final class Lookup
     {
         $this->locations();
 
-        $this->data = $this->data->pluck('cityName')->unique()->sort();
+        $this->data = $this->data
+            ->pluck('cityName')
+            ->unique()
+            ->sort()
+            ->values()
+            ->transform(function (string $city): array {
+                return [
+                    'name' => $city,
+                ];
+            });
     }
 
     private function countries(): void
@@ -110,10 +119,10 @@ final class Lookup
                 'cityName' => $item[1],
                 'stateCode' => $item[2],
                 'zipCode' => $item[0],
-                'latitude' => (float) $item[3],
-                'longitude' => (float) $item[4],
-                'timezoneOffset' => (int) $item[5],
-                'observesDst' => (bool) $item[6],
+                'latitude' => $item[3],
+                'longitude' => $item[4],
+                'timezoneOffset' => $item[5],
+                'observesDst' => $item[6],
             ];
         });
     }
@@ -132,6 +141,14 @@ final class Lookup
     {
         $this->locations();
 
-        $this->data = $this->data->pluck('zipCode')->sort();
+        $this->data = $this->data
+            ->pluck('zipCode')
+            ->sort()
+            ->values()
+            ->transform(function (string $zipCode): array {
+                return [
+                    'code' => $zipCode,
+                ];
+            });
     }
 }
