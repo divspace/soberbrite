@@ -13,7 +13,8 @@ class CreateLocationsTable extends Migration
             $table->integer('city_id')->unsigned();
             $table->tinyInteger('state_id')->unsigned();
             $table->smallInteger('zip_code_id')->unsigned();
-            $table->point('coordinate');
+            $table->decimal('latitude', 8, 6);
+            $table->decimal('longitude', 9, 6);
             $table->time('timezone_offset');
             $table->boolean('observes_dst')->default(1);
             $table->timestamps();
@@ -23,7 +24,6 @@ class CreateLocationsTable extends Migration
             $table->foreign('zip_code_id')->references('id')->on('zip_codes');
 
             $table->unique(['city_id', 'state_id', 'zip_code_id']);
-            $table->spatialIndex('coordinate');
         });
     }
 
