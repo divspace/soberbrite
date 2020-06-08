@@ -10,7 +10,8 @@ final class StateSeeder extends Seeder
 
     private Collection $insertData;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->timestamp = Carbon::now();
     }
 
