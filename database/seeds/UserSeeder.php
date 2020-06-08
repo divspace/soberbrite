@@ -47,7 +47,7 @@ final class UserSeeder extends Seeder
             'sobriety_date' => $this->sobrietyDate,
         ]);
 
-        factory(User::class, 50)->create()->each(function (User $user): void {
+        factory(User::class, 10)->create()->each(function (User $user): void {
             $user->address()->save(factory(Address::class)->make());
             $user->profile()->save(factory(Profile::class)->make());
         });
