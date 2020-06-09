@@ -13,36 +13,24 @@ use Illuminate\Support\Str;
  */
 final class Lookup
 {
-    private array $lookups = [
-        'areaCodes' => 'areaCodes',
-        'cities' => 'zipCodes',
-        'countries' => 'countries',
-        'locations' => 'zipCodes',
-        'states' => 'states',
-        'zipCodes' => 'zipCodes',
-    ];
-
-    private Collection $csv;
-
     private Collection $data;
 
-    private string $delimiter;
+    private Collection $file;
 
     public function __construct(string $method)
     {
         if (method_exists(self::class, $method)) {
-            $fileName = Str::kebab($this->lookups[$method]).'.csv';
-            $filePath = storage_path('csv/'.$fileName);
+            $filePath = $this->getFilePath($method);
 
             if (file_exists($filePath)) {
-                $this->csv = (new Collection(
+                $this->file = (new Collection(
                     file($filePath, FILE_IGNORE_NEW_LINES)
                 ));
 
-                $this->detectDelimiter($this->csv->shift());
+                $delimiter = $this->detectDelimiter($this->file->shift());
 
-                $this->csv->transform(function (string $line): array {
-                    return str_getcsv($line, $this->delimiter);
+                $this->file->transform(static function (string $line) use ($delimiter): array {
+                    return str_getcsv($line, $delimiter);
                 });
 
                 $this->{$method}();
@@ -52,7 +40,7 @@ final class Lookup
 
     public function __destruct()
     {
-        unset($this->csv, $this->data);
+        unset($this->file, $this->data);
     }
 
     public function get(): Collection
@@ -60,7 +48,16 @@ final class Lookup
         return $this->data;
     }
 
-    private function detectDelimiter(string $line): void
+    private function getFilePath(string $type): ?string
+    {
+        $table = Str::of($type)->snake()->__toString();
+
+        return config()->has('lookup.tables.'.$table)
+            ? config('lookup.tables.'.$table)['file_path']
+            : null;
+    }
+
+    private function detectDelimiter(string $line): string
     {
         $delimiters = [
             ',' => 0,
@@ -72,14 +69,16 @@ final class Lookup
             $count = count(str_getcsv($line, $delimiter));
         }
 
-        $this->delimiter = array_search(max($delimiters), $delimiters, true);
+        unset($count);
+
+        return array_search(max($delimiters), $delimiters, true);
     }
 
     private function areaCodes(): void
     {
-        $this->data = $this->csv->filter(function (array $item): bool {
+        $this->data = $this->file->filter(static function (array $item): bool {
             return strlen($item[8]) === 2 && $item[9] === 'US' && $item[10] === 'Y';
-        })->mapToGroups(function (array $item): array {
+        })->mapToGroups(static function (array $item): array {
             return [
                 $item[8] => $item[0],
             ];
@@ -95,7 +94,7 @@ final class Lookup
             ->unique()
             ->sort()
             ->values()
-            ->transform(function (string $city): array {
+            ->transform(static function (string $city): array {
                 return [
                     'name' => $city,
                 ];
@@ -104,7 +103,7 @@ final class Lookup
 
     private function countries(): void
     {
-        $this->data = $this->csv->map(function (array $item): array {
+        $this->data = $this->file->map(static function (array $item): array {
             return [
                 'code' => $item[2],
                 'name' => $item[1],
@@ -114,7 +113,7 @@ final class Lookup
 
     private function locations(): void
     {
-        $this->data = $this->csv->map(function (array $item): array {
+        $this->data = $this->file->map(static function (array $item): array {
             return [
                 'cityName' => $item[1],
                 'stateCode' => $item[2],
@@ -129,7 +128,7 @@ final class Lookup
 
     private function states(): void
     {
-        $this->data = $this->csv->map(function (array $item): array {
+        $this->data = $this->file->map(static function (array $item): array {
             return [
                 'code' => $item[0],
                 'name' => $item[1],
@@ -145,7 +144,7 @@ final class Lookup
             ->pluck('zipCode')
             ->sort()
             ->values()
-            ->transform(function (string $zipCode): array {
+            ->transform(static function (string $zipCode): array {
                 return [
                     'code' => $zipCode,
                 ];
