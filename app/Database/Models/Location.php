@@ -3,30 +3,45 @@
 namespace App\Database\Models;
 
 use App\Database\Casts\Timezone;
-use App\Database\Traits\HasTimestamps;
-use Illuminate\Database\Eloquent\Model;
+use App\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 final class Location extends Model
 {
-    use HasTimestamps;
+    public const TABLE = 'locations';
+
+    public const ID = 'id';
+
+    public const CITY = 'city_id';
+
+    public const STATE = 'state_id';
+
+    public const ZIP_CODE = 'zip_code_id';
+
+    public const LATITUDE = 'latitude';
+
+    public const LONGITUDE = 'longitude';
+
+    public const OBSERVES_DST = 'observes_dst';
+
+    public const TIMEZONE_OFFSET = 'timezone_offset';
 
     protected $fillable = [
-        'latitude',
-        'longitude',
-        'timezone_offset',
-        'observes_dst',
+        self::LATITUDE,
+        self::LONGITUDE,
+        self::TIMEZONE_OFFSET,
+        self::OBSERVES_DST,
     ];
 
     protected $casts = [
-        'id' => 'integer',
-        'city_id' => 'integer',
-        'state_id' => 'integer',
-        'zip_code_id' => 'integer',
-        'latitude' => 'decimal',
-        'longitude' => 'decimal',
-        'timezone_offset' => Timezone::class,
-        'observes_dst' => 'boolean',
+        self::ID => self::INTEGER,
+        self::CITY => self::INTEGER,
+        self::STATE => self::INTEGER,
+        self::ZIP_CODE => self::INTEGER,
+        self::LATITUDE => self::FLOAT,
+        self::LONGITUDE => self::FLOAT,
+        self::TIMEZONE_OFFSET => Timezone::class,
+        self::OBSERVES_DST => self::BOOLEAN,
     ];
 
     protected $with = [

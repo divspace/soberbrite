@@ -7,11 +7,11 @@ use App\Database\Models\ZipCode;
 use Faker\Generator as Faker;
 
 $factory->define(Location::class, fn (Faker $faker): array => [
-    'city_id' => fn () => factory(City::class)->create()->id,
-    'state_id' => fn () => factory(State::class)->create()->id,
-    'zip_code_id' => fn () => factory(ZipCode::class)->create()->id,
-    'latitude' => $faker->latitude,
-    'longitude' => $faker->longitude,
-    'timezone_offset' => random_int(-10, -4).':00:00',
-    'observes_dst' => random_int(0, 1),
+    Location::CITY => fn () => factory(City::class)->create()->id,
+    Location::STATE => fn () => factory(State::class)->create()->id,
+    Location::ZIP_CODE => fn () => factory(ZipCode::class)->create()->id,
+    Location::LATITUDE => $faker->latitude,
+    Location::LONGITUDE => $faker->longitude,
+    Location::TIMEZONE_OFFSET => random_int(-10, -4).':00:00',
+    Location::OBSERVES_DST => random_int(0, 1),
 ]);
