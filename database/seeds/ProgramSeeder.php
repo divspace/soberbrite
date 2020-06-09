@@ -164,7 +164,7 @@ final class ProgramSeeder extends Seeder
             ],
         ]);
 
-        $programs->each(function (array $program): void {
+        $programs->each(static function (array $program): void {
             factory(Program::class)->create($program);
         });
     }
