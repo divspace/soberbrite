@@ -1022,16 +1022,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v7.14.1",
+            "version": "v7.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "469b7719a8dca40841a74f59f2e9f30f01d3a106"
+                "reference": "739c44a3f7041430a3fb357f2dcfdb78f55005d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/469b7719a8dca40841a74f59f2e9f30f01d3a106",
-                "reference": "469b7719a8dca40841a74f59f2e9f30f01d3a106",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/739c44a3f7041430a3fb357f2dcfdb78f55005d7",
+                "reference": "739c44a3f7041430a3fb357f2dcfdb78f55005d7",
                 "shasum": ""
             },
             "require": {
@@ -1174,7 +1174,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2020-06-02T22:34:18+00:00"
+            "time": "2020-06-09T14:00:25+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -5586,16 +5586,16 @@
         },
         {
             "name": "facade/ignition",
-            "version": "2.0.6",
+            "version": "2.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
-                "reference": "5261c488a1e8a7c3ebdf6a4037c34f5ddeb33922"
+                "reference": "e6bedc1e74507d584fbcb041ebe0f7f215109cf2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/5261c488a1e8a7c3ebdf6a4037c34f5ddeb33922",
-                "reference": "5261c488a1e8a7c3ebdf6a4037c34f5ddeb33922",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/e6bedc1e74507d584fbcb041ebe0f7f215109cf2",
+                "reference": "e6bedc1e74507d584fbcb041ebe0f7f215109cf2",
                 "shasum": ""
             },
             "require": {
@@ -5653,7 +5653,7 @@
                 "laravel",
                 "page"
             ],
-            "time": "2020-06-01T09:04:48+00:00"
+            "time": "2020-06-08T09:14:08+00:00"
         },
         {
             "name": "facade/ignition-contracts",
@@ -7452,16 +7452,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.26",
+            "version": "0.12.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "f108dabe757a584fafc3baabc0fabf4d45e040f1"
+                "reference": "2abbd3253e38a258137f647f4e5fdbcb13142c3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/f108dabe757a584fafc3baabc0fabf4d45e040f1",
-                "reference": "f108dabe757a584fafc3baabc0fabf4d45e040f1",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/2abbd3253e38a258137f647f4e5fdbcb13142c3e",
+                "reference": "2abbd3253e38a258137f647f4e5fdbcb13142c3e",
                 "shasum": ""
             },
             "require": {
@@ -7504,7 +7504,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-06-07T22:01:45+00:00"
+            "time": "2020-06-08T21:28:12+00:00"
         },
         {
             "name": "phpstan/phpstan-phpunit",
@@ -8064,16 +8064,16 @@
         },
         {
             "name": "rector/rector",
-            "version": "v0.7.29",
+            "version": "v0.7.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "f2f4bf365336a5d18a9eb3aa8f2b268f298e1bae"
+                "reference": "2ff01578e5d11f7f0896a1e6b9b2dbdbb5c1dcfc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/f2f4bf365336a5d18a9eb3aa8f2b268f298e1bae",
-                "reference": "f2f4bf365336a5d18a9eb3aa8f2b268f298e1bae",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/2ff01578e5d11f7f0896a1e6b9b2dbdbb5c1dcfc",
+                "reference": "2ff01578e5d11f7f0896a1e6b9b2dbdbb5c1dcfc",
                 "shasum": ""
             },
             "require": {
@@ -8211,7 +8211,8 @@
                     "Rector\\Naming\\": "rules/naming/src",
                     "Rector\\Order\\": "rules/order/src",
                     "Rector\\MockistaToMockery\\": "rules/mockista-to-mockery/src",
-                    "Rector\\NetteKdyby\\": "rules/nette-kdyby/src"
+                    "Rector\\NetteKdyby\\": "rules/nette-kdyby/src",
+                    "Rector\\NetteUtilsCodeQuality\\": "rules/nette-utils-code-quality/src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -8248,7 +8249,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2020-06-05T10:06:22+00:00"
+            "time": "2020-06-09T21:08:58+00:00"
         },
         {
             "name": "roave/security-advisories",
@@ -9332,12 +9333,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "d99e1afb03cbbd42ab877c222105016adf07c4fb"
+                "reference": "46f5a6558f6894c5c57ae789569bce4b1f4fb302"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/d99e1afb03cbbd42ab877c222105016adf07c4fb",
-                "reference": "d99e1afb03cbbd42ab877c222105016adf07c4fb",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/46f5a6558f6894c5c57ae789569bce4b1f4fb302",
+                "reference": "46f5a6558f6894c5c57ae789569bce4b1f4fb302",
                 "shasum": ""
             },
             "require": {
@@ -9381,7 +9382,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-06-07T15:45:53+00:00"
+            "time": "2020-06-08T14:35:13+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
