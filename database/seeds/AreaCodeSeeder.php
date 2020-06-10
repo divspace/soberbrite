@@ -30,12 +30,12 @@ final class AreaCodeSeeder extends Seeder
         (new Lookup('areaCodes'))
             ->get()
             ->each(function (Collection $areaCodes, string $stateCode) use ($states): void {
-                $state = $states->where('code', $stateCode)->pluck('id')->first();
+                $state = $states->where('code', $stateCode)->first();
 
                 if (isset($state)) {
                     $areaCodes->each(function (string $areaCode) use ($state): void {
                         $this->insertData[] = [
-                            'state_id' => $state,
+                            'state_id' => $state->id,
                             'code' => $areaCode,
                             'created_at' => $this->timestamp,
                             'updated_at' => $this->timestamp,
