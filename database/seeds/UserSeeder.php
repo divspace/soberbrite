@@ -1,10 +1,12 @@
 <?php
 
 use App\Database\Models\Address;
+use App\Database\Models\City;
 use App\Database\Models\Location;
 use App\Database\Models\Profile;
+use App\Database\Models\State;
 use App\Database\Models\User;
-use Illuminate\Database\Eloquent\Builder;
+use App\Database\Models\ZipCode;
 use Illuminate\Database\Seeder;
 
 final class UserSeeder extends Seeder
@@ -38,7 +40,7 @@ final class UserSeeder extends Seeder
         ]);
 
         factory(Profile::class)->create([
-            'user_id' => $user->id,
+            'user_id' => $user,
             'username' => $this->username,
             'first_name' => $this->firstName,
             'last_name' => $this->lastName,
@@ -47,18 +49,11 @@ final class UserSeeder extends Seeder
             'sobriety_date' => $this->sobrietyDate,
         ]);
 
-        factory(User::class, 10)->create()->each(function (User $user): void {
-            $user->address()->save(factory(Address::class)->make());
-            $user->profile()->save(factory(Profile::class)->make());
-        });
-
-        $location = Location::whereHas('city', function (Builder $query): void {
-            $query->where('name', $this->city);
-        })->whereHas('state', function (Builder $query): void {
-            $query->where('code', $this->state);
-        })->whereHas('zipCode', function (Builder $query): void {
-            $query->where('code', $this->zipCode);
-        })->first();
+        $location = Location::where([
+            Location::CITY => City::where('name', $this->city)->pluck('id')->first(),
+            Location::STATE => State::where('code', $this->state)->pluck('id')->first(),
+            Location::ZIP_CODE => ZipCode::where('code', $this->zipCode)->pluck('id')->first(),
+        ])->first();
 
         if (isset($location)) {
             factory(Address::class)->create([
@@ -67,5 +62,10 @@ final class UserSeeder extends Seeder
                 'street' => $this->street,
             ]);
         }
+
+        factory(User::class, 10)->create()->each(static function (User $user): void {
+            $user->address()->save(factory(Address::class)->make());
+            $user->profile()->save(factory(Profile::class)->make());
+        });
     }
 }
