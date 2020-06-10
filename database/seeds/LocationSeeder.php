@@ -10,23 +10,18 @@ final class LocationSeeder extends LookupSeeder
 {
     public function run(): void
     {
-        $states = (new Lookup('states'))->get()->pluck('code')->toArray();
-
         $this->insertData = (new Lookup('locations'))
             ->get()
-            ->filter(static function (array $location) use ($states): bool {
-                return in_array($location['stateCode'], $states, true);
-            })
             ->transform(function (array $location): ?array {
-                $city = City::where('name', $location['cityName'])->pluck('id')->first();
-                $state = State::where('code', $location['stateCode'])->pluck('id')->first();
-                $zipCode = ZipCode::where('code', $location['zipCode'])->pluck('id')->first();
+                $city = City::where('name', $location['cityName'])->first();
+                $state = State::where('code', $location['stateCode'])->first();
+                $zipCode = ZipCode::where('code', $location['zipCode'])->first();
 
                 if (isset($city, $state, $zipCode)) {
                     return [
-                        Location::CITY => $city,
-                        Location::STATE => $state,
-                        Location::ZIP_CODE => $zipCode,
+                        Location::CITY => $city->id,
+                        Location::STATE => $state->id,
+                        Location::ZIP_CODE => $zipCode->id,
                         Location::LATITUDE => $location['latitude'],
                         Location::LONGITUDE => $location['longitude'],
                         Location::TIMEZONE_OFFSET => $location['timezoneOffset'].':00:00',
