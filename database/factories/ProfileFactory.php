@@ -1,27 +1,23 @@
 <?php
 
+use App\Database\Models\AreaCode;
 use App\Database\Models\Profile;
 use App\Database\Models\User;
 use Faker\Generator as Faker;
 
-$factory->define(Profile::class, function (Faker $faker): array {
+$factory->define(Profile::class, static function (Faker $faker): array {
     $sex = random_int(1, 100) <= 75 ? 'male' : 'female';
-
-    $phoneNumber = $faker->randomDigitNot(0);
-
-    for ($i = 0; $i < 9; ++$i) {
-        $phoneNumber .= $faker->randomDigit;
-    }
+    $areaCode = AreaCode::inRandomOrder()->limit(100)->pluck('code')->first();
 
     return [
-        'user_id' => $faker->randomElement(User::pluck('id')->toArray()),
+        'user_id' => User::inRandomOrder()->pluck('id')->first(),
         'username' => $faker->unique()->userName,
         'first_name' => $faker->firstName($sex),
         'middle_name' => $faker->optional(25)->firstName($sex),
         'last_name' => $faker->lastName,
-        'phone' => $phoneNumber,
-        'gender' => ucfirst(substr($sex, 0, 1)),
+        'phone' => $areaCode.$faker->randomDigitNot(0).$faker->randomNumber(6, true),
+        'gender' => ucfirst($sex[0]),
         'birth_date' => $faker->dateTimeBetween('-90 years', '-20 years')->format('Y-m-d'),
-        'sobriety_date' => $faker->dateTimeBetween('-30 years', 'now')->format('Y-m-d'),
+        'sobriety_date' => $faker->dateTimeBetween()->format('Y-m-d'),
     ];
 });
