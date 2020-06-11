@@ -4,8 +4,8 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
 /**
- * Gets lookup data from CSV files and converts it to a collection that
- * can be used by seeders to populate the database.
+ * Gets lookup data from CSV or configuration files and converts it to a
+ * collection that can be used by seeders to populate the database.
  *
  * @see https://public.opendatasoft.com
  * @see https://github.com/stefangabos/world_countries
