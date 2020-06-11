@@ -18,6 +18,8 @@ class LookupSeeder extends Seeder
     public function __construct()
     {
         $this->timestamp = Carbon::now();
+
+        $this->insertData = new Collection();
     }
 
     public function __destruct()
