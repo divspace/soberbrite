@@ -7403,16 +7403,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "0.4.7",
+            "version": "0.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "44500ca1b77f52a623bd4ad9216a68f6e0aaa127"
+                "reference": "1948aa842a94170b408963a9768a102f19cbf1b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/44500ca1b77f52a623bd4ad9216a68f6e0aaa127",
-                "reference": "44500ca1b77f52a623bd4ad9216a68f6e0aaa127",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/1948aa842a94170b408963a9768a102f19cbf1b7",
+                "reference": "1948aa842a94170b408963a9768a102f19cbf1b7",
                 "shasum": ""
             },
             "require": {
@@ -7424,7 +7424,7 @@
                 "jakub-onderka/php-parallel-lint": "^0.9.2",
                 "phing/phing": "^2.16.0",
                 "phpstan/extension-installer": "^1.0",
-                "phpstan/phpstan": "^0.12.23",
+                "phpstan/phpstan": "^0.12.26",
                 "phpstan/phpstan-strict-rules": "^0.12",
                 "phpunit/phpunit": "^6.3",
                 "slevomat/coding-standard": "^4.7.2",
@@ -7448,20 +7448,20 @@
                 "MIT"
             ],
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
-            "time": "2020-05-06T06:52:35+00:00"
+            "time": "2020-06-10T05:04:41+00:00"
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.27",
+            "version": "0.12.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "2abbd3253e38a258137f647f4e5fdbcb13142c3e"
+                "reference": "76c0c4ec90b1eed66fa4855b8b4b53fa9054353f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/2abbd3253e38a258137f647f4e5fdbcb13142c3e",
-                "reference": "2abbd3253e38a258137f647f4e5fdbcb13142c3e",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/76c0c4ec90b1eed66fa4855b8b4b53fa9054353f",
+                "reference": "76c0c4ec90b1eed66fa4855b8b4b53fa9054353f",
                 "shasum": ""
             },
             "require": {
@@ -7504,7 +7504,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-06-08T21:28:12+00:00"
+            "time": "2020-06-10T06:20:14+00:00"
         },
         {
             "name": "phpstan/phpstan-phpunit",
@@ -8064,16 +8064,16 @@
         },
         {
             "name": "rector/rector",
-            "version": "v0.7.31",
+            "version": "v0.7.33",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "2ff01578e5d11f7f0896a1e6b9b2dbdbb5c1dcfc"
+                "reference": "630d17494bd990179c4f817d0b14d4faf4d0cd8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/2ff01578e5d11f7f0896a1e6b9b2dbdbb5c1dcfc",
-                "reference": "2ff01578e5d11f7f0896a1e6b9b2dbdbb5c1dcfc",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/630d17494bd990179c4f817d0b14d4faf4d0cd8d",
+                "reference": "630d17494bd990179c4f817d0b14d4faf4d0cd8d",
                 "shasum": ""
             },
             "require": {
@@ -8249,7 +8249,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2020-06-09T21:08:58+00:00"
+            "time": "2020-06-09T23:23:00+00:00"
         },
         {
             "name": "roave/security-advisories",
@@ -8257,12 +8257,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "de6fda3af9b36c77fdeb62b968157032f7111b09"
+                "reference": "59f3050bcd5dab238c9ac3eada55269cc2fcfaa8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/de6fda3af9b36c77fdeb62b968157032f7111b09",
-                "reference": "de6fda3af9b36c77fdeb62b968157032f7111b09",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/59f3050bcd5dab238c9ac3eada55269cc2fcfaa8",
+                "reference": "59f3050bcd5dab238c9ac3eada55269cc2fcfaa8",
                 "shasum": ""
             },
             "conflict": {
@@ -8277,7 +8277,7 @@
                 "bagisto/bagisto": "<0.1.5",
                 "barrelstrength/sprout-base-email": "<1.2.7",
                 "barrelstrength/sprout-forms": "<3.9",
-                "bolt/bolt": "<3.6.10",
+                "bolt/bolt": "<3.7.1",
                 "brightlocal/phpwhois": "<=4.2.5",
                 "buddypress/buddypress": "<5.1.2",
                 "bugsnag/bugsnag-laravel": ">=2,<2.0.2",
@@ -8369,6 +8369,7 @@
                 "pear/archive_tar": "<1.4.4",
                 "phpfastcache/phpfastcache": ">=5,<5.0.13",
                 "phpmailer/phpmailer": "<6.1.6",
+                "phpmussel/phpmussel": ">=1,<1.6",
                 "phpmyadmin/phpmyadmin": "<4.9.2",
                 "phpoffice/phpexcel": "<1.8.2",
                 "phpoffice/phpspreadsheet": "<1.8",
@@ -8532,7 +8533,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-06-04T00:00:55+00:00"
+            "time": "2020-06-11T00:01:52+00:00"
         },
         {
             "name": "scrivo/highlight.php",
@@ -9333,28 +9334,28 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "46f5a6558f6894c5c57ae789569bce4b1f4fb302"
+                "reference": "36bed54725877cceb31f23f6eda015b7d0927544"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/46f5a6558f6894c5c57ae789569bce4b1f4fb302",
-                "reference": "46f5a6558f6894c5c57ae789569bce4b1f4fb302",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/36bed54725877cceb31f23f6eda015b7d0927544",
+                "reference": "36bed54725877cceb31f23f6eda015b7d0927544",
                 "shasum": ""
             },
             "require": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.6.2",
                 "php": "^7.1",
-                "phpstan/phpdoc-parser": "0.4.5 - 0.4.7",
+                "phpstan/phpdoc-parser": "0.4.5 - 0.4.8",
                 "squizlabs/php_codesniffer": "^3.5.5"
             },
             "require-dev": {
                 "phing/phing": "2.16.3",
                 "php-parallel-lint/php-parallel-lint": "1.2.0",
-                "phpstan/phpstan": "0.12.25",
+                "phpstan/phpstan": "0.12.27",
                 "phpstan/phpstan-deprecation-rules": "0.12.4",
                 "phpstan/phpstan-phpunit": "0.12.11",
                 "phpstan/phpstan-strict-rules": "0.12.2",
-                "phpunit/phpunit": "7.5.20|8.5.2|9.2.1"
+                "phpunit/phpunit": "7.5.20|8.5.2|9.2.2"
             },
             "type": "phpcodesniffer-standard",
             "extra": {
@@ -9382,7 +9383,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-06-08T14:35:13+00:00"
+            "time": "2020-06-10T06:18:24+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
