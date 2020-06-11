@@ -14,8 +14,6 @@ class CreateProgramsTable extends Migration
             $table->string('name')->unique();
             $table->string('abbreviation')->nullable();
             $table->timestamps();
-
-            $table->primary(['id', 'program_type_id']);
         });
     }
 
