@@ -35,15 +35,12 @@ final class Lookup
 
                 $this->{$method}();
             }
+        } elseif (config()->has($method)) {
+            $this->data = new Collection(config($method));
         }
     }
 
-    public function __destruct()
-    {
-        unset($this->file, $this->data);
-    }
-
-    public function get(): Collection
+    public function fetch(): Collection
     {
         return $this->data;
     }
@@ -76,13 +73,14 @@ final class Lookup
 
     private function areaCodes(): void
     {
-        $this->data = $this->file->filter(static function (array $item): bool {
-            return strlen($item[8]) === 2 && $item[9] === 'US' && $item[10] === 'Y';
-        })->mapToGroups(static function (array $item): array {
-            return [
-                $item[8] => $item[0],
-            ];
-        })->sortKeys();
+        $this->data = $this->file
+            ->filter(static function (array $item): bool {
+                return strlen($item[8]) === 2 && $item[9] === 'US' && $item[10] === 'Y';
+            })->mapToGroups(static function (array $item): array {
+                return [
+                    $item[8] => $item[0],
+                ];
+            })->sortKeys();
     }
 
     private function cities(): void
@@ -103,27 +101,30 @@ final class Lookup
 
     private function countries(): void
     {
-        $this->data = $this->file->map(static function (array $item): array {
-            return [
-                'code' => $item[2],
-                'name' => $item[1],
-            ];
-        })->sortBy('name');
+        $this->data = $this->file
+            ->map(static function (array $item): array {
+                return [
+                    'code' => $item[2],
+                    'name' => $item[1],
+                ];
+            })
+            ->sortBy('name');
     }
 
     private function locations(): void
     {
-        $this->data = $this->file->map(static function (array $item): array {
-            return [
-                'cityName' => $item[1],
-                'stateCode' => $item[2],
-                'zipCode' => $item[0],
-                'latitude' => $item[3],
-                'longitude' => $item[4],
-                'timezoneOffset' => $item[5],
-                'observesDst' => $item[6],
-            ];
-        });
+        $this->data = $this->file
+            ->map(static function (array $item): array {
+                return [
+                    'cityName' => $item[1],
+                    'stateCode' => $item[2],
+                    'zipCode' => $item[0],
+                    'latitude' => $item[3],
+                    'longitude' => $item[4],
+                    'timezoneOffset' => $item[5],
+                    'observesDst' => $item[6],
+                ];
+            });
     }
 
     private function states(): void
