@@ -22,8 +22,8 @@ final class DatabaseSeeder extends Seeder
                 return $a['fill_order'] <=> $b['fill_order'];
             })
             ->keys()
-            ->filter(static function (string $table): bool {
-                return !in_array($table, self::$additionalTables, true);
+            ->reject(static function (string $table): bool {
+                return in_array($table, self::$additionalTables, true);
             })
             ->merge(self::$additionalTables)
             ->transform(static function (string $table): array {
