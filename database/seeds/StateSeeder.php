@@ -23,7 +23,7 @@ final class StateSeeder extends Seeder
     public function run(): void
     {
         $this->insertData = (new Lookup('states'))
-            ->get()
+            ->fetch()
             ->transform(function (array $state): array {
                 return [
                     'code' => $state['code'],

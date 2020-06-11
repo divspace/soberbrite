@@ -23,7 +23,7 @@ final class ZipCodeSeeder extends Seeder
     public function run(): void
     {
         $this->insertData = (new Lookup('zipCodes'))
-            ->get()
+            ->fetch()
             ->transform(function (array $zipCode): array {
                 return [
                     'code' => $zipCode['code'],

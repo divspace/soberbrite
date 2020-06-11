@@ -23,7 +23,7 @@ final class CountrySeeder extends Seeder
     public function run(): void
     {
         $this->insertData = (new Lookup('countries'))
-            ->get()
+            ->fetch()
             ->transform(function (array $country): array {
                 return [
                     'code' => strtoupper($country['code']),

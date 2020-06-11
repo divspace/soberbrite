@@ -28,7 +28,7 @@ final class AreaCodeSeeder extends Seeder
         $this->insertData = new Collection();
 
         (new Lookup('areaCodes'))
-            ->get()
+            ->fetch()
             ->each(function (Collection $areaCodes, string $stateCode) use ($states): void {
                 $state = $states->where('code', $stateCode)->first();
 

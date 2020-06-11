@@ -24,7 +24,7 @@ final class CitySeeder extends Seeder
     public function run(): void
     {
         $this->insertData = (new Lookup('cities'))
-            ->get()
+            ->fetch()
             ->transform(function (array $city): array {
                 return [
                     'name' => $city['name'],
