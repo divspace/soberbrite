@@ -17,10 +17,13 @@ final class Lookup
 
     private Collection $file;
 
-    public function __construct(string $method)
+    public function __construct(string $type)
     {
+        $config = Str::of($type)->slug()->__toString();
+        $method = Str::of($type)->camel()->__toString();
+
         if (method_exists(self::class, $method)) {
-            $filePath = $this->getFilePath($method);
+            $filePath = $this->getFilePath($type);
 
             if (file_exists($filePath)) {
                 $this->file = (new Collection(
@@ -35,8 +38,8 @@ final class Lookup
 
                 $this->{$method}();
             }
-        } elseif (config()->has($method)) {
-            $this->data = new Collection(config($method));
+        } elseif (config()->has($config)) {
+            $this->data = new Collection(config($config));
         }
     }
 
@@ -45,12 +48,10 @@ final class Lookup
         return $this->data;
     }
 
-    private function getFilePath(string $type): ?string
+    private function getFilePath(string $name): ?string
     {
-        $table = Str::of($type)->snake()->__toString();
-
-        return config()->has('lookup.tables.'.$table)
-            ? config('lookup.tables.'.$table)['file_path']
+        return config()->has('lookup.tables.'.$name)
+            ? config('lookup.tables.'.$name)['file_path']
             : null;
     }
 
@@ -88,7 +89,7 @@ final class Lookup
         $this->locations();
 
         $this->data = $this->data
-            ->pluck('cityName')
+            ->pluck('city')
             ->unique()
             ->sort()
             ->values()
@@ -116,13 +117,13 @@ final class Lookup
         $this->data = $this->file
             ->map(static function (array $item): array {
                 return [
-                    'cityName' => $item[1],
-                    'stateCode' => $item[2],
-                    'zipCode' => $item[0],
+                    'city' => $item[1],
+                    'state' => $item[2],
+                    'zip_code' => $item[0],
                     'latitude' => $item[3],
                     'longitude' => $item[4],
-                    'timezoneOffset' => $item[5],
-                    'observesDst' => $item[6],
+                    'timezone_offset' => $item[5],
+                    'observes_dst' => $item[6],
                 ];
             });
     }
@@ -142,7 +143,7 @@ final class Lookup
         $this->locations();
 
         $this->data = $this->data
-            ->pluck('zipCode')
+            ->pluck('zip_code')
             ->sort()
             ->values()
             ->transform(static function (string $zipCode): array {

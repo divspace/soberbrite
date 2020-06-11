@@ -1,42 +1,22 @@
 <?php
 
-use Carbon\Carbon;
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
+use App\Database\LookupSeeder;
+use App\Database\Models\City;
 
-final class CitySeeder extends Seeder
+final class CitySeeder extends LookupSeeder
 {
-    private Carbon $timestamp;
-
-    private Collection $insertData;
-
-    public function __construct()
-    {
-        $this->timestamp = Carbon::now();
-    }
-
-    public function __destruct()
-    {
-        unset($this->insertData);
-    }
-
     public function run(): void
     {
-        $this->insertData = (new Lookup('cities'))
+        (new Lookup(City::TABLE))
             ->fetch()
-            ->transform(function (array $city): array {
-                return [
-                    'name' => $city['name'],
-                    'created_at' => $this->timestamp,
-                    'updated_at' => $this->timestamp,
-                ];
+            ->each(function ($city): void {
+                $this->insertData->push([
+                    City::NAME => $city[City::NAME],
+                    City::CREATED_AT => $this->timestamp,
+                    City::UPDATED_AT => $this->timestamp,
+                ]);
             });
 
-        DB::transaction(function (): void {
-            foreach ($this->insertData->chunk(5000) as $chunk) {
-                DB::table('cities')->insert($chunk->toArray());
-            }
-        });
+        $this->insert(City::TABLE);
     }
 }

@@ -1,49 +1,33 @@
 <?php
 
 use App\Database\Models\State;
-use Carbon\Carbon;
-use Illuminate\Database\Seeder;
+use App\Database\LookupSeeder;
+use App\Database\Models\AreaCode;
 use Illuminate\Support\Collection;
 
-final class AreaCodeSeeder extends Seeder
+final class AreaCodeSeeder extends LookupSeeder
 {
-    private Carbon $timestamp;
-
-    private Collection $insertData;
-
-    public function __construct()
-    {
-        $this->timestamp = Carbon::now();
-    }
-
-    public function __destruct()
-    {
-        unset($this->insertData);
-    }
-
     public function run(): void
     {
         $states = State::all();
 
-        $this->insertData = new Collection();
-
-        (new Lookup('areaCodes'))
+        (new Lookup(AreaCode::TABLE))
             ->fetch()
             ->each(function (Collection $areaCodes, string $stateCode) use ($states): void {
-                $state = $states->where('code', $stateCode)->first();
+                $state = $states->where(State::CODE, $stateCode)->first();
 
                 if (isset($state)) {
                     $areaCodes->each(function (string $areaCode) use ($state): void {
-                        $this->insertData[] = [
-                            'state_id' => $state->id,
-                            'code' => $areaCode,
-                            'created_at' => $this->timestamp,
-                            'updated_at' => $this->timestamp,
-                        ];
+                        $this->insertData->push([
+                            AreaCode::STATE => $state->id,
+                            AreaCode::CODE => $areaCode,
+                            AreaCode::CREATED_AT => $this->timestamp,
+                            AreaCode::UPDATED_AT => $this->timestamp,
+                        ]);
                     });
                 }
             });
 
-        DB::table('area_codes')->insert($this->insertData->toArray());
+        $this->insert(AreaCode::TABLE);
     }
 }

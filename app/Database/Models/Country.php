@@ -2,21 +2,24 @@
 
 namespace App\Database\Models;
 
-use App\Database\Traits\HasTimestamps;
-use Illuminate\Database\Eloquent\Model;
+use App\Database\Eloquent\Model;
 
 final class Country extends Model
 {
-    use HasTimestamps;
+    public const TABLE = 'countries';
+
+    public const CODE = 'code';
+
+    public const NAME = 'name';
 
     protected $fillable = [
-        'code',
-        'name',
+        self::CODE,
+        self::NAME,
     ];
 
     protected $casts = [
-        'id' => 'integer',
-        'code' => 'string',
-        'name' => 'string',
+        self::ID => self::INTEGER,
+        self::CODE => self::STRING,
+        self::NAME => self::STRING,
     ];
 }

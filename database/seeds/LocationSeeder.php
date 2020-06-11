@@ -10,12 +10,12 @@ final class LocationSeeder extends LookupSeeder
 {
     public function run(): void
     {
-        (new Lookup('locations'))
+        (new Lookup(Location::TABLE))
             ->fetch()
             ->each(function (array $location): void {
-                $city = City::where('name', $location['cityName'])->first();
-                $state = State::where('code', $location['stateCode'])->first();
-                $zipCode = ZipCode::where('code', $location['zipCode'])->first();
+                $city = City::where(City::NAME, $location['city'])->first();
+                $state = State::where(State::CODE, $location['state'])->first();
+                $zipCode = ZipCode::where(ZipCode::CODE, $location['zip_code'])->first();
 
                 if (isset($city, $state, $zipCode)) {
                     $this->insertData->push([
@@ -24,8 +24,8 @@ final class LocationSeeder extends LookupSeeder
                         Location::ZIP_CODE => $zipCode->id,
                         Location::LATITUDE => $location[Location::LATITUDE],
                         Location::LONGITUDE => $location[Location::LONGITUDE],
-                        Location::TIMEZONE_OFFSET => $location['timezoneOffset'].':00:00',
-                        Location::OBSERVES_DST => $location['observesDst'],
+                        Location::TIMEZONE_OFFSET => $location[Location::TIMEZONE_OFFSET].':00:00',
+                        Location::OBSERVES_DST => $location[Location::OBSERVES_DST],
                         Location::CREATED_AT => $this->timestamp,
                         Location::UPDATED_AT => $this->timestamp,
                     ]);

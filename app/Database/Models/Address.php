@@ -2,28 +2,31 @@
 
 namespace App\Database\Models;
 
-use App\Database\Traits\HasTimestamps;
+use App\Database\Eloquent\Model;
 use App\Database\Traits\HasUuid;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 final class Address extends Model
 {
-    use HasTimestamps, HasUuid;
+    use HasUuid;
+
+    public const TABLE = 'addresses';
+
+    public const USER = 'user_id';
+
+    public const LOCATION = 'location_id';
+
+    public const STREET = 'street';
 
     protected $fillable = [
-        'street',
+        self::STREET,
     ];
 
     protected $casts = [
-        'id' => 'string',
-        'user_id' => 'string',
-        'location_id' => 'integer',
-        'street' => 'string',
-    ];
-
-    protected $with = [
-        'location',
+        self::ID => self::STRING,
+        self::USER => self::STRING,
+        self::LOCATION => self::INTEGER,
+        self::STREET => self::STRING,
     ];
 
     public function user(): BelongsTo

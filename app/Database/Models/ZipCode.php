@@ -2,21 +2,22 @@
 
 namespace App\Database\Models;
 
-use App\Database\Traits\HasTimestamps;
-use Illuminate\Database\Eloquent\Model;
+use App\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 final class ZipCode extends Model
 {
-    use HasTimestamps;
+    public const TABLE = 'zip_codes';
+
+    public const CODE = 'code';
 
     protected $fillable = [
-        'code',
+        self::CODE,
     ];
 
     protected $casts = [
-        'id' => 'integer',
-        'code' => 'string',
+        self::ID => self::INTEGER,
+        self::CODE => self::STRING,
     ];
 
     public function locations(): HasMany

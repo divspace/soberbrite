@@ -1,38 +1,23 @@
 <?php
 
-use Carbon\Carbon;
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Collection;
+use App\Database\LookupSeeder;
+use App\Database\Models\Country;
 
-final class CountrySeeder extends Seeder
+final class CountrySeeder extends LookupSeeder
 {
-    private Carbon $timestamp;
-
-    private Collection $insertData;
-
-    public function __construct()
-    {
-        $this->timestamp = Carbon::now();
-    }
-
-    public function __destruct()
-    {
-        unset($this->insertData);
-    }
-
     public function run(): void
     {
-        $this->insertData = (new Lookup('countries'))
+        (new Lookup(Country::TABLE))
             ->fetch()
-            ->transform(function (array $country): array {
-                return [
-                    'code' => strtoupper($country['code']),
-                    'name' => $country['name'],
-                    'created_at' => $this->timestamp,
-                    'updated_at' => $this->timestamp,
-                ];
+            ->each(function (array $country): void {
+                $this->insertData->push([
+                    Country::CODE => strtoupper($country[Country::CODE]),
+                    Country::NAME => $country[Country::NAME],
+                    Country::CREATED_AT => $this->timestamp,
+                    Country::UPDATED_AT => $this->timestamp,
+                ]);
             });
 
-        DB::table('countries')->insert($this->insertData->toArray());
+        $this->insert(Country::TABLE);
     }
 }

@@ -2,42 +2,61 @@
 
 namespace App\Database\Models;
 
-use App\Database\Traits\HasTimestamps;
+use App\Database\Eloquent\Model;
 use App\Database\Traits\HasUuid;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 final class Profile extends Model
 {
-    use HasTimestamps, HasUuid;
+    use HasUuid;
+
+    public const TABLE = 'profiles';
+
+    public const USER = 'user_id';
+
+    public const USERNAME = 'username';
+
+    public const FIRST_NAME = 'first_name';
+
+    public const MIDDLE_NAME = 'middle_name';
+
+    public const LAST_NAME = 'last_name';
+
+    public const PHONE_NUMBER = 'phone';
+
+    public const SEX = 'gender';
+
+    public const BIRTH_DATE = 'birth_date';
+
+    public const SOBRIETY_DATE = 'sobriety_date';
 
     protected $fillable = [
-        'username',
-        'first_name',
-        'middle_name',
-        'last_name',
-        'phone',
-        'gender',
-        'birth_date',
-        'sobriety_date',
+        self::USERNAME,
+        self::FIRST_NAME,
+        self::MIDDLE_NAME,
+        self::LAST_NAME,
+        self::PHONE_NUMBER,
+        self::SEX,
+        self::BIRTH_DATE,
+        self::SOBRIETY_DATE,
     ];
 
     protected $casts = [
-        'id' => 'string',
-        'user_id' => 'string',
-        'username' => 'string',
-        'first_name' => 'string',
-        'middle_name' => 'string',
-        'last_name' => 'string',
-        'phone' => 'string',
-        'gender' => 'string',
-        'birth_date' => 'date:Y-m-d',
-        'sobriety_date' => 'date:Y-m-d',
+        self::ID => self::STRING,
+        self::USER => self::STRING,
+        self::USERNAME => self::STRING,
+        self::FIRST_NAME => self::STRING,
+        self::MIDDLE_NAME => self::STRING,
+        self::LAST_NAME => self::STRING,
+        self::PHONE_NUMBER => self::STRING,
+        self::SEX => self::STRING,
+        self::BIRTH_DATE => self::DATE.':Y-m-d',
+        self::SOBRIETY_DATE => self::DATE.':Y-m-d',
     ];
 
     protected $dates = [
-        'birth_date',
-        'sobriety_date',
+        self::BIRTH_DATE,
+        self::SOBRIETY_DATE,
     ];
 
     public function user(): BelongsTo

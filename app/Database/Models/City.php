@@ -2,21 +2,22 @@
 
 namespace App\Database\Models;
 
-use App\Database\Traits\HasTimestamps;
-use Illuminate\Database\Eloquent\Model;
+use App\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 final class City extends Model
 {
-    use HasTimestamps;
+    public const TABLE = 'cities';
+
+    public const NAME = 'name';
 
     protected $fillable = [
-        'name',
+        self::NAME,
     ];
 
     protected $casts = [
-        'id' => 'integer',
-        'name' => 'string',
+        self::ID => self::INTEGER,
+        self::NAME => self::STRING,
     ];
 
     public function locations(): HasMany

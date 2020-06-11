@@ -1,38 +1,23 @@
 <?php
 
-use Carbon\Carbon;
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Collection;
+use App\Database\LookupSeeder;
+use App\Database\Models\State;
 
-final class StateSeeder extends Seeder
+final class StateSeeder extends LookupSeeder
 {
-    private Carbon $timestamp;
-
-    private Collection $insertData;
-
-    public function __construct()
-    {
-        $this->timestamp = Carbon::now();
-    }
-
-    public function __destruct()
-    {
-        unset($this->insertData);
-    }
-
     public function run(): void
     {
-        $this->insertData = (new Lookup('states'))
+        (new Lookup(State::TABLE))
             ->fetch()
-            ->transform(function (array $state): array {
-                return [
-                    'code' => $state['code'],
-                    'name' => $state['name'],
-                    'created_at' => $this->timestamp,
-                    'updated_at' => $this->timestamp,
-                ];
+            ->map(function (array $state): void {
+                $this->insertData->push([
+                    State::CODE => $state[State::CODE],
+                    State::NAME => $state[State::NAME],
+                    State::CREATED_AT => $this->timestamp,
+                    State::UPDATED_AT => $this->timestamp,
+                ]);
             });
 
-        DB::table('states')->insert($this->insertData->toArray());
+        $this->insert(State::TABLE);
     }
 }

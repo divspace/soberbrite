@@ -7,7 +7,7 @@ final class ProgramSeeder extends LookupSeeder
 {
     public function run(): void
     {
-        (new Lookup('programs'))
+        (new Lookup(Program::TABLE))
             ->fetch()
             ->each(function (array $programs, string $type): void {
                 foreach ($programs as $program) {

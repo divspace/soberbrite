@@ -1,41 +1,22 @@
 <?php
 
-use Carbon\Carbon;
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Collection;
+use App\Database\LookupSeeder;
+use App\Database\Models\ZipCode;
 
-final class ZipCodeSeeder extends Seeder
+final class ZipCodeSeeder extends LookupSeeder
 {
-    private Carbon $timestamp;
-
-    private Collection $insertData;
-
-    public function __construct()
-    {
-        $this->timestamp = Carbon::now();
-    }
-
-    public function __destruct()
-    {
-        unset($this->insertData);
-    }
-
     public function run(): void
     {
-        $this->insertData = (new Lookup('zipCodes'))
+        (new Lookup(ZipCode::TABLE))
             ->fetch()
-            ->transform(function (array $zipCode): array {
-                return [
-                    'code' => $zipCode['code'],
-                    'created_at' => $this->timestamp,
-                    'updated_at' => $this->timestamp,
-                ];
+            ->map(function (array $zipCode): void {
+                $this->insertData->push([
+                    ZipCode::CODE => $zipCode[ZipCode::CODE],
+                    ZipCode::CREATED_AT => $this->timestamp,
+                    ZipCode::UPDATED_AT => $this->timestamp,
+                ]);
             });
 
-        DB::transaction(function (): void {
-            foreach ($this->insertData->chunk(5000) as $chunk) {
-                DB::table('zip_codes')->insert($chunk->toArray());
-            }
-        });
+        $this->insertInChunks(ZipCode::TABLE, 5000);
     }
 }

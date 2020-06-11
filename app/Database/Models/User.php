@@ -2,40 +2,48 @@
 
 namespace App\Database\Models;
 
-use App\Database\Traits\HasTimestamps;
+use App\Database\Eloquent\Model;
 use App\Database\Traits\HasUuid;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 
-final class User extends Authenticatable implements MustVerifyEmail
+final class User extends Model
 {
-    use HasTimestamps, HasUuid, Notifiable;
+    use HasUuid, Notifiable;
+
+    public const TABLE = 'users';
+
+    public const EMAIL = 'email';
+
+    public const PASSWORD = 'password';
+
+    public const REMEMBER_TOKEN = 'remember_token';
+
+    public const EMAIL_VERIFIED_AT = 'email_verified_at';
 
     protected $fillable = [
-        'email',
-        'password',
+        self::EMAIL,
+        self::PASSWORD,
     ];
 
     protected $hidden = [
-        'password',
-        'remember_token',
+        self::PASSWORD,
+        self::REMEMBER_TOKEN,
     ];
 
     protected $casts = [
-        'id' => 'string',
-        'email' => 'string',
-        'password' => 'string',
-        'remember_token' => 'string',
-        'email_verified_at' => 'datetime',
+        self::ID => self::STRING,
+        self::EMAIL => self::STRING,
+        self::PASSWORD => self::STRING,
+        self::REMEMBER_TOKEN => self::STRING,
+        self::EMAIL_VERIFIED_AT => self::DATETIME,
     ];
 
     protected $dates = [
-        'email_verified_at',
+        self::EMAIL_VERIFIED_AT,
     ];
 
     public function address(): HasMany
@@ -48,14 +56,14 @@ final class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(Profile::class);
     }
 
-    public function resolveRouteBinding($value, $field = null): self
+    public function resolveRouteBinding($value, $field = null)
     {
         if (Str::isUuid($value)) {
-            return $this->where('id', $value)->firstOrFail();
+            return $this->where(self::ID, $value)->firstOrFail();
         }
 
-        return $this->whereHas('profile', function (Builder $query) use ($value): void {
-            $query->where('username', $value);
+        return $this->whereHas('profile', static function (Builder $query) use ($value): void {
+            $query->where(Profile::USERNAME, $value);
         })->firstOrFail();
     }
 }
