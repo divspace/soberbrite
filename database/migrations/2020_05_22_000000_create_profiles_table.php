@@ -6,11 +6,13 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateProfilesTable extends Migration
 {
+    private const USER = 'user_id';
+
     public function up(): void
     {
-        Schema::create('profiles', function (Blueprint $table): void {
+        Schema::create('profiles', static function (Blueprint $table): void {
             $table->uuid('id');
-            $table->uuid('user_id');
+            $table->uuid(self::USER);
             $table->string('username', 50)->unique()->nullable();
             $table->string('first_name')->nullable();
             $table->string('middle_name')->nullable();
@@ -21,9 +23,9 @@ class CreateProfilesTable extends Migration
             $table->date('sobriety_date');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign(self::USER)->references('id')->on('users');
 
-            $table->primary(['id', 'user_id']);
+            $table->primary(['id', self::USER]);
         });
     }
 

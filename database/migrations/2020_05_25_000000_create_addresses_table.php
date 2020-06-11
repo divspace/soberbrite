@@ -6,19 +6,23 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateAddressesTable extends Migration
 {
+    private const USER = 'user_id';
+
+    private const LOCATION = 'location_id';
+
     public function up(): void
     {
-        Schema::create('addresses', function (Blueprint $table): void {
+        Schema::create('addresses', static function (Blueprint $table): void {
             $table->uuid('id');
-            $table->uuid('user_id');
-            $table->bigInteger('location_id')->unsigned();
+            $table->uuid(self::USER);
+            $table->bigInteger(self::LOCATION)->unsigned();
             $table->string('street');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('location_id')->references('id')->on('locations');
+            $table->foreign(self::USER)->references('id')->on('users');
+            $table->foreign(self::LOCATION)->references('id')->on('locations');
 
-            $table->primary(['id', 'user_id', 'location_id']);
+            $table->primary(['id', self::USER, self::LOCATION]);
         });
     }
 
