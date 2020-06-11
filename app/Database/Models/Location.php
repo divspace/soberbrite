@@ -10,8 +10,6 @@ final class Location extends Model
 {
     public const TABLE = 'locations';
 
-    public const ID = 'id';
-
     public const CITY = 'city_id';
 
     public const STATE = 'state_id';
@@ -42,12 +40,6 @@ final class Location extends Model
         self::LONGITUDE => self::FLOAT,
         self::TIMEZONE_OFFSET => Timezone::class,
         self::OBSERVES_DST => self::BOOLEAN,
-    ];
-
-    protected $with = [
-        'city',
-        'state',
-        'zipCode',
     ];
 
     public function city(): BelongsTo
