@@ -2,23 +2,27 @@
 
 namespace App\Database\Models;
 
-use App\Database\Traits\HasTimestamps;
-use App\Database\Traits\HasUuid;
-use Illuminate\Database\Eloquent\Model;
+use App\Database\Eloquent\Model;
 
 final class Program extends Model
 {
-    use HasTimestamps, HasUuid;
+    public const TABLE = 'programs';
+
+    public const TYPE = 'program_type_id';
+
+    public const NAME = 'name';
+
+    public const ABBREVIATION = 'abbreviation';
 
     protected $fillable = [
-        'name',
-        'abbreviation',
+        self::NAME,
+        self::ABBREVIATION,
     ];
 
     protected $casts = [
-        'id' => 'string',
-        'program_type_id' => 'integer',
-        'name' => 'string',
-        'abbreviation' => 'string',
+        self::ID => self::INTEGER,
+        self::TYPE => self::INTEGER,
+        self::NAME => self::STRING,
+        self::ABBREVIATION => self::STRING,
     ];
 }
