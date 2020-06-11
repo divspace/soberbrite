@@ -8,7 +8,7 @@ class CreateSessionsTable extends Migration
 {
     public function up(): void
     {
-        Schema::create('sessions', function (Blueprint $table): void {
+        Schema::create('sessions', static function (Blueprint $table): void {
             $table->string('id')->unique();
             $table->uuid('user_id')->nullable();
             $table->string('ip_address', 45)->nullable();

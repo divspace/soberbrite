@@ -8,7 +8,7 @@ class CreateCitiesTable extends Migration
 {
     public function up(): void
     {
-        Schema::create('cities', function (Blueprint $table): void {
+        Schema::create('cities', static function (Blueprint $table): void {
             $table->increments('id');
             $table->string('name', 32)->unique()->collation('utf8mb4_bin');
             $table->timestamps();

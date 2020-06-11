@@ -8,7 +8,7 @@ class CreateCountriesTable extends Migration
 {
     public function up(): void
     {
-        Schema::create('countries', function (Blueprint $table): void {
+        Schema::create('countries', static function (Blueprint $table): void {
             $table->tinyIncrements('id');
             $table->char('code', 2)->unique();
             $table->string('name', 75)->unique();
