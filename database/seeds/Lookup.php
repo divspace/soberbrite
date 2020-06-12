@@ -77,11 +77,13 @@ final class Lookup
         $this->data = $this->file
             ->filter(static function (array $item): bool {
                 return strlen($item[8]) === 2 && $item[9] === 'US' && $item[10] === 'Y';
-            })->mapToGroups(static function (array $item): array {
+            })
+            ->mapToGroups(static function (array $item): array {
                 return [
                     $item[8] => $item[0],
                 ];
-            })->sortKeys();
+            })
+            ->sortKeys();
     }
 
     private function cities(): void
@@ -130,12 +132,14 @@ final class Lookup
 
     private function states(): void
     {
-        $this->data = $this->file->map(static function (array $item): array {
-            return [
-                'code' => $item[0],
-                'name' => $item[1],
-            ];
-        })->sortBy('name');
+        $this->data = $this->file
+            ->map(static function (array $item): array {
+                return [
+                    'code' => $item[0],
+                    'name' => $item[1],
+                ];
+            })
+            ->sortBy('name');
     }
 
     private function zipCodes(): void
