@@ -1,8 +1,8 @@
 <?php
 
-use App\Database\Models\State;
 use App\Database\LookupSeeder;
 use App\Database\Models\AreaCode;
+use App\Database\Models\State;
 use Illuminate\Support\Collection;
 
 final class AreaCodeSeeder extends LookupSeeder

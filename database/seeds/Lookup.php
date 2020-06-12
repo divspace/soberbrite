@@ -72,7 +72,7 @@ final class Lookup
         return array_search(max($delimiters), $delimiters, true);
     }
 
-    private function areaCodes(): void
+    protected function areaCodes(): void
     {
         $this->data = $this->file
             ->filter(static function (array $item): bool {
@@ -86,7 +86,7 @@ final class Lookup
             ->sortKeys();
     }
 
-    private function cities(): void
+    protected function cities(): void
     {
         $this->locations();
 
@@ -102,7 +102,7 @@ final class Lookup
             });
     }
 
-    private function countries(): void
+    protected function countries(): void
     {
         $this->data = $this->file
             ->map(static function (array $item): array {
@@ -114,7 +114,7 @@ final class Lookup
             ->sortBy('name');
     }
 
-    private function locations(): void
+    protected function locations(): void
     {
         $this->data = $this->file
             ->map(static function (array $item): array {
@@ -130,7 +130,7 @@ final class Lookup
             });
     }
 
-    private function states(): void
+    protected function states(): void
     {
         $this->data = $this->file
             ->map(static function (array $item): array {
@@ -142,7 +142,7 @@ final class Lookup
             ->sortBy('name');
     }
 
-    private function zipCodes(): void
+    protected function zipCodes(): void
     {
         $this->locations();
 

@@ -8,7 +8,7 @@ class CreateRecoveryProgramsTable extends Migration
 {
     public function up(): void
     {
-        Schema::create('recovery_programs', static function (Blueprint $table) {
+        Schema::create('recovery_programs', static function (Blueprint $table): void {
             $table->tinyIncrements('id');
             $table->string('name')->unique();
             $table->string('abbreviation')->nullable();
