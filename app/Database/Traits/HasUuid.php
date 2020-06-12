@@ -5,24 +5,27 @@ namespace App\Database\Traits;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Ramsey\Uuid\Exception\InvalidUuidStringException;
 use Ramsey\Uuid\Uuid;
 
 trait HasUuid
 {
-    abstract public function hasCast(string $key, $types = null);
+    abstract public function hasCast(string $key, $types = null): bool;
 
     public static function bootHasUuid(): void
     {
-        static::creating(function ($model): void {
+        static::creating(static function ($model): void {
             foreach ($model->uuidColumns() as $item) {
                 $uuid = $model->resolveUuid();
 
                 if (isset($model->attributes[$item]) && $model->attributes[$item] !== null) {
                     try {
                         $uuid = $uuid->fromString(strtolower($model->attributes[$item]));
-                    } catch (InvalidUuidStringException $e) {
+                    } catch (InvalidUuidStringException $exception) {
+                        Log::debug($exception);
+
                         $uuid = $uuid->fromBytes($model->attributes[$item]);
                     }
                 }
@@ -54,12 +57,12 @@ trait HasUuid
 
     public function resolveUuid(): Uuid
     {
-        return call_user_func([Uuid::class, 'uuid4']);
+        return \call_user_func([Uuid::class, 'uuid4']);
     }
 
     public function scopeWhereUuid(Builder $query, string $uuid, ?string $uuidColumn = null): Builder
     {
-        $uuidColumn = $uuidColumn !== null && in_array($uuidColumn, $this->uuidColumns(), true)
+        $uuidColumn = $uuidColumn !== null && \in_array($uuidColumn, $this->uuidColumns(), true)
             ? $uuidColumn
             : $this->uuidColumns()[0];
 
@@ -83,7 +86,7 @@ trait HasUuid
 
     protected function bytesFromUuid($uuid): array
     {
-        if (is_array($uuid) || $uuid instanceof Arrayable) {
+        if (\is_array($uuid) || $uuid instanceof Arrayable) {
             array_walk($uuid, function (&$uuid): void {
                 $uuid = $this->resolveUuid()->fromString($uuid)->getBytes();
             });
