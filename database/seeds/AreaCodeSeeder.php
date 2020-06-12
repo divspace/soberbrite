@@ -9,7 +9,7 @@ final class AreaCodeSeeder extends LookupSeeder
 {
     public function run(): void
     {
-        $states = State::all();
+        $states = State::all('id', 'code');
 
         (new Lookup(AreaCode::TABLE))
             ->fetch()
