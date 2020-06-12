@@ -9,7 +9,7 @@ return [
     'tables' => [
 
         'area_codes' => [
-            FILL_ORDER => 4,
+            FILL_ORDER => 6,
             FILE_PATH => storage_path('csv/area-codes.csv'),
         ],
 
@@ -19,12 +19,12 @@ return [
         ],
 
         'countries' => [
-            FILL_ORDER => 5,
+            FILL_ORDER => 4,
             FILE_PATH => storage_path('csv/countries.csv'),
         ],
 
         'locations' => [
-            FILL_ORDER => 6,
+            FILL_ORDER => 5,
             FILE_PATH => storage_path('csv/zip-codes.csv'),
         ],
 
