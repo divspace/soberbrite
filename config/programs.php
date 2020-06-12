@@ -4,9 +4,9 @@ const NAME = 'name';
 
 const ABBREVIATION = 'abbreviation';
 
-const RECOVERY_PROGRAM = 'recovery_program';
-
 const FAMILY_GROUP = 'family_group';
+
+const RECOVERY_PROGRAM = 'recovery_program';
 
 return [
 
