@@ -10,7 +10,7 @@ class CreateSessionsTable extends Migration
     {
         Schema::create('sessions', static function (Blueprint $table): void {
             $table->string('id')->unique();
-            $table->uuid('user_id')->nullable();
+            $table->bigInteger('user_id')->unsigned()->nullable();
             $table->string('ip_address', 45)->nullable();
             $table->text('user_agent')->nullable();
             $table->text('payload');

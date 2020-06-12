@@ -3,13 +3,10 @@
 namespace App\Database\Models;
 
 use App\Database\Eloquent\Model;
-use App\Database\Traits\HasUuid;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 final class Address extends Model
 {
-    use HasUuid;
-
     public const TABLE = 'addresses';
 
     public const USER = 'user_id';
@@ -23,8 +20,8 @@ final class Address extends Model
     ];
 
     protected $casts = [
-        self::ID => self::STRING,
-        self::USER => self::STRING,
+        self::ID => self::INTEGER,
+        self::USER => self::INTEGER,
         self::LOCATION => self::INTEGER,
         self::STREET => self::STRING,
     ];

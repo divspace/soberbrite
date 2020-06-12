@@ -3,7 +3,6 @@
 namespace App\Database\Models;
 
 use App\Database\Eloquent\Model;
-use App\Database\Traits\HasUuid;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\MustVerifyEmail;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -25,7 +24,6 @@ final class User extends Model implements
     use Authenticatable;
     use Authorizable;
     use CanResetPassword;
-    use HasUuid;
     use MustVerifyEmail;
     use Notifiable;
 
@@ -50,7 +48,7 @@ final class User extends Model implements
     ];
 
     protected $casts = [
-        self::ID => self::STRING,
+        self::ID => self::INTEGER,
         self::EMAIL => self::STRING,
         self::PASSWORD => self::STRING,
         self::REMEMBER_TOKEN => self::STRING,
@@ -71,14 +69,18 @@ final class User extends Model implements
         return $this->hasOne(Profile::class);
     }
 
-    public function resolveRouteBinding($value, $field = null): self
+    public function resolveRouteBinding($value, $field = null): ?object
     {
-        if (Str::isUuid($value)) {
-            return $this->whereUuid($value)->first();
+        if (is_numeric($value)) {
+            $user = $this->where(self::ID, $value)->first();
+        } elseif (Str::isUuid($value)) {
+            $user = $this->whereUuid($value)->first();
+        } else {
+            $user = $this->whereHas('profile', static function (Builder $query) use ($value): void {
+                $query->where(Profile::USERNAME, $value);
+            })->first();
         }
 
-        return $this->whereHas('profile', static function (Builder $query) use ($value): void {
-            $query->where(Profile::USERNAME, $value);
-        })->first();
+        return $user ?? null;
     }
 }

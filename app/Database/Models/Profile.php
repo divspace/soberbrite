@@ -3,13 +3,10 @@
 namespace App\Database\Models;
 
 use App\Database\Eloquent\Model;
-use App\Database\Traits\HasUuid;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 final class Profile extends Model
 {
-    use HasUuid;
-
     public const TABLE = 'profiles';
 
     public const USER = 'user_id';
@@ -42,8 +39,8 @@ final class Profile extends Model
     ];
 
     protected $casts = [
-        self::ID => self::STRING,
-        self::USER => self::STRING,
+        self::ID => self::INTEGER,
+        self::USER => self::INTEGER,
         self::USERNAME => self::STRING,
         self::FIRST_NAME => self::STRING,
         self::MIDDLE_NAME => self::STRING,
