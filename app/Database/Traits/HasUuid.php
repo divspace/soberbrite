@@ -12,7 +12,7 @@ use Ramsey\Uuid\Uuid;
 
 trait HasUuid
 {
-    abstract public function hasCast(string $key, $types = null): bool;
+    abstract public function hasCast(string $key, $types = null);
 
     public static function bootHasUuid(): void
     {
