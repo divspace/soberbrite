@@ -4,13 +4,38 @@ const NAME = 'name';
 
 const ABBREVIATION = 'abbreviation';
 
-const FAMILY_GROUP = 'family_group';
-
-const RECOVERY_PROGRAM = 'recovery_program';
-
 return [
 
-    'recovery_programs' => [
+    'Family Groups' => [
+
+        [
+            NAME => 'Adult Children of Alcoholics',
+            ABBREVIATION => 'ACA/ACOA',
+        ],
+
+        [
+            NAME => 'Al-Anon/Alateen',
+            ABBREVIATION => null,
+        ],
+
+        [
+            NAME => 'Co-Anon',
+            ABBREVIATION => null,
+        ],
+
+        [
+            NAME => 'Families Anonymous',
+            ABBREVIATION => 'FA',
+        ],
+
+        [
+            NAME => 'Nar-Anon',
+            ABBREVIATION => null,
+        ],
+
+    ],
+
+    'Recovery Programs' => [
 
         [
             NAME => 'Alcoholics Anonymous',
@@ -135,35 +160,6 @@ return [
         [
             NAME => 'Women for Sobriety',
             ABBREVIATION => 'WFS',
-        ],
-
-    ],
-
-    'family_groups' => [
-
-        [
-            NAME => 'Adult Children of Alcoholics',
-            ABBREVIATION => 'ACA/ACOA',
-        ],
-
-        [
-            NAME => 'Al-Anon/Alateen',
-            ABBREVIATION => null,
-        ],
-
-        [
-            NAME => 'Co-Anon',
-            ABBREVIATION => null,
-        ],
-
-        [
-            NAME => 'Families Anonymous',
-            ABBREVIATION => 'FA',
-        ],
-
-        [
-            NAME => 'Nar-Anon',
-            ABBREVIATION => null,
         ],
 
     ],
