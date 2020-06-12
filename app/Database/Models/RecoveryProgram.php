@@ -3,13 +3,10 @@
 namespace App\Database\Models;
 
 use App\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-final class Program extends Model
+final class RecoveryProgram extends Model
 {
-    public const TABLE = 'programs';
-
-    public const TYPE = 'program_type_id';
+    public const TABLE = 'recovery_programs';
 
     public const NAME = 'name';
 
@@ -22,13 +19,7 @@ final class Program extends Model
 
     protected $casts = [
         self::ID => self::INTEGER,
-        self::TYPE => self::INTEGER,
         self::NAME => self::STRING,
         self::ABBREVIATION => self::STRING,
     ];
-
-    public function type(): BelongsTo
-    {
-        return $this->belongsTo(ProgramType::class);
-    }
 }
