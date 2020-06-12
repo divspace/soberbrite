@@ -4,19 +4,20 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProgramTypesTable extends Migration
+class CreateRecoveryProgramsTable extends Migration
 {
     public function up(): void
     {
-        Schema::create('program_types', static function (Blueprint $table) {
+        Schema::create('recovery_programs', static function (Blueprint $table) {
             $table->tinyIncrements('id');
             $table->string('name')->unique();
+            $table->string('abbreviation')->nullable();
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('program_types');
+        Schema::dropIfExists('recovery_programs');
     }
 }
