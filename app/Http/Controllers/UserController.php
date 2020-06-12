@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Database\Models\User;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\View;
 
 final class UserController extends Controller
 {
-    public function index(): Collection
+    /**
+     * @return Builder[]|Collection
+     */
+    public function index()
     {
         return User::with(['address', 'profile'])->get();
     }
