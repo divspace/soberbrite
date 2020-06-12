@@ -32,9 +32,11 @@ class LookupSeeder extends Seeder
         return $this->chunkSize;
     }
 
-    public function setChunkSize(int $size): void
+    public function setChunkSize(int $size): self
     {
         $this->chunkSize = $size;
+
+        return $this;
     }
 
     protected function insert(string $table): void
