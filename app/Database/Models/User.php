@@ -15,7 +15,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 final class User extends Model implements
@@ -75,11 +74,11 @@ final class User extends Model implements
     public function resolveRouteBinding($value, $field = null): self
     {
         if (Str::isUuid($value)) {
-            return $this->whereUuid($value)->firstOrFail();
+            return $this->whereUuid($value)->first();
         }
 
         return $this->whereHas('profile', static function (Builder $query) use ($value): void {
             $query->where(Profile::USERNAME, $value);
-        })->firstOrFail();
+        })->first();
     }
 }
