@@ -75,15 +75,6 @@ trait HasUuid
         return $query->whereIn($uuidColumn, Arr::wrap($uuid));
     }
 
-    public function resolveRouteBinding($value, $field = null)
-    {
-        if (Str::isUuid($value)) {
-            return $this->where('id', $value)->firstOrFail();
-        }
-
-        return null;
-    }
-
     protected function bytesFromUuid($uuid): array
     {
         if (\is_array($uuid) || $uuid instanceof Arrayable) {
