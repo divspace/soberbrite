@@ -93,7 +93,7 @@ final class Lookup
             ->unique()
             ->sort()
             ->values()
-            ->transform(static function (string $city): array {
+            ->map(static function (string $city): array {
                 return [
                     'name' => $city,
                 ];
@@ -146,7 +146,7 @@ final class Lookup
             ->pluck('zip_code')
             ->sort()
             ->values()
-            ->transform(static function (string $zipCode): array {
+            ->map(static function (string $zipCode): array {
                 return [
                     'code' => $zipCode,
                 ];
