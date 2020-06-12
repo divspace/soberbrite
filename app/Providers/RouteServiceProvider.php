@@ -9,11 +9,6 @@ final class RouteServiceProvider extends ServiceProvider
 {
     protected $namespace = 'App\Http\Controllers';
 
-    public function boot(): void
-    {
-        parent::boot();
-    }
-
     public function map(): void
     {
         Route::middleware('web')
