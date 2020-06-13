@@ -1,3 +1,24 @@
+parameters:
+    paths:
+        - 'app'
+        - 'config'
+        - 'database'
+        - 'resources'
+        - 'routes'
+        - 'tests'
+    skip:
+        PHP_CodeSniffer\Standards\Generic\Sniffs\CodeAnalysis\AssignmentInConditionSniff.FoundInWhileCondition: null
+        PhpCsFixer\Fixer\Import\SingleImportPerStatementFixer: null
+        SlevomatCodingStandard\Sniffs\Classes\UnusedPrivateElementsSniff.UnusedMethod:
+            - 'database/seeds/Lookup.php'
+        SlevomatCodingStandard\Sniffs\Functions\UnusedParameterSniff.UnusedParameter: null
+        PhpCsFixer\Fixer\Whitespace\NoExtraBlankLinesFixer:
+            - 'config/*'
+            - 'resources/*'
+        PhpCsFixer\Fixer\Phpdoc\PhpdocLineSpanFixer:
+            - 'tests/*'
+        PhpCsFixer\Fixer\PhpUnit\PhpUnitMethodCasingFixer:
+            - 'tests/*'
 services:
     # PhpCsFixer\Fixer\Strict\DeclareStrictTypesFixer: null
     PHP_CodeSniffer\Standards\Generic\Sniffs\CodeAnalysis\AssignmentInConditionSniff: null
@@ -45,7 +66,6 @@ services:
     PhpCsFixer\Fixer\ArrayNotation\TrailingCommaInMultilineArrayFixer: null
     PhpCsFixer\Fixer\ArrayNotation\TrimArraySpacesFixer: null
     PhpCsFixer\Fixer\ArrayNotation\WhitespaceAfterCommaInArrayFixer: null
-    PhpCsFixer\Fixer\Basic\BracesFixer: null
     PhpCsFixer\Fixer\Basic\EncodingFixer: null
     PhpCsFixer\Fixer\Basic\Psr4Fixer: null
     PhpCsFixer\Fixer\Casing\ConstantCaseFixer: null
@@ -58,13 +78,11 @@ services:
     PhpCsFixer\Fixer\CastNotation\NoShortBoolCastFixer: null
     PhpCsFixer\Fixer\CastNotation\ShortScalarCastFixer: null
     PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer: null
-    PhpCsFixer\Fixer\ClassNotation\ClassDefinitionFixer: null
     PhpCsFixer\Fixer\ClassNotation\NoBlankLinesAfterClassOpeningFixer: null
     PhpCsFixer\Fixer\ClassNotation\NoUnneededFinalMethodFixer: null
     PhpCsFixer\Fixer\ClassNotation\OrderedClassElementsFixer: null
     PhpCsFixer\Fixer\ClassNotation\ProtectedToPrivateFixer: null
     PhpCsFixer\Fixer\ClassNotation\SelfAccessorFixer: null
-    PhpCsFixer\Fixer\ClassNotation\VisibilityRequiredFixer: null
     PhpCsFixer\Fixer\Comment\NoEmptyCommentFixer: null
     PhpCsFixer\Fixer\Comment\NoTrailingWhitespaceInCommentFixer: null
     PhpCsFixer\Fixer\ControlStructure\ElseifFixer: null
@@ -76,7 +94,6 @@ services:
     PhpCsFixer\Fixer\ControlStructure\NoUselessElseFixer: null
     PhpCsFixer\Fixer\ControlStructure\SwitchCaseSemicolonToColonFixer: null
     PhpCsFixer\Fixer\ControlStructure\SwitchCaseSpaceFixer: null
-    PhpCsFixer\Fixer\ControlStructure\YodaStyleFixer: null
     PhpCsFixer\Fixer\FunctionNotation\FunctionDeclarationFixer: null
     PhpCsFixer\Fixer\FunctionNotation\FunctionTypehintSpaceFixer: null
     PhpCsFixer\Fixer\FunctionNotation\NoSpacesAfterFunctionNameFixer: null
@@ -86,17 +103,14 @@ services:
     PhpCsFixer\Fixer\Import\NoUnusedImportsFixer: null
     PhpCsFixer\Fixer\Import\SingleImportPerStatementFixer: null
     PhpCsFixer\Fixer\Import\SingleLineAfterImportsFixer: null
-    PhpCsFixer\Fixer\LanguageConstruct\DeclareEqualNormalizeFixer: null
     PhpCsFixer\Fixer\LanguageConstruct\DirConstantFixer: null
     PhpCsFixer\Fixer\LanguageConstruct\ExplicitIndirectVariableFixer: null
     PhpCsFixer\Fixer\LanguageConstruct\FunctionToConstantFixer: null
-    PhpCsFixer\Fixer\LanguageConstruct\IsNullFixer: null
     PhpCsFixer\Fixer\LanguageConstruct\SilencedDeprecationErrorFixer: null
     PhpCsFixer\Fixer\NamespaceNotation\BlankLineAfterNamespaceFixer: null
     PhpCsFixer\Fixer\NamespaceNotation\NoLeadingNamespaceWhitespaceFixer: null
     PhpCsFixer\Fixer\NamespaceNotation\SingleBlankLineBeforeNamespaceFixer: null
     PhpCsFixer\Fixer\Naming\NoHomoglyphNamesFixer: null
-    PhpCsFixer\Fixer\Operator\BinaryOperatorSpacesFixer: null
     PhpCsFixer\Fixer\Operator\IncrementStyleFixer: null
     PhpCsFixer\Fixer\Operator\NewWithBracesFixer: null
     PhpCsFixer\Fixer\Operator\ObjectOperatorWithoutWhitespaceFixer: null
@@ -118,7 +132,6 @@ services:
     PhpCsFixer\Fixer\Phpdoc\PhpdocNoUselessInheritdocFixer: null
     PhpCsFixer\Fixer\Phpdoc\PhpdocReturnSelfReferenceFixer: null
     PhpCsFixer\Fixer\Phpdoc\PhpdocScalarFixer: null
-    PhpCsFixer\Fixer\Phpdoc\PhpdocSeparationFixer: null
     PhpCsFixer\Fixer\Phpdoc\PhpdocSingleLineVarSpacingFixer: null
     PhpCsFixer\Fixer\Phpdoc\PhpdocSummaryFixer: null
     PhpCsFixer\Fixer\Phpdoc\PhpdocToCommentFixer: null
@@ -202,15 +215,6 @@ services:
             - square_brace_block
             - throw
             - use
-    PhpCsFixer\Fixer\Phpdoc\PhpdocAlignFixer:
-        tags:
-            - method
-            - param
-            - property
-            - return
-            - throws
-            - type
-            - var
     PhpCsFixer\Fixer\ArrayNotation\ArraySyntaxFixer:
         syntax: short
     PhpCsFixer\Fixer\ClassNotation\SingleClassElementPerStatementFixer:
@@ -258,25 +262,3 @@ services:
         position_after_anonymous_constructs: 'same'
     PhpCsFixer\Fixer\Basic\NonPrintableCharacterFixer:
         use_escape_sequences_in_strings: false
-parameters:
-    paths:
-        - 'app'
-        - 'config'
-        - 'database'
-        - 'resources'
-        - 'routes'
-        - 'tests'
-    skip:
-        PHP_CodeSniffer\Standards\Generic\Sniffs\CodeAnalysis\AssignmentInConditionSniff.FoundInWhileCondition: null
-        PhpCsFixer\Fixer\Import\SingleImportPerStatementFixer: null
-        SlevomatCodingStandard\Sniffs\Functions\UnusedParameterSniff.UnusedParameter: null
-        PhpCsFixer\Fixer\Whitespace\NoExtraBlankLinesFixer:
-            - 'config/*'
-            - 'resources/*'
-        PhpCsFixer\Fixer\Phpdoc\PhpdocLineSpanFixer:
-            - 'tests/*'
-        PhpCsFixer\Fixer\PhpUnit\PhpUnitMethodCasingFixer:
-            - 'tests/*'
-        SlevomatCodingStandard\Sniffs\Classes\TraitUseDeclarationSniff:
-            # - 'app/Database/Models/*'
-            # - 'app/Http/Controllers/*'
