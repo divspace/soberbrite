@@ -1,12 +1,6 @@
 parameters:
     paths:
         - 'app'
-    # exclude_paths:
-    #     - 'app/Http/Middleware/RedirectIfAuthenticated.php'
-    #     - 'app/Providers/RouteServiceProvider.php'
-    #     - 'app/Database/Traits/HasTimestamps.php'
-    #     - 'app/Database/Models/User.php'
-    #     - 'app/Http/Controllers/UserController.php'
     auto_import_names: true
     import_short_classes: false
     import_doc_blocks: false
