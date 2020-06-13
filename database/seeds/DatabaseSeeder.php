@@ -9,6 +9,8 @@ final class DatabaseSeeder extends Seeder
 {
     /**
      * The list of additional tables to seed that aren't in the lookup config.
+     *
+     * @var string[]
      */
     private static array $additionalTables = [
         'recovery_programs',

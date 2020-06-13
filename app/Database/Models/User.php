@@ -14,7 +14,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Str;
 
 final class User extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract
 {
@@ -24,26 +23,50 @@ final class User extends Model implements AuthenticatableContract, AuthorizableC
     use MustVerifyEmail;
     use Notifiable;
 
+    /**
+     * @var string
+     */
     public const TABLE = 'users';
 
+    /**
+     * @var string
+     */
     public const EMAIL = 'email';
 
+    /**
+     * @var string
+     */
     public const PASSWORD = 'password';
 
+    /**
+     * @var string
+     */
     public const REMEMBER_TOKEN = 'remember_token';
 
+    /**
+     * @var string
+     */
     public const EMAIL_VERIFIED_AT = 'email_verified_at';
 
+    /**
+     * @var string[]
+     */
     protected $fillable = [
         self::EMAIL,
         self::PASSWORD,
     ];
 
+    /**
+     * @var string[]
+     */
     protected $hidden = [
         self::PASSWORD,
         self::REMEMBER_TOKEN,
     ];
 
+    /**
+     * @var array
+     */
     protected $casts = [
         self::ID => self::INTEGER,
         self::EMAIL => self::STRING,
@@ -52,6 +75,9 @@ final class User extends Model implements AuthenticatableContract, AuthorizableC
         self::EMAIL_VERIFIED_AT => self::DATETIME,
     ];
 
+    /**
+     * @var array
+     */
     protected $dates = [
         self::EMAIL_VERIFIED_AT,
     ];
@@ -66,18 +92,18 @@ final class User extends Model implements AuthenticatableContract, AuthorizableC
         return $this->hasOne(Profile::class);
     }
 
+    /**
+     * @param string $value
+     * @param string|null $field
+     */
     public function resolveRouteBinding($value, $field = null): ?object
     {
         if (is_numeric($value)) {
-            $user = $this->where(self::ID, $value)->first();
-        } elseif (Str::isUuid($value)) {
-            $user = $this->whereUuid($value)->first();
-        } else {
-            $user = $this->whereHas('profile', static function (Builder $query) use ($value): void {
-                $query->where(Profile::USERNAME, $value);
-            })->first();
+            return $this->where(self::ID, $value)->first();
         }
 
-        return $user ?? null;
+        return static::whereHas('profile', static function (Builder $query) use ($value): void {
+            $query->where(Profile::USERNAME, $value);
+        })->first();
     }
 }

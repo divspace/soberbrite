@@ -7,14 +7,26 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 final class City extends Model
 {
+    /**
+     * @var string
+     */
     public const TABLE = 'cities';
 
+    /**
+     * @var string
+     */
     public const NAME = 'name';
 
+    /**
+     * @var string[]
+     */
     protected $fillable = [
         self::NAME,
     ];
 
+    /**
+     * @var array
+     */
     protected $casts = [
         self::ID => self::INTEGER,
         self::NAME => self::STRING,

@@ -8,14 +8,12 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 
 final class EventServiceProvider extends ServiceProvider
 {
+    /**
+     * @var string[][]
+     */
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
     ];
-
-    public function boot(): void
-    {
-        parent::boot();
-    }
 }

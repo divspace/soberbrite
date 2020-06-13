@@ -3,9 +3,13 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Illuminate\Http\Request;
 
 final class Authenticate extends Middleware
 {
+    /**
+     * @param Request $request
+     */
     protected function redirectTo($request): ?string
     {
         if (!$request->expectsJson()) {

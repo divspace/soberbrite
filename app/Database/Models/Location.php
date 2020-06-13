@@ -8,22 +8,49 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 final class Location extends Model
 {
+    /**
+     * @var string
+     */
     public const TABLE = 'locations';
 
+    /**
+     * @var string
+     */
     public const CITY = 'city_id';
 
+    /**
+     * @var string
+     */
     public const STATE = 'state_id';
 
+    /**
+     * @var string
+     */
     public const ZIP_CODE = 'zip_code_id';
 
+    /**
+     * @var string
+     */
     public const LATITUDE = 'latitude';
 
+    /**
+     * @var string
+     */
     public const LONGITUDE = 'longitude';
 
+    /**
+     * @var string
+     */
     public const OBSERVES_DST = 'observes_dst';
 
+    /**
+     * @var string
+     */
     public const TIMEZONE_OFFSET = 'timezone_offset';
 
+    /**
+     * @var string[]
+     */
     protected $fillable = [
         self::LATITUDE,
         self::LONGITUDE,
@@ -31,6 +58,9 @@ final class Location extends Model
         self::OBSERVES_DST,
     ];
 
+    /**
+     * @var array
+     */
     protected $casts = [
         self::ID => self::INTEGER,
         self::CITY => self::INTEGER,

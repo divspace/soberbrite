@@ -6,6 +6,9 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 
 final class AuthServiceProvider extends ServiceProvider
 {
+    /**
+     * @var array
+     */
     protected $policies = [];
 
     public function boot(): void

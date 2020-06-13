@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Route;
 
 final class RouteServiceProvider extends ServiceProvider
 {
+    /**
+     * @var string
+     */
     protected $namespace = 'App\Http\Controllers';
 
     public function map(): void

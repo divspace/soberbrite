@@ -2,13 +2,10 @@
 
 namespace App\Database\Eloquent;
 
-use App\Database\Traits\HasTimestamps;
 use Illuminate\Database\Eloquent\Model as BaseModel;
 
 class Model extends BaseModel
 {
-    use HasTimestamps;
-
     /**
      * @var string
      */

@@ -12,6 +12,10 @@ use Ramsey\Uuid\Uuid;
 
 trait HasUuid
 {
+    /**
+     * @param array|string|null $types
+     * @return bool
+     */
     abstract public function hasCast(string $key, $types = null);
 
     public static function bootHasUuid(): void
@@ -75,6 +79,9 @@ trait HasUuid
         return $query->whereIn($uuidColumn, Arr::wrap($uuid));
     }
 
+    /**
+     * @param array|string $uuid
+     */
     protected function bytesFromUuid($uuid): array
     {
         if (\is_array($uuid) || $uuid instanceof Arrayable) {

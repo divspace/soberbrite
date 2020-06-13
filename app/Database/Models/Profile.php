@@ -7,26 +7,59 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 final class Profile extends Model
 {
+    /**
+     * @var string
+     */
     public const TABLE = 'profiles';
 
+    /**
+     * @var string
+     */
     public const USER = 'user_id';
 
+    /**
+     * @var string
+     */
     public const USERNAME = 'username';
 
+    /**
+     * @var string
+     */
     public const FIRST_NAME = 'first_name';
 
+    /**
+     * @var string
+     */
     public const MIDDLE_NAME = 'middle_name';
 
+    /**
+     * @var string
+     */
     public const LAST_NAME = 'last_name';
 
+    /**
+     * @var string
+     */
     public const PHONE_NUMBER = 'phone';
 
+    /**
+     * @var string
+     */
     public const SEX = 'gender';
 
+    /**
+     * @var string
+     */
     public const BIRTH_DATE = 'birth_date';
 
+    /**
+     * @var string
+     */
     public const SOBRIETY_DATE = 'sobriety_date';
 
+    /**
+     * @var string[]
+     */
     protected $fillable = [
         self::USERNAME,
         self::FIRST_NAME,
@@ -38,6 +71,9 @@ final class Profile extends Model
         self::SOBRIETY_DATE,
     ];
 
+    /**
+     * @var array
+     */
     protected $casts = [
         self::ID => self::INTEGER,
         self::USER => self::INTEGER,
@@ -51,6 +87,9 @@ final class Profile extends Model
         self::SOBRIETY_DATE => self::DATE.':Y-m-d',
     ];
 
+    /**
+     * @var string[]
+     */
     protected $dates = [
         self::BIRTH_DATE,
         self::SOBRIETY_DATE,

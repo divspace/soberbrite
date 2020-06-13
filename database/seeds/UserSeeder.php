@@ -11,10 +11,19 @@ use Illuminate\Database\Seeder;
 
 final class UserSeeder extends Seeder
 {
+    /**
+     * @var string
+     */
     private const CITY = 'city';
 
+    /**
+     * @var string
+     */
     private const STATE = 'state';
 
+    /**
+     * @var string
+     */
     private const ZIP_CODE = 'zip_code';
 
     public function run(): void

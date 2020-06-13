@@ -48,11 +48,11 @@ final class Lookup
         return $this->data;
     }
 
-    private function getFilePath(string $name): ?string
+    private function getFilePath(string $name): string
     {
         return config()->has('lookup.tables.'.$name)
             ? config('lookup.tables.'.$name)['file_path']
-            : null;
+            : '';
     }
 
     private function detectDelimiter(string $line): string
@@ -72,7 +72,7 @@ final class Lookup
         return array_search(max($delimiters), $delimiters, true);
     }
 
-    protected function areaCodes(): void
+    private function areaCodes(): void
     {
         $this->data = $this->file
             ->filter(static function (array $item): bool {
@@ -86,7 +86,7 @@ final class Lookup
             ->sortKeys();
     }
 
-    protected function cities(): void
+    private function cities(): void
     {
         $this->locations();
 
@@ -102,7 +102,7 @@ final class Lookup
             });
     }
 
-    protected function countries(): void
+    private function countries(): void
     {
         $this->data = $this->file
             ->map(static function (array $item): array {
@@ -114,7 +114,7 @@ final class Lookup
             ->sortBy('name');
     }
 
-    protected function locations(): void
+    private function locations(): void
     {
         $this->data = $this->file
             ->map(static function (array $item): array {
@@ -130,7 +130,7 @@ final class Lookup
             });
     }
 
-    protected function states(): void
+    private function states(): void
     {
         $this->data = $this->file
             ->map(static function (array $item): array {
@@ -142,7 +142,7 @@ final class Lookup
             ->sortBy('name');
     }
 
-    protected function zipCodes(): void
+    private function zipCodes(): void
     {
         $this->locations();
 

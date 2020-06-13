@@ -6,6 +6,9 @@ use Illuminate\Foundation\Http\Middleware\TrimStrings as Middleware;
 
 final class TrimStrings extends Middleware
 {
+    /**
+     * @var string[]
+     */
     protected $except = [
         'password',
         'password_confirmation',
