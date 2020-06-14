@@ -19,7 +19,7 @@ final class LookupService
 
     private Collection $file;
 
-    public function __construct(string $type = null)
+    public function __construct(string $type)
     {
         $config = Str::of($type)->slug()->__toString();
         $method = Str::of($type)->camel()->__toString();
