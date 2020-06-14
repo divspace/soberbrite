@@ -1,9 +1,0 @@
-parameters:
-    level: 8
-    paths:
-        - app
-    checkMissingIterableValueType: false
-includes:
-    - ./vendor/nunomaduro/larastan/extension.neon
-    - ./vendor/phpstan/phpstan-strict-rules/rules.neon
-    - ./vendor/phpstan/phpstan-webmozart-assert/extension.neon
