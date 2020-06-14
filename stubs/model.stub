@@ -1,0 +1,25 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ rootNamespace }}Database\Eloquent\Model;
+
+class {{ class }} extends Model
+{
+    /**
+     * @var string
+     */
+    public const TABLE = '{{ class }}';
+
+    /**
+     * @var string[]
+     */
+    protected $fillable = [];
+
+    /**
+     * @var array
+     */
+    protected $casts = [
+        self::ID => self::INTEGER,
+    ];
+}
