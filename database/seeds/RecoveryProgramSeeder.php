@@ -2,12 +2,13 @@
 
 use App\Database\LookupSeeder;
 use App\Database\Models\RecoveryProgram;
+use App\Services\LookupService;
 
 final class RecoveryProgramSeeder extends LookupSeeder
 {
     public function run(): void
     {
-        (new Lookup(RecoveryProgram::TABLE))
+        (new LookupService(RecoveryProgram::TABLE))
             ->fetch()
             ->sortBy('name')
             ->each(function (array $program): void {

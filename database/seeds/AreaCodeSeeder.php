@@ -3,6 +3,7 @@
 use App\Database\LookupSeeder;
 use App\Database\Models\AreaCode;
 use App\Database\Models\State;
+use App\Services\LookupService;
 use Illuminate\Support\Collection;
 
 final class AreaCodeSeeder extends LookupSeeder
@@ -11,7 +12,7 @@ final class AreaCodeSeeder extends LookupSeeder
     {
         $states = State::all('id', 'code');
 
-        (new Lookup(AreaCode::TABLE))
+        (new LookupService(AreaCode::TABLE))
             ->fetch()
             ->each(function (Collection $areaCodes, string $stateCode) use ($states): void {
                 $state = $states->where(State::CODE, $stateCode)->first();

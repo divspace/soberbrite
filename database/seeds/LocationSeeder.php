@@ -5,12 +5,13 @@ use App\Database\Models\City;
 use App\Database\Models\Location;
 use App\Database\Models\State;
 use App\Database\Models\ZipCode;
+use App\Services\LookupService;
 
 final class LocationSeeder extends LookupSeeder
 {
     public function run(): void
     {
-        (new Lookup(Location::TABLE))
+        (new LookupService(Location::TABLE))
             ->fetch()
             ->each(function (array $location): void {
                 $city = City::where(City::NAME, $location['city'])->first();

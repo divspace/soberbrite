@@ -2,12 +2,13 @@
 
 use App\Database\LookupSeeder;
 use App\Database\Models\Country;
+use App\Services\LookupService;
 
 final class CountrySeeder extends LookupSeeder
 {
     public function run(): void
     {
-        (new Lookup(Country::TABLE))
+        (new LookupService(Country::TABLE))
             ->fetch()
             ->each(function (array $country): void {
                 $this->insertData->push([

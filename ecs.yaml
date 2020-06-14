@@ -10,7 +10,7 @@ parameters:
         PHP_CodeSniffer\Standards\Generic\Sniffs\CodeAnalysis\AssignmentInConditionSniff.FoundInWhileCondition: null
         PhpCsFixer\Fixer\Import\SingleImportPerStatementFixer: null
         SlevomatCodingStandard\Sniffs\Classes\UnusedPrivateElementsSniff.UnusedMethod:
-            - 'database/seeds/Lookup.php'
+            - 'app/Services/LookupService.php'
         SlevomatCodingStandard\Sniffs\Functions\UnusedParameterSniff.UnusedParameter: null
         PhpCsFixer\Fixer\Whitespace\NoExtraBlankLinesFixer:
             - 'config/*'

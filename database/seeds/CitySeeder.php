@@ -2,12 +2,13 @@
 
 use App\Database\LookupSeeder;
 use App\Database\Models\City;
+use App\Services\LookupService;
 
 final class CitySeeder extends LookupSeeder
 {
     public function run(): void
     {
-        (new Lookup(City::TABLE))
+        (new LookupService(City::TABLE))
             ->fetch()
             ->each(function ($city): void {
                 $this->insertData->push([

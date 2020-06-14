@@ -2,12 +2,13 @@
 
 use App\Database\LookupSeeder;
 use App\Database\Models\State;
+use App\Services\LookupService;
 
 final class StateSeeder extends LookupSeeder
 {
     public function run(): void
     {
-        (new Lookup(State::TABLE))
+        (new LookupService(State::TABLE))
             ->fetch()
             ->map(function (array $state): void {
                 $this->insertData->push([

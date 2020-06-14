@@ -2,12 +2,13 @@
 
 use App\Database\LookupSeeder;
 use App\Database\Models\ZipCode;
+use App\Services\LookupService;
 
 final class ZipCodeSeeder extends LookupSeeder
 {
     public function run(): void
     {
-        (new Lookup(ZipCode::TABLE))
+        (new LookupService(ZipCode::TABLE))
             ->fetch()
             ->map(function (array $zipCode): void {
                 $this->insertData->push([

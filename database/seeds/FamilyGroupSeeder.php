@@ -2,12 +2,13 @@
 
 use App\Database\LookupSeeder;
 use App\Database\Models\FamilyGroup;
+use App\Services\LookupService;
 
 final class FamilyGroupSeeder extends LookupSeeder
 {
     public function run(): void
     {
-        (new Lookup(FamilyGroup::TABLE))
+        (new LookupService(FamilyGroup::TABLE))
             ->fetch()
             ->sortBy('name')
             ->each(function (array $group): void {
