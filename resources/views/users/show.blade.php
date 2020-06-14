@@ -1,91 +1,81 @@
 @extends('layouts.app')
-@section('title', 'Users')
+
+@section('title', $user->profile->first_name.' '.$user->profile->last_name)
+
 @section('content')
-    <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-        <div class="px-4 py-5 border-b border-gray-200 sm:px-6">
-            <h3 class="text-lg leading-6 font-medium text-gray-900">
-                User Profile
-            </h3>
+    <table class="table-auto">
+        <tr>
+            <td class="border px-4 py-2">
+                <strong>Full Name</strong>
+            </td>
 
-            <p class="mt-1 max-w-2xl text-sm leading-5 text-gray-500">
-                Public details and information.
-            </p>
-        </div>
+            <td class="border px-4 py-2">
+                {{ $user->profile->first_name }} {{ $user->profile->last_name }}
+            </td>
+        </tr>
 
-        <div>
-            <dl>
-                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Full Name
-                    </dt>
+        <tr class="bg-gray-100">
+            <td class="border px-4 py-2">
+                <strong>Email Address</strong>
+            </td>
 
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->profile->first_name }} {{ $user->profile->last_name }} ({{ $user->profile->birth_date->age }}/{{ $user->profile->gender }}/{{ $user->address->first()->location->state->code }})
-                    </dd>
-                </div>
+            <td class="border px-4 py-2">
+                <a href="mailto:{{ $user->email }}">
+                    {{ $user->email }}
+                </a>
+            </td>
+        </tr>
 
-                <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Email Address
-                    </dt>
+        <tr>
+            <td class="border px-4 py-2">
+                <strong>Joined On</strong>
+            </td>
 
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->email }}
-                    </dd>
-                </div>
+            <td class="border px-4 py-2">
+                {{ $user->created_at->format('F j, Y') }} ({{ $user->created_at->diffForHumans() }})
+            </td>
+        </tr>
 
-                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Joined On
-                    </dt>
+        <tr class="bg-gray-100">
+            <td class="border px-4 py-2">
+                <strong>Sober Since</strong>
+            </td>
 
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->created_at->format('F j, Y') }} ({{ $user->created_at->diffForHumans() }})
-                    </dd>
-                </div>
+            <td class="border px-4 py-2">
+                {{ $user->profile->sobriety_date->format('F j, Y') }} ({{ number_format($user->profile->sobriety_date->diffInDays()).' '.Str::plural('day', $user->profile->sobriety_date->diffInDays()) }})
+            </td>
+        </tr>
 
-                <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Sober Since
-                    </dt>
+        <tr>
+            <td class="border px-4 py-2">
+                <strong>Birth Date</strong>
+            </td>
 
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->profile->sobriety_date->format('F j, Y') }} ({{ number_format($user->profile->sobriety_date->diffInDays()).' '.Str::plural('day', $user->profile->sobriety_date->diffInDays()) }})
-                    </dd>
-                </div>
+            <td class="border px-4 py-2">
+                {{ $user->profile->birth_date->format('F j, Y') }} ({{ $user->profile->birth_date->age }} years old)
+            </td>
+        </tr>
 
-                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Birth Date
-                    </dt>
+        <tr class="bg-gray-100">
+            <td class="border px-4 py-2">
+                <strong>Location</strong>
+            </td>
 
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->profile->birth_date->format('F j, Y') }}
-                    </dd>
-                </div>
+            <td class="border px-4 py-2">
+                {{ $user->address->first()->location->city->name }}, {{ $user->address->first()->location->state->code }}
+            </td>
+        </tr>
 
-                <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Phone Number
-                    </dt>
+        <tr>
+            <td class="border px-4 py-2">
+                <strong>Phone Number</strong>
+            </td>
 
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ '('.substr($user->profile->phone, 0, 3).') '.substr($user->profile->phone, 3, 3).'-'.substr($user->profile->phone,6) }}
-                    </dd>
-                </div>
-
-                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        Address
-                    </dt>
-
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        {{ $user->address->first()->street }}
-                        <br>
-                        {{ $user->address->first()->location->city->name }}, {{ $user->address->first()->location->state->code }} {{ $user->address->first()->location->zipCode->code }}
-                    </dd>
-                </div>
-            </dl>
-        </div>
-    </div>
+            <td class="border px-4 py-2">
+                <a href="tel:+1{{ $user->profile->phone }}">
+                    {{ '('.substr($user->profile->phone, 0, 3).') '.substr($user->profile->phone, 3, 3).'-'.substr($user->profile->phone, 6) }}
+                </a>
+            </td>
+        </tr>
+    </table>
 @endsection
