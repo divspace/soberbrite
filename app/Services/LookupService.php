@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Services;
+
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
@@ -11,13 +13,13 @@ use Illuminate\Support\Str;
  * @see https://github.com/stefangabos/world_countries
  * @see https://www.nationalnanpa.com/reports/area_code_relief_planning.html
  */
-final class Lookup
+final class LookupService
 {
     private Collection $data;
 
     private Collection $file;
 
-    public function __construct(string $type)
+    public function __construct(string $type = null)
     {
         $config = Str::of($type)->slug()->__toString();
         $method = Str::of($type)->camel()->__toString();
