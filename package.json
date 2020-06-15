@@ -9,8 +9,9 @@
         "prod": "npm run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "analyze": "npm run ecs",
-        "ecs": "./vendor/bin/ecs check",
-        "rector": "./vendor/bin/rector process --dry-run"
+        "ecs": "vendor/bin/ecs check",
+        "phpunitgen": "vendor/bin/phpunitgen --config config/phpunitgen.php",
+        "rector": "vendor/bin/rector process --dry-run"
     },
     "dependencies": {
         "tailwindcss": "^1.4.6"
