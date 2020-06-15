@@ -6,8 +6,7 @@ use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
-    /** @test */
-    public function can_view_home_page(): void
+    public function testCanViewHomePage(): void
     {
         $this->get('/')->assertSuccessful();
     }
