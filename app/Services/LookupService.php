@@ -78,7 +78,7 @@ final class LookupService
     {
         $this->data = $this->file
             ->filter(static function (array $item): bool {
-                return strlen($item[8]) === 2 && $item[9] === 'US' && $item[10] === 'Y';
+                return \strlen($item[8]) === 2 && $item[9] === 'US' && $item[10] === 'Y';
             })
             ->mapToGroups(static function (array $item): array {
                 return [
