@@ -9,6 +9,6 @@ class ExampleTest extends TestCase
     /** @test */
     public function can_view_home_page(): void
     {
-        $this->get(route('home'))->assertSuccessful();
+        $this->get('/')->assertSuccessful();
     }
 }
