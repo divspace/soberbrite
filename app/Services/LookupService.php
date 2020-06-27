@@ -21,10 +21,10 @@ final class LookupService
 
     public function __construct(string $type)
     {
-        $config = Str::of($type)->slug()->__toString();
-        $method = Str::of($type)->camel()->__toString();
+        $config = Str::slug($type);
+        $method = Str::camel($type);
 
-        if (method_exists(self::class, $method)) {
+        if (method_exists(static::class, $method)) {
             $filePath = $this->getFilePath($type);
 
             if (file_exists($filePath)) {
@@ -34,9 +34,9 @@ final class LookupService
 
                 $delimiter = $this->detectDelimiter($this->file->shift());
 
-                $this->file->transform(static function (string $line) use ($delimiter): array {
-                    return str_getcsv($line, $delimiter);
-                });
+                $this->file->transform(static fn (string $line): array =>
+                    str_getcsv($line, $delimiter)
+                );
 
                 $this->{$method}();
             }
@@ -77,14 +77,12 @@ final class LookupService
     private function areaCodes(): void
     {
         $this->data = $this->file
-            ->filter(static function (array $item): bool {
-                return \strlen($item[8]) === 2 && $item[9] === 'US' && $item[10] === 'Y';
-            })
-            ->mapToGroups(static function (array $item): array {
-                return [
-                    $item[8] => $item[0],
-                ];
-            })
+            ->filter(static fn (array $item): bool =>
+                \strlen($item[8]) === 2 && $item[9] === 'US' && $item[10] === 'Y'
+            )
+            ->mapToGroups(static fn (array $item): array => [
+                $item[8] => $item[0],
+            ])
             ->sortKeys();
     }
 
@@ -97,50 +95,42 @@ final class LookupService
             ->unique()
             ->sort()
             ->values()
-            ->map(static function (string $city): array {
-                return [
-                    'name' => $city,
-                ];
-            });
+            ->map(static fn (string $city): array => [
+                'name' => $city,
+            ]);
     }
 
     private function countries(): void
     {
         $this->data = $this->file
-            ->map(static function (array $item): array {
-                return [
-                    'code' => $item[2],
-                    'name' => $item[1],
-                ];
-            })
+            ->map(static fn (array $item): array => [
+                'code' => $item[2],
+                'name' => $item[1],
+            ])
             ->sortBy('name');
     }
 
     private function locations(): void
     {
         $this->data = $this->file
-            ->map(static function (array $item): array {
-                return [
-                    'city' => $item[1],
-                    'state' => $item[2],
-                    'zip_code' => $item[0],
-                    'latitude' => $item[3],
-                    'longitude' => $item[4],
-                    'timezone_offset' => $item[5],
-                    'observes_dst' => $item[6],
-                ];
-            });
+            ->map(static fn (array $item): array => [
+                'city' => $item[1],
+                'state' => $item[2],
+                'zip_code' => $item[0],
+                'latitude' => $item[3],
+                'longitude' => $item[4],
+                'timezone_offset' => $item[5],
+                'observes_dst' => $item[6],
+            ]);
     }
 
     private function states(): void
     {
         $this->data = $this->file
-            ->map(static function (array $item): array {
-                return [
-                    'code' => $item[0],
-                    'name' => $item[1],
-                ];
-            })
+            ->map(static fn (array $item): array => [
+                'code' => $item[0],
+                'name' => $item[1],
+            ])
             ->sortBy('name');
     }
 
@@ -152,10 +142,8 @@ final class LookupService
             ->pluck('zip_code')
             ->sort()
             ->values()
-            ->map(static function (string $zipCode): array {
-                return [
-                    'code' => $zipCode,
-                ];
-            });
+            ->map(static fn (string $zipCode): array => [
+                'code' => $zipCode,
+            ]);
     }
 }
