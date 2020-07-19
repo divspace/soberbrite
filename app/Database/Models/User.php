@@ -65,7 +65,7 @@ final class User extends Model implements AuthenticatableContract, AuthorizableC
     ];
 
     /**
-     * @var array
+     * @var string[]
      */
     protected $casts = [
         self::ID => self::INTEGER,
@@ -76,7 +76,7 @@ final class User extends Model implements AuthenticatableContract, AuthorizableC
     ];
 
     /**
-     * @var array
+     * @var string[]
      */
     protected $dates = [
         self::EMAIL_VERIFIED_AT,
@@ -102,7 +102,7 @@ final class User extends Model implements AuthenticatableContract, AuthorizableC
             return $this->where(self::ID, $value)->first();
         }
 
-        return static::whereHas('profile', static function (Builder $query) use ($value): void {
+        return self::whereHas('profile', static function (Builder $query) use ($value): void {
             $query->where(Profile::USERNAME, $value);
         })->first();
     }

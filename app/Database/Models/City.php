@@ -25,7 +25,7 @@ final class City extends Model
     ];
 
     /**
-     * @var array
+     * @var string[]
      */
     protected $casts = [
         self::ID => self::INTEGER,

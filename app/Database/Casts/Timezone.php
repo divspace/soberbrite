@@ -10,6 +10,7 @@ final class Timezone implements CastsAttributes
 {
     /**
      * @param Model $model
+     * @param string $value
      */
     public function get($model, string $key, $value, array $attributes): string
     {
@@ -18,6 +19,7 @@ final class Timezone implements CastsAttributes
 
     /**
      * @param Model $model
+     * @param string $value
      */
     public function set($model, string $key, $value, array $attributes): string
     {
