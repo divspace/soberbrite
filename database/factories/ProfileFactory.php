@@ -1,9 +1,12 @@
 <?php
 
+/** @var Factory $factory */
+
 use App\Database\Models\AreaCode;
 use App\Database\Models\Profile;
 use App\Database\Models\User;
 use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factory;
 
 $factory->define(Profile::class, static function (Faker $faker): array {
     $sex = random_int(1, 100) <= 75 ? 'male' : 'female';
