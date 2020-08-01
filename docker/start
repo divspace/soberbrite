@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+scriptDirectory=$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)
+
+function findDocker() {
+    if ! hash docker 2>/dev/null; then
+        echo "Docker not found"
+        exit 1
+    fi
+}
+
+function findDotEnv() {
+    if [[ ! -f $scriptDirectory/../.env ]]; then
+        echo ".env file not found"
+        exit 1
+    fi
+}
+
+function checkDotEnv() {
+    if [[ -z $(grep DOCKER "$scriptDirectory"/../.env | cut -d '=' -f 2) ]]; then
+        echo "DOCKER variable not found in .env file"
+        exit 1
+    fi
+}
+
+function checkPorts() {
+    if lsof -nP -iTCP:80 -iTCP:443 -iTCP:3306 -iTCP:6379 | grep -q LISTEN; then
+        printf "Required port already in use:\n\n"
+        lsof -nP -iTCP:80 -iTCP:443 -iTCP:3306 -iTCP:6379 | grep LISTEN
+        exit 1
+    fi
+}
+
+function startDocker() {
+    docker-compose down
+    docker-compose build
+    docker-compose up -d
+}
+
+findDocker
+findDotEnv
+checkDotEnv
+startDocker
