@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 use App\Database\LookupSeeder;
 use App\Database\Models\Country;
 use App\Services\LookupService;

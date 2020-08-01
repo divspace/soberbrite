@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 use App\Database\LookupSeeder;
 use App\Database\Models\State;
 use App\Services\LookupService;

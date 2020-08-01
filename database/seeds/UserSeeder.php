@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 use App\Database\Models\Address;
 use App\Database\Models\City;
 use App\Database\Models\Location;

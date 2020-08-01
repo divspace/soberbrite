@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace App\Database\Casts;
 
 use App\Database\Eloquent\Model;
