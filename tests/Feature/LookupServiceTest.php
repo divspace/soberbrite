@@ -7,19 +7,28 @@ use Tests\TestCase;
 
 class LookupServiceTest extends TestCase
 {
-    public function testHasLookupConfig(): void
+    /**
+     * @test
+     */
+    public static function a_lookup_config_exists(): void
     {
         static::assertTrue(config()->has('lookup'));
     }
 
-    public function testHasLookupFiles(): void
+    /**
+     * @test
+     */
+    public static function all_lookup_files_exist(): void
     {
         foreach (config('lookup.tables') as $lookup) {
             static::assertFileExists($lookup['file_path']);
         }
     }
 
-    public function testHasFiftyOneStates(): void
+    /**
+     * @test
+     */
+    public static function has_fifty_states_and_one_district(): void
     {
         static::assertCount(51, (new LookupService('states'))->fetch()->toArray());
     }
