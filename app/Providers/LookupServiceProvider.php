@@ -12,7 +12,7 @@ final class LookupServiceProvider extends ServiceProvider implements DeferrableP
 {
     public function register(): void
     {
-        $this->app->bind(LookupService::class, static fn(): LookupService => new LookupService('LookupType'));
+        $this->app->bind(LookupService::class, static fn (): LookupService => new LookupService('LookupType'));
     }
 
     public function provides(): array
