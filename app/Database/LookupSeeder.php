@@ -9,7 +9,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
-class LookupSeeder extends Seeder
+final class LookupSeeder extends Seeder
 {
     public int $chunkSize = 100;
 
