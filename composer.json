@@ -54,6 +54,14 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "ecs": "ecs check --fix",
+        "test:ecs": "ecs check",
+        "rector": "rector process",
+        "test:rector": "rector process --diff --dry-run",
+        "test": [
+            "@test:ecs",
+            "@test:rector"
         ]
     },
     "config": {
