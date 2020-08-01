@@ -1,0 +1,36 @@
+#!/usr/bin/env sh
+
+set -e
+
+DIR=/usr/src/php
+
+if [ ! -f "$DIR/.docker-extracted" ]; then
+    echo >&2 "error: PHP source required, run 'docker-php-source extract' first"
+    exit 1
+fi
+
+DIR="$DIR/ext"
+
+usage() {
+    echo "usage: $0 module-name module-version"
+    echo "   ie: $0 redis 5.3.1"
+}
+
+NAME=$1
+VERSION=$2
+
+if [ -z "$NAME" ] || [ -z "$VERSION" ]; then
+    usage >&2
+    exit 1
+fi
+
+case "$NAME" in
+*/*)
+    mkdir -p "$DIR/${NAME#*/}"
+    curl -fsSL "https://github.com/$NAME/archive/$VERSION.tar.gz" | tar xz -C "$DIR/${NAME#*/}" --strip 1
+    ;;
+*)
+    mkdir -p "$DIR/$NAME"
+    curl -fsSL "https://pecl.php.net/get/$NAME-$VERSION.tgz" | tar xz -C "$DIR/$NAME" --strip 1
+    ;;
+esac

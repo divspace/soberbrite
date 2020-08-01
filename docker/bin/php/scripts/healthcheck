@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+statusCode=$(curl -fIs "$1" | head -n 1 | cut -d ' ' -f 2-)
+
+if [ -z "$statusCode" ]; then
+    exit 1
+fi
+
+echo "$statusCode" && exit 0
