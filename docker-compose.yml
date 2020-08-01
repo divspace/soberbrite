@@ -1,58 +1,50 @@
 version: "3.8"
 
 services:
-    web:
-        build:
-            context: ./docker/bin/${DOCKER_PHP}
-        container_name: "${DOCKER}-${DOCKER_PHP}"
-        restart: "always"
-        ports:
-            - "81:80"
-            - "443:443"
-        links:
-            - mysql
-        volumes:
-            - .:/var/www/html
-            - ./docker/config/php/php.ini:/usr/local/etc/php/php.ini
-            - ./docker/config/sites:/etc/apache2/sites-enabled
-            - ./docker/logs/httpd:/var/log/apache2
-        environment:
-            PMA_PORT: ${PMA_PORT}
     mysql:
         build:
-            context: "./docker/bin/${DOCKER_DB}"
+            context: "./docker/bin/mysql"
         container_name: "${DOCKER}-mysql"
-        restart: "always"
+        environment:
+            MYSQL_DATABASE: ${DB_DATABASE}
+            MYSQL_PASSWORD: ${DB_PASSWORD}
+            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+            MYSQL_USER: ${DB_USERNAME}
+        healthcheck:
+            test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-p${DB_PASSWORD}"]
+            timeout: 10s
+            retries: 30
         ports:
-            - "127.0.0.1:${DB_PORT}:3306"
+            - "3306:3306"
+        restart: "always"
         volumes:
             - ./docker/data/mysql:/var/lib/mysql
             - ./docker/logs/mysql:/var/log/mysql
-        environment:
-            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-            MYSQL_DATABASE: ${DB_DATABASE}
-            MYSQL_USER: ${DB_USERNAME}
-            MYSQL_PASSWORD: ${DB_PASSWORD}
-    phpmyadmin:
-        image: phpmyadmin/phpmyadmin
-        container_name: "${DOCKER}-phpmyadmin"
-        links:
-            - mysql
-        environment:
-            PMA_HOST: mysql
-            PMA_PORT: 3306
-            PMA_USER: ${DB_USERNAME}
-            PMA_PASSWORD: ${DB_PASSWORD}
-            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-            MYSQL_USER: ${DB_USERNAME}
-            MYSQL_PASSWORD: ${DB_PASSWORD}
-        ports:
-            - "${PMA_PORT}:80"
-        volumes:
-            - /sessions
-            - ./docker/config/php/php.ini:/usr/local/etc/php/conf.d/php-phpmyadmin.ini
     redis:
         container_name: "${DOCKER}-redis"
+        healthcheck:
+            test: ["CMD", "redis-cli", "ping"]
+            timeout: 3s
+            retries: 30
         image: redis:latest
         ports:
-            - "127.0.0.1:${REDIS_PORT}:6379"
+            - "6379:6379"
+    web:
+        build:
+            context: ./docker/bin/php
+        container_name: "${DOCKER}-php"
+        depends_on:
+            - mysql
+            - redis
+        healthcheck:
+            test: ["CMD", "/usr/local/bin/healthcheck", "localhost"]
+            timeout: 10s
+            retries: 30
+        ports:
+            - "80:80"
+        restart: "always"
+        volumes:
+            - ./docker/config/php/php.ini:/usr/local/etc/php/php.ini
+            - ./docker/config/sites:/etc/apache2/sites-enabled
+            - ./docker/logs/httpd:/var/log/apache2
+            - .:/var/www/html
