@@ -34,9 +34,7 @@ final class LookupService
 
                 $delimiter = $this->detectDelimiter($this->file->shift());
 
-                $this->file->transform(static fn (string $line): array =>
-                    str_getcsv($line, $delimiter)
-                );
+                $this->file->transform(static fn (string $line): array => str_getcsv($line, $delimiter));
 
                 $this->{$method}();
             }
@@ -77,9 +75,7 @@ final class LookupService
     private function areaCodes(): void
     {
         $this->data = $this->file
-            ->filter(static fn (array $item): bool =>
-                \strlen($item[8]) === 2 && $item[9] === 'US' && $item[10] === 'Y'
-            )
+            ->filter(static fn (array $item): bool => \strlen($item[8]) === 2 && $item[9] === 'US' && $item[10] === 'Y')
             ->mapToGroups(static fn (array $item): array => [
                 $item[8] => $item[0],
             ])
