@@ -24,7 +24,7 @@ final class LookupService
         $config = Str::slug($type);
         $method = Str::camel($type);
 
-        if (method_exists(static::class, $method)) {
+        if (method_exists(self::class, $method)) {
             $filePath = $this->getFilePath($type);
 
             if (file_exists($filePath)) {
@@ -75,7 +75,7 @@ final class LookupService
     private function areaCodes(): void
     {
         $this->data = $this->file
-            ->filter(static fn (array $item): bool => \strlen($item[8]) === 2 && $item[9] === 'US' && $item[10] === 'Y')
+            ->filter(static fn (array $item): bool => \mb_strlen($item[8]) === 2 && $item[9] === 'US' && $item[10] === 'Y')
             ->mapToGroups(static fn (array $item): array => [
                 $item[8] => $item[0],
             ])

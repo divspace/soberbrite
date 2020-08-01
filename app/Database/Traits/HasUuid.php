@@ -18,27 +18,6 @@ trait HasUuid
      */
     abstract public function hasCast(string $key, $types = null);
 
-    public static function bootHasUuid(): void
-    {
-        static::creating(static function ($model): void {
-            foreach ($model->uuidColumns() as $item) {
-                $uuid = $model->resolveUuid();
-
-                if (isset($model->attributes[$item]) && $model->attributes[$item] !== null) {
-                    try {
-                        $uuid = $uuid->fromString(strtolower($model->attributes[$item]));
-                    } catch (InvalidUuidStringException $exception) {
-                        Log::debug($exception);
-
-                        $uuid = $uuid->fromBytes($model->attributes[$item]);
-                    }
-                }
-
-                $model->{$item} = strtolower($uuid->toString());
-            }
-        });
-    }
-
     public function getKeyType(): string
     {
         return 'string';
@@ -70,7 +49,7 @@ trait HasUuid
             ? $uuidColumn
             : $this->uuidColumns()[0];
 
-        $uuid = array_map(fn ($uuid): string => Str::lower($uuid), Arr::wrap($uuid));
+        $uuid = array_map(static fn ($uuid): string => Str::lower($uuid), Arr::wrap($uuid));
 
         if ($this->isClassCastable($uuidColumn)) {
             $uuid = $this->bytesFromUuid($uuid);
@@ -93,5 +72,26 @@ trait HasUuid
         }
 
         return Arr::wrap($this->resolveUuid()->fromString($uuid)->getBytes());
+    }
+
+    public static function bootHasUuid(): void
+    {
+        static::creating(static function ($model): void {
+            foreach ($model->uuidColumns() as $item) {
+                $uuid = $model->resolveUuid();
+
+                if (isset($model->attributes[$item]) && $model->attributes[$item] !== null) {
+                    try {
+                        $uuid = $uuid->fromString(mb_strtolower($model->attributes[$item]));
+                    } catch (InvalidUuidStringException $exception) {
+                        Log::debug($exception);
+
+                        $uuid = $uuid->fromBytes($model->attributes[$item]);
+                    }
+                }
+
+                $model->{$item} = mb_strtolower($uuid->toString());
+            }
+        });
     }
 }

@@ -11,6 +11,6 @@ class ExampleTest extends TestCase
      */
     public static function true_is_true(): void
     {
-        static::assertTrue(true);
+        self::assertTrue(true);
     }
 }

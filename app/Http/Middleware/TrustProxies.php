@@ -8,12 +8,12 @@ use Illuminate\Http\Request;
 final class TrustProxies extends Middleware
 {
     /**
-     * @var string|array|null
+     * @var array|string|null
      */
     protected $proxies;
 
     /**
-     * @var string|int|null
+     * @var int|string|null
      */
     protected $headers = Request::HEADER_X_FORWARDED_ALL;
 }

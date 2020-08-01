@@ -12,7 +12,7 @@ final class CountrySeeder extends LookupSeeder
             ->fetch()
             ->each(function (array $country): void {
                 $this->insertData->push([
-                    Country::CODE => strtoupper($country[Country::CODE]),
+                    Country::CODE => mb_strtoupper($country[Country::CODE]),
                     Country::NAME => $country[Country::NAME],
                     Country::CREATED_AT => $this->timestamp,
                     Country::UPDATED_AT => $this->timestamp,

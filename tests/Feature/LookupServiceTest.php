@@ -12,7 +12,7 @@ class LookupServiceTest extends TestCase
      */
     public static function a_lookup_config_exists(): void
     {
-        static::assertTrue(config()->has('lookup'));
+        self::assertTrue(config()->has('lookup'));
     }
 
     /**
@@ -21,7 +21,7 @@ class LookupServiceTest extends TestCase
     public static function all_lookup_files_exist(): void
     {
         foreach (config('lookup.tables') as $lookup) {
-            static::assertFileExists($lookup['file_path']);
+            self::assertFileExists($lookup['file_path']);
         }
     }
 
@@ -30,6 +30,6 @@ class LookupServiceTest extends TestCase
      */
     public static function has_fifty_states_and_one_district(): void
     {
-        static::assertCount(51, (new LookupService('states'))->fetch()->toArray());
+        self::assertCount(51, (new LookupService('states'))->fetch()->toArray());
     }
 }
