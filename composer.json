@@ -58,10 +58,13 @@
         ],
         "ecs": "ecs check --fix",
         "test:ecs": "ecs check",
+        "phpcs": "php-cs-fixer fix -v --allow-risky=yes",
+        "test:phpcs": "php-cs-fixer fix -v --allow-risky=yes --dry-run",
         "rector": "rector process",
         "test:rector": "rector process --diff --dry-run",
         "test": [
             "@test:ecs",
+            "@test:phpcs",
             "@test:rector"
         ]
     },
