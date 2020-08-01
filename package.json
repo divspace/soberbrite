@@ -13,7 +13,7 @@
         "rector": "vendor/bin/rector process --dry-run"
     },
     "dependencies": {
-        "tailwindcss": "^1.4.6",
+        "tailwindcss": "^1.6.0",
         "vue-tailwind": "^0.4.7"
     },
     "devDependencies": {
