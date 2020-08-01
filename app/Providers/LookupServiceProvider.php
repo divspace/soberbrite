@@ -8,7 +8,7 @@ use App\Services\LookupService;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 
-class LookupServiceProvider extends ServiceProvider implements DeferrableProvider
+final class LookupServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     public function register(): void
     {
