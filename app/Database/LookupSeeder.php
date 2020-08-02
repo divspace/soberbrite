@@ -9,7 +9,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
-final class LookupSeeder extends Seeder
+abstract class LookupSeeder extends Seeder
 {
     public int $chunkSize = 100;
 
@@ -29,24 +29,26 @@ final class LookupSeeder extends Seeder
         unset($this->insertData);
     }
 
-    public function getChunkSize(): int
+    abstract public function run(): void;
+
+    final public function getChunkSize(): int
     {
         return $this->chunkSize;
     }
 
-    public function setChunkSize(int $size): self
+    final public function setChunkSize(int $size): self
     {
         $this->chunkSize = $size;
 
         return $this;
     }
 
-    protected function insert(string $table): void
+    final protected function insert(string $table): void
     {
         DB::table($table)->insert($this->insertData->toArray());
     }
 
-    protected function insertInChunks(string $table, ?int $size = null): void
+    final protected function insertInChunks(string $table, ?int $size = null): void
     {
         if (isset($size)) {
             $this->setChunkSize($size);
