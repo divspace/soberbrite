@@ -5648,16 +5648,16 @@
         },
         {
             "name": "facade/ignition",
-            "version": "2.3.4",
+            "version": "2.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
-                "reference": "87335b120bc9652e4ee2bf285b7322a785211476"
+                "reference": "58dc4a8df3d41174c677a370b6779b694e4539e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/87335b120bc9652e4ee2bf285b7322a785211476",
-                "reference": "87335b120bc9652e4ee2bf285b7322a785211476",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/58dc4a8df3d41174c677a370b6779b694e4539e7",
+                "reference": "58dc4a8df3d41174c677a370b6779b694e4539e7",
                 "shasum": ""
             },
             "require": {
@@ -5716,7 +5716,7 @@
                 "laravel",
                 "page"
             ],
-            "time": "2020-07-27T15:17:39+00:00"
+            "time": "2020-08-01T21:20:01+00:00"
         },
         {
             "name": "facade/ignition-contracts",
@@ -7636,16 +7636,16 @@
         },
         {
             "name": "rector/rector",
-            "version": "v0.7.57",
+            "version": "v0.7.60",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "c463b08d5309e85926113539e327c2801339b961"
+                "reference": "39ec8029635751e0e31bbe0612f9ba09c8d7bef5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/c463b08d5309e85926113539e327c2801339b961",
-                "reference": "c463b08d5309e85926113539e327c2801339b961",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/39ec8029635751e0e31bbe0612f9ba09c8d7bef5",
+                "reference": "39ec8029635751e0e31bbe0612f9ba09c8d7bef5",
                 "shasum": ""
             },
             "require": {
@@ -7831,7 +7831,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-07-31T21:41:41+00:00"
+            "time": "2020-08-02T17:54:15+00:00"
         },
         {
             "name": "roave/security-advisories",
