@@ -38,4 +38,19 @@ final class City extends Model
     {
         return $this->hasMany(Location::class);
     }
+
+    /**
+     * @param string $value
+     * @param string|null $field
+     */
+    public function resolveRouteBinding($value, $field = null): ?object
+    {
+        $field ??= self::NAME;
+
+        if (is_numeric($value)) {
+            $field = self::ID;
+        }
+
+        return $this->where($field, $value)->first();
+    }
 }

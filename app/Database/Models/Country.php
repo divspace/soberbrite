@@ -39,4 +39,21 @@ final class Country extends Model
         self::CODE => self::STRING,
         self::NAME => self::STRING,
     ];
+
+    /**
+     * @param string $value
+     * @param string|null $field
+     */
+    public function resolveRouteBinding($value, $field = null): ?object
+    {
+        $field ??= self::NAME;
+
+        if (is_numeric($value)) {
+            $field = self::ID;
+        } elseif (\mb_strlen($value) === 2) {
+            $field = self::CODE;
+        }
+
+        return $this->where($field, $value)->first();
+    }
 }
