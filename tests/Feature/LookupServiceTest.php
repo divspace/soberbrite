@@ -7,7 +7,7 @@ namespace Tests\Feature;
 use App\Services\LookupService;
 use Tests\TestCase;
 
-class LookupServiceTest extends TestCase
+final class LookupServiceTest extends TestCase
 {
     /**
      * @test
