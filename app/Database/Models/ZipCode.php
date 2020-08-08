@@ -38,4 +38,13 @@ final class ZipCode extends Model
     {
         return $this->hasMany(Location::class);
     }
+
+    /**
+     * @param string $value
+     * @param string|null $field
+     */
+    public function resolveRouteBinding($value, $field = null): ?object
+    {
+        return $this->where(self::ID, $value)->orWhere(self::CODE, $value)->first();
+    }
 }
