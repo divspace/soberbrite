@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace App\Database\Eloquent;
 
 use Illuminate\Database\Eloquent\Model as BaseModel;
+use LogicException;
 
 class Model extends BaseModel
 {
@@ -92,4 +93,13 @@ class Model extends BaseModel
      * @var string
      */
     public const TIMESTAMP = 'timestamp';
+
+    /**
+     * @param string $method
+     * @throws LogicException
+     */
+    public function getRelationshipFromMethod($method): void
+    {
+        throw new LogicException("Lazy loading relationships is not allowed ({$method})");
+    }
 }
