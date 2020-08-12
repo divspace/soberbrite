@@ -13,7 +13,7 @@ final class LocationController extends Controller
 {
     public function index(): LocationCollection
     {
-        return new LocationCollection(Location::paginate());
+        return new LocationCollection(Location::with(['city', 'state', 'zipCode'])->paginate());
     }
 
     public function show(Location $location): LocationResource
