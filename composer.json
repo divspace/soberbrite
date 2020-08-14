@@ -1,8 +1,8 @@
 {
     "name": "divspace/soberbrite",
+    "type": "project",
     "description": "The source code for the Soberbrite community.",
     "license": "MIT",
-    "type": "project",
     "require": {
         "php": "^7.4",
         "doctrine/dbal": "^2.10",
@@ -27,6 +27,19 @@
         "roave/security-advisories": "dev-master",
         "symplify/easy-coding-standard": "^8.0"
     },
+    "config": {
+        "optimize-autoloader": true,
+        "platform": {
+            "php": "7.4.9"
+        },
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
     "autoload": {
         "psr-4": {
             "App\\": "app/"
@@ -41,11 +54,8 @@
             "Tests\\": "tests/"
         }
     },
-    "extra": {
-        "laravel": {
-            "dont-discover": []
-        }
-    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
@@ -58,25 +68,15 @@
             "@php artisan key:generate --ansi"
         ],
         "ecs": "ecs check --ansi --fix",
-        "test:ecs": "ecs check --ansi",
         "phpcs": "php-cs-fixer fix -v --allow-risky=yes --ansi --verbose",
-        "test:phpcs": "php-cs-fixer fix --allow-risky=yes --ansi --dry-run --verbose",
         "rector": "rector process --ansi",
-        "test:rector": "rector process --ansi --dry-run",
         "test": [
             "@test:ecs",
             "@test:phpcs",
             "@test:rector"
-        ]
-    },
-    "config": {
-        "optimize-autoloader": true,
-        "platform": {
-            "php": "7.4.9"
-        },
-        "preferred-install": "dist",
-        "sort-packages": true
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+        ],
+        "test:ecs": "ecs check --ansi",
+        "test:phpcs": "php-cs-fixer fix --allow-risky=yes --ansi --dry-run --verbose",
+        "test:rector": "rector process --ansi --dry-run"
+    }
 }
