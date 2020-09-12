@@ -2,16 +2,26 @@
 
 declare(strict_types = 1);
 
-/** @var Factory $factory */
+namespace Database\Factories;
 
 use App\Database\Models\Address;
 use App\Database\Models\Location;
 use App\Database\Models\User;
-use Faker\Generator as Faker;
-use Illuminate\Database\Eloquent\Factory;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(Address::class, static fn (Faker $faker): array => [
-    'user_id' => User::inRandomOrder()->pluck('id')->first(),
-    'location_id' => Location::inRandomOrder()->limit(100)->pluck('id')->first(),
-    'street' => $faker->streetAddress,
-]);
+final class AddressFactory extends Factory
+{
+    /**
+     * @var string
+     */
+    protected $model = Address::class;
+
+    public function definition(): array
+    {
+        return [
+            'user_id' => User::inRandomOrder()->pluck('id')->first(),
+            'location_id' => Location::inRandomOrder()->limit(100)->pluck('id')->first(),
+            'street' => $this->faker->streetAddress,
+        ];
+    }
+}

@@ -20,7 +20,7 @@ parameters:
         PhpCsFixer\Fixer\PhpUnit\PhpUnitMethodCasingFixer:
             - 'tests/*'
 services:
-    # PhpCsFixer\Fixer\Strict\DeclareStrictTypesFixer: null
+    PhpCsFixer\Fixer\Strict\DeclareStrictTypesFixer: null
     PHP_CodeSniffer\Standards\Generic\Sniffs\CodeAnalysis\AssignmentInConditionSniff: null
     PHP_CodeSniffer\Standards\Generic\Sniffs\ControlStructures\InlineControlStructureSniff: null
     PHP_CodeSniffer\Standards\Generic\Sniffs\Files\ByteOrderMarkSniff: null
@@ -80,7 +80,37 @@ services:
     PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer: null
     PhpCsFixer\Fixer\ClassNotation\NoBlankLinesAfterClassOpeningFixer: null
     PhpCsFixer\Fixer\ClassNotation\NoUnneededFinalMethodFixer: null
-    PhpCsFixer\Fixer\ClassNotation\OrderedClassElementsFixer: null
+    PhpCsFixer\Fixer\ClassNotation\OrderedClassElementsFixer:
+        order: [
+            'use_trait',
+            'public',
+            'protected',
+            'private',
+            'constant',
+            'constant_public',
+            'constant_protected',
+            'constant_private',
+            'property',
+            'property_static',
+            'property_public',
+            'property_protected',
+            'property_private',
+            'property_public_static',
+            'property_protected_static',
+            'property_private_static',
+            'construct',
+            'destruct',
+            'magic',
+            'phpunit',
+            'method',
+            'method_static',
+            'method_public',
+            'method_protected',
+            'method_private',
+            'method_public_static',
+            'method_protected_static',
+            'method_private_static',
+        ]
     PhpCsFixer\Fixer\ClassNotation\ProtectedToPrivateFixer: null
     PhpCsFixer\Fixer\ClassNotation\SelfAccessorFixer: null
     PhpCsFixer\Fixer\Comment\NoEmptyCommentFixer: null
@@ -254,7 +284,7 @@ services:
             - 'function'
             - 'const'
     PhpCsFixer\Fixer\LanguageConstruct\DeclareEqualNormalizeFixer:
-        space: 'none'
+        space: 'single'
     PhpCsFixer\Fixer\Basic\BracesFixer:
         allow_single_line_closure: false
         position_after_functions_and_oop_constructs: 'next'

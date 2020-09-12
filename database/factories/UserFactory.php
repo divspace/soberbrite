@@ -2,17 +2,28 @@
 
 declare(strict_types = 1);
 
-/** @var Factory $factory */
+namespace Database\Factories;
 
 use App\Database\Models\User;
-use Faker\Generator as Faker;
-use Illuminate\Database\Eloquent\Factory;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-$factory->define(User::class, static fn (Faker $faker): array => [
-    'email' => $faker->unique()->safeEmail,
-    'password' => Hash::make('password'),
-    'remember_token' => Str::random(10),
-    'email_verified_at' => now(),
-]);
+final class UserFactory extends Factory
+{
+    /**
+     * @var string
+     */
+    protected $model = User::class;
+
+    public function definition(): array
+    {
+        return [
+            'email' => $this->faker->unique()->safeEmail,
+            'password' => Hash::make('password'),
+            'remember_token' => Str::random(10),
+            'email_verified_at' => Carbon::now(),
+        ];
+    }
+}

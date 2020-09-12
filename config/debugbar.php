@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 return [
 
     'enabled' => env('DEBUGBAR_ENABLED', null),
@@ -14,7 +16,7 @@ return [
         'driver' => 'redis',
         'path' => storage_path('debugbar'),
         'connection' => null,
-        'provider' => ''
+        'provider' => '',
     ],
 
     'include_vendors' => true,
@@ -75,13 +77,13 @@ return [
             'data' => false,
         ],
         'route' => [
-            'label' => true
+            'label' => true,
         ],
         'logs' => [
             'file' => null,
         ],
         'cache' => [
-            'values' => true
+            'values' => true,
         ],
     ],
 
