@@ -1,4 +1,4 @@
-FROM php:7.4.9-apache-buster
+FROM php:7.4.10-apache-buster
 
 # Set PHP extension versions
 ARG EXT_IGBINARY=3.1.2
