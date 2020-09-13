@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace App\Actions\Fortify;
 
+use App\Database\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
@@ -14,21 +15,26 @@ final class UpdateUserPassword implements UpdatesUserPasswords
     use PasswordValidationRules;
 
     /**
+     * @var string
+     */
+    private const CURRENT_PASSWORD = 'current_password';
+
+    /**
      * @throws ValidationException
      */
     public function update($user, array $input): void
     {
         Validator::make($input, [
-            'current_password' => ['required', 'string'],
-            'password' => $this->passwordRules(),
+            self::CURRENT_PASSWORD => ['required', 'string'],
+            User::PASSWORD => $this->passwordRules(),
         ])->after(static function ($validator) use ($user, $input): void {
-            if (!Hash::check($input['current_password'], $user->password)) {
-                $validator->errors()->add('current_password', __('The provided password does not match your current password.'));
+            if (!Hash::check($input[self::CURRENT_PASSWORD], $user->password)) {
+                $validator->errors()->add(self::CURRENT_PASSWORD, __('The provided password does not match your current password.'));
             }
         })->validateWithBag('updatePassword');
 
         $user->forceFill([
-            'password' => Hash::make($input['password']),
+            User::PASSWORD => Hash::make($input[User::PASSWORD]),
         ])->save();
     }
 }

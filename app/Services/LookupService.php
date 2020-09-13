@@ -27,18 +27,15 @@ final class LookupService
      */
     private const CODE = 'code';
 
-    /**
-     * @var array<string, int>
-     */
-    private const DELIMITERS = [
+    private Collection $data;
+
+    private Collection $file;
+
+    public static array $delimiters = [
         ',' => 0,
         ';' => 0,
         '|' => 0,
     ];
-
-    private Collection $data;
-
-    private Collection $file;
 
     public function __construct(string $type)
     {
@@ -149,12 +146,12 @@ final class LookupService
 
     private function detectDelimiter(string $line): string
     {
-        foreach (self::DELIMITERS as $delimiter => &$count) {
+        foreach (self::$delimiters as $delimiter => &$count) {
             $count = count(str_getcsv($line, $delimiter));
         }
 
         unset($count);
 
-        return array_search(max(self::DELIMITERS), self::DELIMITERS, true);
+        return array_search(max(self::$delimiters), self::$delimiters, true);
     }
 }

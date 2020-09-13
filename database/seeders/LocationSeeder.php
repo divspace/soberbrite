@@ -2,6 +2,8 @@
 
 declare(strict_types = 1);
 
+namespace Database\Seeders;
+
 use App\Database\LookupSeeder;
 use App\Database\Models\City;
 use App\Database\Models\Location;

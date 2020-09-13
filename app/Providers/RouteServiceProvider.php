@@ -12,15 +12,23 @@ use Illuminate\Support\Facades\Route;
 
 final class RouteServiceProvider extends ServiceProvider
 {
+    /**
+     * @var string
+     */
     public const HOME = '/dashboard';
 
-    public function map(): void
+    /**
+     * @var string
+     */
+    private const API = 'api';
+
+    public function boot(): void
     {
         $this->configureRateLimiting();
 
         $this->routes(static function (): void {
-            Route::middleware('web')
-                ->prefix('api')
+            Route::middleware(self::API)
+                ->prefix(self::API)
                 ->group(base_path('routes/api.php'));
 
             Route::middleware('web')
@@ -30,6 +38,6 @@ final class RouteServiceProvider extends ServiceProvider
 
     protected function configureRateLimiting(): void
     {
-        RateLimiter::for('api', static fn (Request $request): Limit => Limit::perMinute(60));
+        RateLimiter::for(self::API, static fn (Request $request): Limit => Limit::perMinute(60));
     }
 }

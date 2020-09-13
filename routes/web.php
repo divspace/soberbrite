@@ -7,9 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome')->name('home');
 
-Route::middleware(['auth:sanctum', 'verified'])
-    ->get('/dashboard', static fn () => view('dashboard'))
-    ->name('dashboard');
+Route::view('/dashboard', 'dashboard')->middleware(['auth:sanctum', 'verified'])->name('dashboard');
 
 Route::get('users', [UserController::class, 'index'])->name('users.index');
 Route::get('users/{user}', [UserController::class, 'show'])->name('users.show');
