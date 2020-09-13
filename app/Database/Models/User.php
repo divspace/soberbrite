@@ -17,15 +17,19 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Fortify\TwoFactorAuthenticatable;
+use Laravel\Sanctum\HasApiTokens;
 
 final class User extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract
 {
     use Authenticatable;
     use Authorizable;
     use CanResetPassword;
+    use HasApiTokens;
     use HasFactory;
     use MustVerifyEmail;
     use Notifiable;
+    use TwoFactorAuthenticatable;
 
     /**
      * @var string
@@ -41,6 +45,16 @@ final class User extends Model implements AuthenticatableContract, AuthorizableC
      * @var string
      */
     public const PASSWORD = 'password';
+
+    /**
+     * @var string
+     */
+    public const TWO_FACTOR_SECRET = 'two_factor_secret';
+
+    /**
+     * @var string
+     */
+    public const TWO_FACTOR_RECOVERY_CODES = 'two_factor_recovery_codes';
 
     /**
      * @var string
@@ -65,6 +79,8 @@ final class User extends Model implements AuthenticatableContract, AuthorizableC
      */
     protected $hidden = [
         self::PASSWORD,
+        self::TWO_FACTOR_SECRET,
+        self::TWO_FACTOR_RECOVERY_CODES,
         self::REMEMBER_TOKEN,
     ];
 
@@ -75,6 +91,8 @@ final class User extends Model implements AuthenticatableContract, AuthorizableC
         self::ID => self::INTEGER,
         self::EMAIL => self::STRING,
         self::PASSWORD => self::STRING,
+        self::TWO_FACTOR_SECRET => self::STRING,
+        self::TWO_FACTOR_RECOVERY_CODES => self::STRING,
         self::REMEMBER_TOKEN => self::STRING,
         self::EMAIL_VERIFIED_AT => self::DATETIME,
     ];
