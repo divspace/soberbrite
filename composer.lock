@@ -1000,34 +1000,35 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.0.1",
+            "version": "7.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "2d9d3c186a6637a43193e66b097c50e4451eaab2"
+                "reference": "e3ff079b22820c2029d4c2a87796b6a0b8716ad8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/2d9d3c186a6637a43193e66b097c50e4451eaab2",
-                "reference": "2d9d3c186a6637a43193e66b097c50e4451eaab2",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/e3ff079b22820c2029d4c2a87796b6a0b8716ad8",
+                "reference": "e3ff079b22820c2029d4c2a87796b6a0b8716ad8",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "guzzlehttp/promises": "^1.0",
-                "guzzlehttp/psr7": "^1.6.1",
-                "php": "^7.2.5",
-                "psr/http-client": "^1.0"
+                "guzzlehttp/promises": "^1.5",
+                "guzzlehttp/psr7": "^1.8.3 || ^2.1",
+                "php": "^7.2.5 || ^8.0",
+                "psr/http-client": "^1.0",
+                "symfony/deprecation-contracts": "^2.2 || ^3.0"
             },
             "provide": {
                 "psr/http-client-implementation": "1.0"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.0",
+                "bamarni/composer-bin-plugin": "^1.4.1",
                 "ext-curl": "*",
-                "php-http/client-integration-tests": "dev-phpunit8",
-                "phpunit/phpunit": "^8.5.5",
-                "psr/log": "^1.1"
+                "php-http/client-integration-tests": "^3.0",
+                "phpunit/phpunit": "^8.5.5 || ^9.3.5",
+                "psr/log": "^1.1 || ^2.0 || ^3.0"
             },
             "suggest": {
                 "ext-curl": "Required for CURL handler support",
@@ -1037,16 +1038,16 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "7.0-dev"
+                    "dev-master": "7.4-dev"
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\": "src/"
-                },
                 "files": [
                     "src/functions_include.php"
-                ]
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1054,18 +1055,42 @@
             ],
             "authors": [
                 {
+                    "name": "Graham Campbell",
+                    "email": "hello@gjcampbell.co.uk",
+                    "homepage": "https://github.com/GrahamCampbell"
+                },
+                {
                     "name": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
                     "homepage": "https://github.com/mtdowling"
                 },
                 {
+                    "name": "Jeremy Lindblom",
+                    "email": "jeremeamia@gmail.com",
+                    "homepage": "https://github.com/jeremeamia"
+                },
+                {
+                    "name": "George Mponos",
+                    "email": "gmponos@gmail.com",
+                    "homepage": "https://github.com/gmponos"
+                },
+                {
+                    "name": "Tobias Nyholm",
+                    "email": "tobias.nyholm@gmail.com",
+                    "homepage": "https://github.com/Nyholm"
+                },
+                {
                     "name": "Márk Sági-Kazár",
                     "email": "mark.sagikazar@gmail.com",
-                    "homepage": "https://sagikazarmark.hu"
+                    "homepage": "https://github.com/sagikazarmark"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "email": "webmaster@tubo-world.de",
+                    "homepage": "https://github.com/Tobion"
                 }
             ],
             "description": "Guzzle is a PHP HTTP client library",
-            "homepage": "http://guzzlephp.org/",
             "keywords": [
                 "client",
                 "curl",
@@ -1077,41 +1102,55 @@
                 "rest",
                 "web service"
             ],
-            "time": "2020-06-27T10:33:25+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/Nyholm",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/guzzle",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2022-06-09T21:39:15+00:00"
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "v1.3.1",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646"
+                "reference": "fe752aedc9fd8fcca3fe7ad05d419d32998a06da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/a59da6cf61d80060647ff4d3eb2c03a2bc694646",
-                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/fe752aedc9fd8fcca3fe7ad05d419d32998a06da",
+                "reference": "fe752aedc9fd8fcca3fe7ad05d419d32998a06da",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.0"
+                "php": ">=5.5"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.0"
+                "symfony/phpunit-bridge": "^4.4 || ^5.1"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4-dev"
+                    "dev-master": "1.5-dev"
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Promise\\": "src/"
-                },
                 "files": [
                     "src/functions_include.php"
-                ]
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\Promise\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1119,59 +1158,88 @@
             ],
             "authors": [
                 {
+                    "name": "Graham Campbell",
+                    "email": "hello@gjcampbell.co.uk",
+                    "homepage": "https://github.com/GrahamCampbell"
+                },
+                {
                     "name": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
                     "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Tobias Nyholm",
+                    "email": "tobias.nyholm@gmail.com",
+                    "homepage": "https://github.com/Nyholm"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "email": "webmaster@tubo-world.de",
+                    "homepage": "https://github.com/Tobion"
                 }
             ],
             "description": "Guzzle promises library",
             "keywords": [
                 "promise"
             ],
-            "time": "2016-12-20T10:07:11+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/Nyholm",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/promises",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-10-22T20:56:57+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.6.1",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "239400de7a173fe9901b9ac7c06497751f00727a"
+                "reference": "83260bb50b8fc753c72d14dc1621a2dac31877ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/239400de7a173fe9901b9ac7c06497751f00727a",
-                "reference": "239400de7a173fe9901b9ac7c06497751f00727a",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/83260bb50b8fc753c72d14dc1621a2dac31877ee",
+                "reference": "83260bb50b8fc753c72d14dc1621a2dac31877ee",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0",
-                "psr/http-message": "~1.0",
-                "ralouphie/getallheaders": "^2.0.5 || ^3.0.0"
+                "php": "^7.2.5 || ^8.0",
+                "psr/http-factory": "^1.0",
+                "psr/http-message": "^1.0",
+                "ralouphie/getallheaders": "^3.0"
             },
             "provide": {
+                "psr/http-factory-implementation": "1.0",
                 "psr/http-message-implementation": "1.0"
             },
             "require-dev": {
-                "ext-zlib": "*",
-                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
+                "bamarni/composer-bin-plugin": "^1.4.1",
+                "http-interop/http-factory-tests": "^0.9",
+                "phpunit/phpunit": "^8.5.8 || ^9.3.10"
             },
             "suggest": {
-                "zendframework/zend-httphandlerrunner": "Emit PSR-7 responses"
+                "laminas/laminas-httphandlerrunner": "Emit PSR-7 responses"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.6-dev"
+                    "dev-master": "2.3-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
                     "GuzzleHttp\\Psr7\\": "src/"
-                },
-                "files": [
-                    "src/functions_include.php"
-                ]
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1179,13 +1247,39 @@
             ],
             "authors": [
                 {
+                    "name": "Graham Campbell",
+                    "email": "hello@gjcampbell.co.uk",
+                    "homepage": "https://github.com/GrahamCampbell"
+                },
+                {
                     "name": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
                     "homepage": "https://github.com/mtdowling"
                 },
                 {
+                    "name": "George Mponos",
+                    "email": "gmponos@gmail.com",
+                    "homepage": "https://github.com/gmponos"
+                },
+                {
+                    "name": "Tobias Nyholm",
+                    "email": "tobias.nyholm@gmail.com",
+                    "homepage": "https://github.com/Nyholm"
+                },
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com",
+                    "homepage": "https://github.com/sagikazarmark"
+                },
+                {
                     "name": "Tobias Schultze",
+                    "email": "webmaster@tubo-world.de",
                     "homepage": "https://github.com/Tobion"
+                },
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com",
+                    "homepage": "https://sagikazarmark.hu"
                 }
             ],
             "description": "PSR-7 message implementation that also provides common utility methods",
@@ -1199,7 +1293,21 @@
                 "uri",
                 "url"
             ],
-            "time": "2019-07-01T23:21:34+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/Nyholm",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/psr7",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2022-06-09T08:26:02+00:00"
         },
         {
             "name": "jaybizzle/crawler-detect",
@@ -2115,12 +2223,12 @@
             },
             "type": "library",
             "autoload": {
-                "classmap": [
-                    "Mobile_Detect.php"
-                ],
                 "psr-0": {
                     "Detection": "namespaced/"
-                }
+                },
+                "classmap": [
+                    "Mobile_Detect.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -2405,12 +2513,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Opis\\Closure\\": "src/"
-                },
                 "files": [
                     "functions.php"
-                ]
+                ],
+                "psr-4": {
+                    "Opis\\Closure\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -2664,19 +2772,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/predis/predis.git",
-                "reference": "fbbef2a0a235ab9a1228f312b1ea7fcf05b6c7d3"
+                "reference": "d6da14daa81b63558ffd07ab5cc6946f207f4ac4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/predis/predis/zipball/fbbef2a0a235ab9a1228f312b1ea7fcf05b6c7d3",
-                "reference": "fbbef2a0a235ab9a1228f312b1ea7fcf05b6c7d3",
+                "url": "https://api.github.com/repos/predis/predis/zipball/d6da14daa81b63558ffd07ab5cc6946f207f4ac4",
+                "reference": "d6da14daa81b63558ffd07ab5cc6946f207f4ac4",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.9"
             },
             "require-dev": {
-                "cweagans/composer-patches": "^1.6",
                 "phpunit/phpunit": "~4.8"
             },
             "suggest": {
@@ -2684,18 +2791,6 @@
                 "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
             },
             "type": "library",
-            "extra": {
-                "composer-exit-on-patch-failure": true,
-                "patches": {
-                    "phpunit/phpunit-mock-objects": {
-                        "Fix PHP 7 and 8 compatibility": "./tests/phpunit_mock_objects.patch"
-                    },
-                    "phpunit/phpunit": {
-                        "Fix PHP 7 compatibility": "./tests/phpunit_php7.patch",
-                        "Fix PHP 8 compatibility": "./tests/phpunit_php8.patch"
-                    }
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Predis\\": "src/"
@@ -2731,7 +2826,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-09-11T19:20:11+00:00"
+            "time": "2022-04-05T16:13:30+00:00"
         },
         {
             "name": "psr/container",
@@ -2876,6 +2971,58 @@
                 "psr-18"
             ],
             "time": "2020-06-29T06:28:15+00:00"
+        },
+        {
+            "name": "psr/http-factory",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-factory.git",
+                "reference": "12ac7fcd07e5b077433f5f2bee95b3a771bf61be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/12ac7fcd07e5b077433f5f2bee95b3a771bf61be",
+                "reference": "12ac7fcd07e5b077433f5f2bee95b3a771bf61be",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0",
+                "psr/http-message": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interfaces for PSR-7 HTTP message factories",
+            "keywords": [
+                "factory",
+                "http",
+                "message",
+                "psr",
+                "psr-17",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2019-04-30T12:38:16+00:00"
         },
         {
             "name": "psr/http-message",
@@ -3264,12 +3411,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Ramsey\\Uuid\\": "src/"
-                },
                 "files": [
                     "src/functions.php"
-                ]
+                ],
+                "psr-4": {
+                    "Ramsey\\Uuid\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -3286,6 +3433,10 @@
                 {
                     "url": "https://github.com/ramsey",
                     "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/ramsey/uuid",
+                    "type": "tidelift"
                 }
             ],
             "time": "2020-08-18T17:17:46+00:00"
@@ -3350,6 +3501,7 @@
                 "mail",
                 "mailer"
             ],
+            "abandoned": "symfony/mailer",
             "time": "2019-11-12T09:31:26+00:00"
         },
         {
@@ -4168,12 +4320,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Ctype\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Ctype\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -4244,12 +4396,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Iconv\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Iconv\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -4321,12 +4473,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Intl\\Grapheme\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Intl\\Grapheme\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -4402,12 +4554,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Intl\\Idn\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Intl\\Idn\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -4484,12 +4636,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Intl\\Normalizer\\": ""
-                },
                 "files": [
                     "bootstrap.php"
                 ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Intl\\Normalizer\\": ""
+                },
                 "classmap": [
                     "Resources/stubs"
                 ]
@@ -4565,12 +4717,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Mbstring\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -4640,12 +4792,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php70\\": ""
-                },
                 "files": [
                     "bootstrap.php"
                 ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php70\\": ""
+                },
                 "classmap": [
                     "Resources/stubs"
                 ]
@@ -4716,12 +4868,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php72\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php72\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -4789,12 +4941,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php73\\": ""
-                },
                 "files": [
                     "bootstrap.php"
                 ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php73\\": ""
+                },
                 "classmap": [
                     "Resources/stubs"
                 ]
@@ -4865,12 +5017,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php80\\": ""
-                },
                 "files": [
                     "bootstrap.php"
                 ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php80\\": ""
+                },
                 "classmap": [
                     "Resources/stubs"
                 ]
@@ -5184,12 +5336,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\String\\": ""
-                },
                 "files": [
                     "Resources/functions.php"
                 ],
+                "psr-4": {
+                    "Symfony\\Component\\String\\": ""
+                },
                 "exclude-from-classmap": [
                     "/Tests/"
                 ]
@@ -5731,12 +5883,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Barryvdh\\Debugbar\\": "src/"
-                },
                 "files": [
                     "src/helpers.php"
-                ]
+                ],
+                "psr-4": {
+                    "Barryvdh\\Debugbar\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -6575,12 +6727,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Facade\\FlareClient\\": "src"
-                },
                 "files": [
                     "src/helpers.php"
-                ]
+                ],
+                "psr-4": {
+                    "Facade\\FlareClient\\": "src"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -6653,12 +6805,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Facade\\Ignition\\": "src"
-                },
                 "files": [
                     "src/helpers.php"
-                ]
+                ],
+                "psr-4": {
+                    "Facade\\Ignition\\": "src"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -6929,6 +7081,7 @@
                 "faker",
                 "fixtures"
             ],
+            "abandoned": true,
             "time": "2019-12-12T13:22:17+00:00"
         },
         {
@@ -7154,10 +7307,6 @@
                 "debug",
                 "debugbar"
             ],
-            "support": {
-                "issues": "https://github.com/maximebf/php-debugbar/issues",
-                "source": "https://github.com/maximebf/php-debugbar/tree/v1.16.3"
-            },
             "time": "2020-05-06T07:06:27+00:00"
         },
         {
@@ -7197,6 +7346,7 @@
                 "MIT"
             ],
             "description": "Kernel for small CLI applications",
+            "abandoned": "symplify/symplify-kernel",
             "time": "2020-09-08T22:45:23+00:00"
         },
         {
@@ -7205,12 +7355,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/migrify/php-config-printer.git",
-                "reference": "66d539c6eb8802a89bc4f6af486d6d4190c52817"
+                "reference": "7a191ea12d80e3b4825aa35ebbcda9bbc4c8780f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/migrify/php-config-printer/zipball/66d539c6eb8802a89bc4f6af486d6d4190c52817",
-                "reference": "66d539c6eb8802a89bc4f6af486d6d4190c52817",
+                "url": "https://api.github.com/repos/migrify/php-config-printer/zipball/7a191ea12d80e3b4825aa35ebbcda9bbc4c8780f",
+                "reference": "7a191ea12d80e3b4825aa35ebbcda9bbc4c8780f",
                 "shasum": ""
             },
             "require": {
@@ -7235,6 +7385,7 @@
                 "MIT"
             ],
             "description": "Print Symfony services array with configuration to to plain PHP file format thanks to this simple php-parser wrapper",
+            "abandoned": "symplify/php-config-printer",
             "time": "2020-09-13T19:41:46+00:00"
         },
         {
@@ -7332,12 +7483,12 @@
             },
             "type": "library",
             "autoload": {
-                "psr-4": {
-                    "DeepCopy\\": "src/DeepCopy/"
-                },
                 "files": [
                     "src/DeepCopy/deep_copy.php"
-                ]
+                ],
+                "psr-4": {
+                    "DeepCopy\\": "src/DeepCopy/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -8599,11 +8750,11 @@
                 }
             },
             "autoload": {
-                "classmap": [
-                    "src/"
-                ],
                 "files": [
                     "src/Framework/Assert/Functions.php"
+                ],
+                "classmap": [
+                    "src/"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -8759,52 +8910,17 @@
                 }
             },
             "autoload": {
+                "files": [
+                    "rules/symfony-php-config/functions/functions.php"
+                ],
                 "psr-4": {
-                    "Rector\\Architecture\\": "rules/architecture/src",
-                    "Rector\\AnonymousClass\\": "packages/anonymous-class/src",
-                    "Rector\\PostRector\\": "packages/post-rector/src",
-                    "Rector\\AttributeAwarePhpDoc\\": "packages/attribute-aware-php-doc/src",
-                    "Rector\\Autodiscovery\\": "rules/autodiscovery/src",
-                    "Rector\\BetterPhpDocParser\\": "packages/better-php-doc-parser/src",
-                    "Rector\\CakePHP\\": "rules/cakephp/src",
-                    "Rector\\ChangesReporting\\": "packages/changes-reporting/src",
-                    "Rector\\CodeQuality\\": "rules/code-quality/src",
-                    "Rector\\NodeRemoval\\": "packages/node-removal/src",
-                    "Rector\\Generic\\": "rules/generic/src",
-                    "Rector\\Reporting\\": "packages/reporting/src",
-                    "Rector\\CodingStyle\\": "rules/coding-style/src",
-                    "Rector\\ConsoleDiffer\\": "packages/console-differ/src",
-                    "Rector\\Core\\": "src",
-                    "Rector\\DeadCode\\": "rules/dead-code/src",
-                    "Rector\\DocumentationGenerator\\": "packages/documentation-generator/src",
-                    "Rector\\DoctrineCodeQuality\\": "rules/doctrine-code-quality/src",
-                    "Rector\\DoctrineGedmoToKnplabs\\": "rules/doctrine-gedmo-to-knplabs/src",
-                    "Rector\\Doctrine\\": "rules/doctrine/src",
-                    "Rector\\DynamicTypeAnalysis\\": "packages/dynamic-type-analysis/src",
-                    "Rector\\DoctrineAnnotationGenerated\\": "packages/doctrine-annotation-generated/src",
-                    "Rector\\FileSystemRector\\": "packages/file-system-rector/src",
-                    "Rector\\FamilyTree\\": "packages/family-tree/src",
                     "Rector\\JMS\\": "rules/jms/src",
-                    "Rector\\Laravel\\": "rules/laravel/src",
-                    "Rector\\Legacy\\": "rules/legacy/src",
-                    "Rector\\MagicDisclosure\\": "rules/magic-disclosure/src",
-                    "Rector\\MysqlToMysqli\\": "rules/mysql-to-mysqli/src",
-                    "Rector\\NetteTesterToPHPUnit\\": "rules/nette-tester-to-phpunit/src",
-                    "Rector\\NetteToSymfony\\": "rules/nette-to-symfony/src",
-                    "Rector\\Nette\\": "rules/nette/src",
-                    "Rector\\NodeCollector\\": "packages/node-collector/src",
-                    "Rector\\Decouple\\": "rules/decouple/src",
-                    "Rector\\NodeNameResolver\\": "packages/node-name-resolver/src",
-                    "Rector\\NodeNestingScope\\": "packages/node-nesting-scope/src",
-                    "Rector\\NodeTypeResolver\\": "packages/node-type-resolver/src",
-                    "Rector\\PhpAttribute\\": "packages/php-attribute/src",
-                    "Rector\\PHPStanStaticTypeMapper\\": "packages/phpstan-static-type-mapper/src",
-                    "Rector\\PHPStan\\": "rules/phpstan/src",
-                    "Rector\\PHPUnitSymfony\\": "rules/phpunit-symfony/src",
-                    "Rector\\Caching\\": "packages/caching/src",
-                    "Rector\\PHPUnit\\": "rules/phpunit/src",
+                    "Rector\\Set\\": "packages/set/src",
+                    "Rector\\Core\\": "src",
                     "Rector\\PSR4\\": "rules/psr4/src",
-                    "Rector\\Phalcon\\": "rules/phalcon/src",
+                    "Rector\\Twig\\": "rules/twig/src",
+                    "Rector\\Nette\\": "rules/nette/src",
+                    "Rector\\Order\\": "rules/order/src",
                     "Rector\\Php52\\": "rules/php52/src",
                     "Rector\\Php53\\": "rules/php53/src",
                     "Rector\\Php54\\": "rules/php54/src",
@@ -8816,41 +8932,76 @@
                     "Rector\\Php73\\": "rules/php73/src",
                     "Rector\\Php74\\": "rules/php74/src",
                     "Rector\\Php80\\": "rules/php80/src",
-                    "Rector\\PHPOffice\\": "rules/php-office/src",
-                    "Rector\\PhpDeglobalize\\": "rules/php-deglobalize/src",
-                    "Rector\\PhpSpecToPHPUnit\\": "rules/php-spec-to-phpunit/src",
-                    "Rector\\Polyfill\\": "rules/polyfill/src",
-                    "Rector\\Privatization\\": "rules/privatization/src",
-                    "Rector\\RectorGenerator\\": "packages/rector-generator/src",
-                    "Rector\\RemovingStatic\\": "rules/removing-static/src",
-                    "Rector\\Renaming\\": "rules/renaming/src",
-                    "Rector\\Restoration\\": "rules/restoration/src",
-                    "Rector\\Set\\": "packages/set/src",
                     "Rector\\SOLID\\": "rules/solid/src",
-                    "Rector\\Transform\\": "rules/transform/src",
-                    "Rector\\Sensio\\": "rules/sensio/src",
-                    "Rector\\StaticTypeMapper\\": "packages/static-type-mapper/src",
-                    "Rector\\StrictCodeQuality\\": "rules/strict-code-quality/src",
-                    "Rector\\SymfonyCodeQuality\\": "rules/symfony-code-quality/src",
-                    "Rector\\SymfonyPHPUnit\\": "rules/symfony-phpunit/src",
-                    "Rector\\Symfony\\": "rules/symfony/src",
-                    "Rector\\Twig\\": "rules/twig/src",
-                    "Rector\\TypeDeclaration\\": "rules/type-declaration/src",
-                    "Rector\\VendorLocker\\": "packages/vendor-locker/src",
-                    "Rector\\Performance\\": "rules/performance/src",
+                    "Rector\\Legacy\\": "rules/legacy/src",
                     "Rector\\Naming\\": "rules/naming/src",
-                    "Rector\\Order\\": "rules/order/src",
+                    "Rector\\Sensio\\": "rules/sensio/src",
+                    "Rector\\Caching\\": "packages/caching/src",
+                    "Rector\\CakePHP\\": "rules/cakephp/src",
+                    "Rector\\Generic\\": "rules/generic/src",
+                    "Rector\\Laravel\\": "rules/laravel/src",
+                    "Rector\\PHPStan\\": "rules/phpstan/src",
+                    "Rector\\PHPUnit\\": "rules/phpunit/src",
+                    "Rector\\Phalcon\\": "rules/phalcon/src",
+                    "Rector\\Symfony\\": "rules/symfony/src",
+                    "Rector\\DeadCode\\": "rules/dead-code/src",
+                    "Rector\\Decouple\\": "rules/decouple/src",
+                    "Rector\\Doctrine\\": "rules/doctrine/src",
+                    "Rector\\Polyfill\\": "rules/polyfill/src",
+                    "Rector\\Renaming\\": "rules/renaming/src",
+                    "Rector\\Downgrade\\": "rules/downgrade/src",
+                    "Rector\\PHPOffice\\": "rules/php-office/src",
+                    "Rector\\Reporting\\": "packages/reporting/src",
+                    "Rector\\Transform\\": "rules/transform/src",
+                    "Rector\\FamilyTree\\": "packages/family-tree/src",
+                    "Rector\\NetteKdyby\\": "rules/nette-kdyby/src",
+                    "Rector\\PostRector\\": "packages/post-rector/src",
+                    "Rector\\CodeQuality\\": "rules/code-quality/src",
+                    "Rector\\CodingStyle\\": "rules/coding-style/src",
+                    "Rector\\NodeRemoval\\": "packages/node-removal/src",
+                    "Rector\\Performance\\": "rules/performance/src",
+                    "Rector\\Restoration\\": "rules/restoration/src",
+                    "Rector\\Architecture\\": "rules/architecture/src",
+                    "Rector\\PhpAttribute\\": "packages/php-attribute/src",
+                    "Rector\\VendorLocker\\": "packages/vendor-locker/src",
+                    "Rector\\Autodiscovery\\": "rules/autodiscovery/src",
+                    "Rector\\ConsoleDiffer\\": "packages/console-differ/src",
+                    "Rector\\MysqlToMysqli\\": "rules/mysql-to-mysqli/src",
+                    "Rector\\NodeCollector\\": "packages/node-collector/src",
+                    "Rector\\Privatization\\": "rules/privatization/src",
+                    "Rector\\AnonymousClass\\": "packages/anonymous-class/src",
+                    "Rector\\NetteToSymfony\\": "rules/nette-to-symfony/src",
+                    "Rector\\PHPUnitSymfony\\": "rules/phpunit-symfony/src",
+                    "Rector\\PhpDeglobalize\\": "rules/php-deglobalize/src",
+                    "Rector\\RemovingStatic\\": "rules/removing-static/src",
+                    "Rector\\SymfonyPHPUnit\\": "rules/symfony-phpunit/src",
+                    "Rector\\MagicDisclosure\\": "rules/magic-disclosure/src",
+                    "Rector\\RectorGenerator\\": "packages/rector-generator/src",
+                    "Rector\\TypeDeclaration\\": "rules/type-declaration/src",
+                    "Rector\\ChangesReporting\\": "packages/changes-reporting/src",
+                    "Rector\\FileSystemRector\\": "packages/file-system-rector/src",
+                    "Rector\\NetteCodeQuality\\": "rules/nette-code-quality/src",
+                    "Rector\\NodeNameResolver\\": "packages/node-name-resolver/src",
+                    "Rector\\NodeNestingScope\\": "packages/node-nesting-scope/src",
+                    "Rector\\NodeTypeResolver\\": "packages/node-type-resolver/src",
+                    "Rector\\PhpSpecToPHPUnit\\": "rules/php-spec-to-phpunit/src",
+                    "Rector\\StaticTypeMapper\\": "packages/static-type-mapper/src",
+                    "Rector\\SymfonyPhpConfig\\": "rules/symfony-php-config/src",
                     "Rector\\MockeryToProphecy\\": "rules/mockery-to-prophecy/src",
                     "Rector\\MockistaToMockery\\": "rules/mockista-to-mockery/src",
-                    "Rector\\NetteKdyby\\": "rules/nette-kdyby/src",
+                    "Rector\\StrictCodeQuality\\": "rules/strict-code-quality/src",
+                    "Rector\\BetterPhpDocParser\\": "packages/better-php-doc-parser/src",
+                    "Rector\\SymfonyCodeQuality\\": "rules/symfony-code-quality/src",
+                    "Rector\\DoctrineCodeQuality\\": "rules/doctrine-code-quality/src",
+                    "Rector\\DynamicTypeAnalysis\\": "packages/dynamic-type-analysis/src",
+                    "Rector\\AttributeAwarePhpDoc\\": "packages/attribute-aware-php-doc/src",
+                    "Rector\\NetteTesterToPHPUnit\\": "rules/nette-tester-to-phpunit/src",
                     "Rector\\NetteUtilsCodeQuality\\": "rules/nette-utils-code-quality/src",
-                    "Rector\\NetteCodeQuality\\": "rules/nette-code-quality/src",
-                    "Rector\\Downgrade\\": "rules/downgrade/src",
-                    "Rector\\SymfonyPhpConfig\\": "rules/symfony-php-config/src"
-                },
-                "files": [
-                    "rules/symfony-php-config/functions/functions.php"
-                ]
+                    "Rector\\DoctrineGedmoToKnplabs\\": "rules/doctrine-gedmo-to-knplabs/src",
+                    "Rector\\DocumentationGenerator\\": "packages/documentation-generator/src",
+                    "Rector\\PHPStanStaticTypeMapper\\": "packages/phpstan-static-type-mapper/src",
+                    "Rector\\DoctrineAnnotationGenerated\\": "packages/doctrine-annotation-generated/src"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -8914,13 +9065,13 @@
             },
             "type": "library",
             "autoload": {
+                "files": [
+                    "HighlightUtilities/functions.php"
+                ],
                 "psr-0": {
                     "Highlight\\": "",
                     "HighlightUtilities\\": ""
-                },
-                "files": [
-                    "HighlightUtilities/functions.php"
-                ]
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -10389,6 +10540,7 @@
                     "type": "tidelift"
                 }
             ],
+            "abandoned": "symfony/error-handler",
             "time": "2020-08-10T07:47:39+00:00"
         },
         {
@@ -10836,12 +10988,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/auto-bind-parameter.git",
-                "reference": "90f0d8a48a48cb960e961e8e8f27a8d7bbc7a598"
+                "reference": "09e5eb2f59dd661cb96c4b85924a2af32e934185"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/auto-bind-parameter/zipball/90f0d8a48a48cb960e961e8e8f27a8d7bbc7a598",
-                "reference": "90f0d8a48a48cb960e961e8e8f27a8d7bbc7a598",
+                "url": "https://api.github.com/repos/symplify/auto-bind-parameter/zipball/09e5eb2f59dd661cb96c4b85924a2af32e934185",
+                "reference": "09e5eb2f59dd661cb96c4b85924a2af32e934185",
                 "shasum": ""
             },
             "require": {
@@ -10876,6 +11028,7 @@
                     "type": "github"
                 }
             ],
+            "abandoned": "symplify/package-builder",
             "time": "2020-09-09T15:14:24+00:00"
         },
         {
@@ -10884,12 +11037,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/autowire-array-parameter.git",
-                "reference": "2e8ba3861cb9a3541d3f61e6f4c3af6aa537740d"
+                "reference": "b3bc27d6afc570a2e0ed43b1afc1198751f095a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/autowire-array-parameter/zipball/2e8ba3861cb9a3541d3f61e6f4c3af6aa537740d",
-                "reference": "2e8ba3861cb9a3541d3f61e6f4c3af6aa537740d",
+                "url": "https://api.github.com/repos/symplify/autowire-array-parameter/zipball/b3bc27d6afc570a2e0ed43b1afc1198751f095a0",
+                "reference": "b3bc27d6afc570a2e0ed43b1afc1198751f095a0",
                 "shasum": ""
             },
             "require": {
@@ -10931,12 +11084,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/coding-standard.git",
-                "reference": "32f6a49c4cbba099295a28a71ffba1b5e31c82a3"
+                "reference": "e2846f6e801a340d6987bb6464ff2b5a697009c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/coding-standard/zipball/32f6a49c4cbba099295a28a71ffba1b5e31c82a3",
-                "reference": "32f6a49c4cbba099295a28a71ffba1b5e31c82a3",
+                "url": "https://api.github.com/repos/symplify/coding-standard/zipball/e2846f6e801a340d6987bb6464ff2b5a697009c7",
+                "reference": "e2846f6e801a340d6987bb6464ff2b5a697009c7",
                 "shasum": ""
             },
             "require": {
@@ -10969,8 +11122,8 @@
             "autoload": {
                 "psr-4": {
                     "Symplify\\CodingStandard\\": "src",
-                    "Symplify\\CodingStandard\\CognitiveComplexity\\": "packages/cognitive-complexity/src",
-                    "Symplify\\CodingStandard\\ObjectCalisthenics\\": "packages/object-calisthenics/src"
+                    "Symplify\\CodingStandard\\ObjectCalisthenics\\": "packages/object-calisthenics/src",
+                    "Symplify\\CodingStandard\\CognitiveComplexity\\": "packages/cognitive-complexity/src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -10992,12 +11145,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/console-color-diff.git",
-                "reference": "a9110d603bc77af6f7eb95cd8bcab78fbb28d387"
+                "reference": "f609f7f22b4170aed1e07fb31cbe2d05c876403e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/console-color-diff/zipball/a9110d603bc77af6f7eb95cd8bcab78fbb28d387",
-                "reference": "a9110d603bc77af6f7eb95cd8bcab78fbb28d387",
+                "url": "https://api.github.com/repos/symplify/console-color-diff/zipball/f609f7f22b4170aed1e07fb31cbe2d05c876403e",
+                "reference": "f609f7f22b4170aed1e07fb31cbe2d05c876403e",
                 "shasum": ""
             },
             "require": {
@@ -11034,6 +11187,7 @@
                     "type": "github"
                 }
             ],
+            "abandoned": "symplify/package-builder",
             "time": "2020-09-09T15:14:24+00:00"
         },
         {
@@ -11042,12 +11196,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/easy-coding-standard.git",
-                "reference": "37617dc15060f3c5754bcb5fd032c6b63f1089cd"
+                "reference": "fab9ac64cb1da198cdce64edf4cd89df2eb3be0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/easy-coding-standard/zipball/37617dc15060f3c5754bcb5fd032c6b63f1089cd",
-                "reference": "37617dc15060f3c5754bcb5fd032c6b63f1089cd",
+                "url": "https://api.github.com/repos/symplify/easy-coding-standard/zipball/fab9ac64cb1da198cdce64edf4cd89df2eb3be0f",
+                "reference": "fab9ac64cb1da198cdce64edf4cd89df2eb3be0f",
                 "shasum": ""
             },
             "require": {
@@ -11092,10 +11246,10 @@
             "autoload": {
                 "psr-4": {
                     "Symplify\\EasyCodingStandard\\": "src",
-                    "Symplify\\EasyCodingStandard\\ChangedFilesDetector\\": "packages/changed-files-detector/src",
-                    "Symplify\\EasyCodingStandard\\Configuration\\": "packages/configuration/src",
                     "Symplify\\EasyCodingStandard\\FixerRunner\\": "packages/fixer-runner/src",
-                    "Symplify\\EasyCodingStandard\\SniffRunner\\": "packages/sniff-runner/src"
+                    "Symplify\\EasyCodingStandard\\SniffRunner\\": "packages/sniff-runner/src",
+                    "Symplify\\EasyCodingStandard\\Configuration\\": "packages/configuration/src",
+                    "Symplify\\EasyCodingStandard\\ChangedFilesDetector\\": "packages/changed-files-detector/src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -11117,12 +11271,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/easy-testing.git",
-                "reference": "35d77854c50061b548f791a69000ac9e046a585c"
+                "reference": "d9e292da92bb8583fbdbaaae47a63f865de4f17c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/easy-testing/zipball/35d77854c50061b548f791a69000ac9e046a585c",
-                "reference": "35d77854c50061b548f791a69000ac9e046a585c",
+                "url": "https://api.github.com/repos/symplify/easy-testing/zipball/d9e292da92bb8583fbdbaaae47a63f865de4f17c",
+                "reference": "d9e292da92bb8583fbdbaaae47a63f865de4f17c",
                 "shasum": ""
             },
             "require": {
@@ -11165,12 +11319,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/package-builder.git",
-                "reference": "895f04be3370d6a7921a1a1110bfca626e356fab"
+                "reference": "34c3b431c5fdd91fc49423ababe08d79cbfe8075"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/package-builder/zipball/895f04be3370d6a7921a1a1110bfca626e356fab",
-                "reference": "895f04be3370d6a7921a1a1110bfca626e356fab",
+                "url": "https://api.github.com/repos/symplify/package-builder/zipball/34c3b431c5fdd91fc49423ababe08d79cbfe8075",
+                "reference": "34c3b431c5fdd91fc49423ababe08d79cbfe8075",
                 "shasum": ""
             },
             "require": {
@@ -11209,7 +11363,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-09-06T17:04:01+00:00"
+            "time": "2020-09-06T23:52:38+00:00"
         },
         {
             "name": "symplify/set-config-resolver",
@@ -11217,12 +11371,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/set-config-resolver.git",
-                "reference": "f274ff54a57e9a4b4c326350f0fb7f9f6b70d5d0"
+                "reference": "c375c6fc06028a737fde202ad0e4b275034b2796"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/set-config-resolver/zipball/f274ff54a57e9a4b4c326350f0fb7f9f6b70d5d0",
-                "reference": "f274ff54a57e9a4b4c326350f0fb7f9f6b70d5d0",
+                "url": "https://api.github.com/repos/symplify/set-config-resolver/zipball/c375c6fc06028a737fde202ad0e4b275034b2796",
+                "reference": "c375c6fc06028a737fde202ad0e4b275034b2796",
                 "shasum": ""
             },
             "require": {
@@ -11261,6 +11415,7 @@
                     "type": "github"
                 }
             ],
+            "abandoned": true,
             "time": "2020-09-09T15:14:24+00:00"
         },
         {
@@ -11269,12 +11424,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/smart-file-system.git",
-                "reference": "f49f979240bbda4cc26f61d60a0324e36f84bc98"
+                "reference": "da84097cab0da26fcdb4f8240e8fb06bbb8ec7aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/smart-file-system/zipball/f49f979240bbda4cc26f61d60a0324e36f84bc98",
-                "reference": "f49f979240bbda4cc26f61d60a0324e36f84bc98",
+                "url": "https://api.github.com/repos/symplify/smart-file-system/zipball/da84097cab0da26fcdb4f8240e8fb06bbb8ec7aa",
+                "reference": "da84097cab0da26fcdb4f8240e8fb06bbb8ec7aa",
                 "shasum": ""
             },
             "require": {
@@ -11309,7 +11464,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-09-06T17:04:01+00:00"
+            "time": "2020-09-06T23:52:38+00:00"
         },
         {
             "name": "theseer/tokenizer",
@@ -11398,11 +11553,11 @@
                 }
             },
             "autoload": {
-                "classmap": [
-                    "src"
-                ],
                 "files": [
                     "src/Tracy/shortcuts.php"
+                ],
+                "classmap": [
+                    "src"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -11435,12 +11590,12 @@
             "version": "1.9.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/webmozart/assert.git",
+                "url": "https://github.com/webmozarts/assert.git",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "shasum": ""
             },
